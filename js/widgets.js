@@ -236,7 +236,7 @@ function initBeforeAfterSlider() {
 }
 
 /* ==========================================================================
-   3. Site Weather & Crane Safety Gauge with Extreme Simulation
+   3. Site Weather & K3 Construction Safety Radar Engine (SMK3 IoT)
    ========================================================================== */
 function initWeatherWidget() {
   const siteSelect = document.getElementById('weather-site-select');
@@ -244,63 +244,158 @@ function initWeatherWidget() {
   const windEl = document.getElementById('weather-wind-val');
   const humidEl = document.getElementById('weather-humid-val');
   const rainEl = document.getElementById('weather-rain-val');
-  const craneBadge = document.getElementById('weather-crane-status');
-  const stormBtn = document.getElementById('test-storm-sim-btn');
+
+  const tempStatusEl = document.getElementById('weather-temp-status');
+  const windStatusEl = document.getElementById('weather-wind-status');
+  const humidStatusEl = document.getElementById('weather-humid-status');
+  const rainStatusEl = document.getElementById('weather-rain-status');
+
+  const cranePill = document.getElementById('k3-crane-pill');
+  const craneDesc = document.getElementById('k3-crane-desc');
+  const concretePill = document.getElementById('k3-concrete-pill');
+  const concreteDesc = document.getElementById('k3-concrete-desc');
+  const heightPill = document.getElementById('k3-height-pill');
+  const heightDesc = document.getElementById('k3-height-desc');
+
+  const advisoryBox = document.getElementById('k3-advisory-box');
+  const advisoryTitle = document.getElementById('k3-advisory-title');
+  const advisoryText = document.getElementById('k3-advisory-text');
+
+  const btnNormal = document.getElementById('btn-sim-normal');
+  const btnStorm = document.getElementById('btn-sim-storm');
+
+  let currentMode = 'normal'; // 'normal' | 'storm'
 
   const siteData = {
-    jakarta: { temp: "32°C", wind: 14, humid: "72%", rain: "0 mm (Cerah)", safe: true },
-    ikn: { temp: "29°C", wind: 18, humid: "85%", rain: "2 mm (Gerimis)", safe: true },
-    surabaya: { temp: "34°C", wind: 22, humid: "65%", rain: "0 mm (Cerah)", safe: true },
-    bali: { temp: "30°C", wind: 26, humid: "78%", rain: "0 mm (Cerah Berangin)", safe: true }
+    jakarta: {
+      normal: { temp: "31°C", wind: 14, humid: "72%", rain: "0.0 mm/h", tempStatus: "Indeks Panas Aman", windStatus: "Batas Kritis: 38 km/h", humidStatus: "Optimal untuk Curing", rainStatus: "Kondisi Kering / Cerah" },
+      storm: { temp: "24°C", wind: 54, humid: "96%", rain: "48.5 mm/h", tempStatus: "Penurunan Suhu Cepat", windStatus: "🚨 ANGIN BADAI KRITIS", humidStatus: "Kelembaban Ekstrem", rainStatus: "🚨 HUJAN DERAS & PETIR" }
+    },
+    ikn: {
+      normal: { temp: "29°C", wind: 18, humid: "82%", rain: "0.5 mm/h", tempStatus: "Indeks Panas Tropis", windStatus: "Batas Kritis: 38 km/h", humidStatus: "Kondusif untuk Pengecoran", rainStatus: "Berawan Tipis" },
+      storm: { temp: "23°C", wind: 48, humid: "98%", rain: "62.0 mm/h", tempStatus: "Curah Hujan Tinggi", windStatus: "🚨 ANGIN GUST 48 KM/H", humidStatus: "Saturasi Air Tanah Penuh", rainStatus: "🚨 HUJAN BADAI TROPIS" }
+    },
+    surabaya: {
+      normal: { temp: "34°C", wind: 22, humid: "65%", rain: "0.0 mm/h", tempStatus: "Suhu Lapangan Tinggi", windStatus: "Batas Kritis: 38 km/h", humidStatus: "Curing Tambahan Diperlukan", rainStatus: "Cerah Panas" },
+      storm: { temp: "26°C", wind: 58, humid: "92%", rain: "55.0 mm/h", tempStatus: "Penurunan Drastis", windStatus: "🚨 BADAI PESISIR 58 KM/H", humidStatus: "Gelombang Tinggi", rainStatus: "🚨 HUJAN LEBAT DERMAGA" }
+    },
+    bali: {
+      normal: { temp: "30°C", wind: 20, humid: "74%", rain: "0.0 mm/h", tempStatus: "Indeks Nyaman", windStatus: "Batas Kritis: 38 km/h", humidStatus: "Optimal untuk Finishing", rainStatus: "Cerah Berangin" },
+      storm: { temp: "24°C", wind: 50, humid: "95%", rain: "42.0 mm/h", tempStatus: "Angin Tebing Kencang", windStatus: "🚨 ANGIN TEBING KRITIS", humidStatus: "Kabut Tebal", rainStatus: "🚨 BADAI ANGIN PANTAI" }
+    }
   };
 
-  function updateSite(key) {
-    const data = siteData[key] || siteData.jakarta;
-    if (tempEl) tempEl.textContent = data.temp;
-    if (windEl) windEl.textContent = `${data.wind} km/h`;
-    if (humidEl) humidEl.textContent = data.humid;
-    if (rainEl) rainEl.textContent = data.rain;
+  function renderState() {
+    const lang = localStorage.getItem('contractor_lang') || 'id';
+    const siteKey = siteSelect ? siteSelect.value : 'jakarta';
+    const currentSite = siteData[siteKey] || siteData.jakarta;
+    const telemetry = currentSite[currentMode];
 
-    if (craneBadge) {
-      if (data.wind > 35) {
-        craneBadge.innerHTML = `<i data-lucide="alert-triangle"></i> ⚠️ PERINGATAN: ANGIN KENCANG (> 35 km/h) - OPERASI DIHENTIKAN`;
-        craneBadge.style.background = 'rgba(255, 68, 68, 0.15)';
-        craneBadge.style.borderColor = 'rgba(255, 68, 68, 0.5)';
-        craneBadge.style.color = '#FF4444';
-      } else {
-        craneBadge.innerHTML = `<i data-lucide="check-circle"></i> ✓ AMAN BEROPERASI (Level Hijau)`;
-        craneBadge.style.background = 'rgba(0, 230, 118, 0.15)';
-        craneBadge.style.borderColor = 'rgba(0, 230, 118, 0.4)';
-        craneBadge.style.color = 'var(--accent-emerald)';
+    // 1. Update Telemetry Numbers
+    if (tempEl) tempEl.textContent = telemetry.temp;
+    if (windEl) windEl.textContent = `${telemetry.wind} km/h`;
+    if (humidEl) humidEl.textContent = telemetry.humid;
+    if (rainEl) rainEl.textContent = telemetry.rain;
+
+    if (tempStatusEl) tempStatusEl.textContent = telemetry.tempStatus;
+    if (windStatusEl) windStatusEl.textContent = telemetry.windStatus;
+    if (humidStatusEl) humidStatusEl.textContent = telemetry.humidStatus;
+    if (rainStatusEl) rainStatusEl.textContent = telemetry.rainStatus;
+
+    // 2. Update Directives & Advisory
+    if (currentMode === 'normal') {
+      if (cranePill) {
+        cranePill.className = 'k3-status-pill status-safe';
+        cranePill.innerHTML = lang === 'en' ? '<i data-lucide="check"></i> PERMIT GRANTED' : '<i data-lucide="check"></i> IZIN DIBERIKAN';
       }
-      if (window.lucide) lucide.createIcons();
+      if (craneDesc) {
+        craneDesc.textContent = lang === 'en'
+          ? `Wind speed ${telemetry.wind} km/h meets safe lifting standards for heavy rigging up to 24 Tons.`
+          : `Kecepatan angin ${telemetry.wind} km/h memenuhi syarat aman pengangkatan beban heavy rigging hingga 24 Ton.`;
+      }
+
+      if (concretePill) {
+        concretePill.className = 'k3-status-pill status-safe';
+        concretePill.innerHTML = lang === 'en' ? '<i data-lucide="check"></i> OPTIMAL POURING' : '<i data-lucide="check"></i> PENGECORAN KONDUSIF';
+      }
+      if (concreteDesc) {
+        concreteDesc.textContent = lang === 'en'
+          ? `Rainfall 0 mm ensures optimum water-cement ratio for high-grade K-350 concrete curing.`
+          : `Curah hujan ${telemetry.rain} menjaga rasio air-semen (w/c ratio) mutu beton K-350 tetap sempurna.`;
+      }
+
+      if (heightPill) {
+        heightPill.className = 'k3-status-pill status-safe';
+        heightPill.innerHTML = lang === 'en' ? '<i data-lucide="check"></i> WORK PERMIT OPEN' : '<i data-lucide="check"></i> IZIN KERJA TERBUKA';
+      }
+      if (heightDesc) {
+        heightDesc.textContent = lang === 'en'
+          ? 'No lightning or high turbulence detected. Mandatory Full Body Harness double lanyard.'
+          : 'Tidak terdeteksi petir atau turbulensi. Wajib menggunakan Full Body Harness double lanyard.';
+      }
+
+      if (advisoryBox) advisoryBox.className = 'k3-advisory-box';
+      if (advisoryTitle) {
+        advisoryTitle.textContent = lang === 'en'
+          ? 'ACTIVE K3 SOP: ALL SITE ACTIVITIES AUTHORIZED FOR NORMAL OPERATIONS'
+          : 'SOP K3 AKTIF: SELURUH AKTIVITAS SITE DIIZINKAN BERJALAN NORMAL';
+      }
+      if (advisoryText) {
+        advisoryText.textContent = lang === 'en'
+          ? 'Safety Officers have approved all daily work permits. Ensure morning toolbox meetings are documented and PPE is actively worn.'
+          : 'Petugas K3 Lapangan (Safety Officer) telah menyetujui seluruh lembar Work Permit harian. Pastikan toolbox meeting pagi telah dilaksanakan dan perlengkapan APD lengkap terpasang.';
+      }
+    } else {
+      // STORM MODE (CRITICAL ALERT)
+      if (cranePill) {
+        cranePill.className = 'k3-status-pill status-danger';
+        cranePill.innerHTML = lang === 'en' ? '<i data-lucide="alert-octagon"></i> STOP LIFTING' : '<i data-lucide="alert-octagon"></i> STOP OPERASI CRANE';
+      }
+      if (craneDesc) {
+        craneDesc.textContent = lang === 'en'
+          ? `CRITICAL: Wind gust ${telemetry.wind} km/h exceeds 38 km/h threshold! Lock slewing brakes to weathervaning mode immediately.`
+          : `KRITIS: Hembusan angin ${telemetry.wind} km/h melebihi batas 38 km/h! Kunci rem swing ke mode bebas (weathervaning) segera.`;
+      }
+
+      if (concretePill) {
+        concretePill.className = 'k3-status-pill status-warning';
+        concretePill.innerHTML = lang === 'en' ? '<i data-lucide="alert-triangle"></i> DELAY POURING' : '<i data-lucide="alert-triangle"></i> TUNDA PENGECORAN';
+      }
+      if (concreteDesc) {
+        concreteDesc.textContent = lang === 'en'
+          ? 'Heavy rain risk degrades concrete slump and compressive strength. Cover exposed concrete decks with tarpaulin.'
+          : 'Curah hujan deras berisiko merusak slump & mutu tekan beton. Tutup plat lantai yang baru dicor dengan terpal pelindung.';
+      }
+
+      if (heightPill) {
+        heightPill.className = 'k3-status-pill status-danger';
+        heightPill.innerHTML = lang === 'en' ? '<i data-lucide="alert-octagon"></i> EVACUATE HEIGHTS' : '<i data-lucide="alert-octagon"></i> EVAKUASI KETINGGIAN';
+      }
+      if (heightDesc) {
+        heightDesc.textContent = lang === 'en'
+          ? 'Lightning and high storm gusts active. Evacuate all scaffoldings, mast climbers, and perimeter edges.'
+          : 'Bahaya sambaran petir & terpaan badai kencang. Turunkan seluruh pekerja dari scaffolding & tepi perimeter gedung.';
+      }
+
+      if (advisoryBox) advisoryBox.className = 'k3-advisory-box advisory-critical';
+      if (advisoryTitle) {
+        advisoryTitle.textContent = lang === 'en'
+          ? 'EMERGENCY PROTOCOL ACTIVATED: SUSPEND OUTDOOR & HIGH-ALTITUDE TASKS'
+          : 'PROTOKOL DARURAT K3 AKTIF: HENTIKAN PEKERJAAN LUAR RUANG & KETINGGIAN';
+      }
+      if (advisoryText) {
+        advisoryText.textContent = lang === 'en'
+          ? 'Site Alarm Alert: All site supervisors are required to verify ground worker roll call and secure loose construction materials against storm winds.'
+          : 'Peringatan Sirine Site: Seluruh pengawas diwajibkan memastikan pekerja berada di shelter aman dan mengikat material ringan agar tidak terbawa angin.';
+      }
+    }
+
+    if (window.lucide) {
+      window.lucide.createIcons();
     }
   }
 
   if (siteSelect) {
-    siteSelect.addEventListener('change', (e) => {
-      updateSite(e.target.value);
-    });
-  }
-
-  if (stormBtn) {
-    stormBtn.addEventListener('click', () => {
-      if (windEl) windEl.textContent = `52 km/h (Badai)`;
-      if (rainEl) rainEl.textContent = `45 mm (Hujan Deras)`;
-      if (craneBadge) {
-        craneBadge.innerHTML = `<i data-lucide="alert-octagon"></i> 🚨 KONDISI KRITIS: EVAKUASI TOWER CRANE (Permenaker K3)`;
-        craneBadge.style.background = 'rgba(255, 68, 68, 0.25)';
-        craneBadge.style.borderColor = '#FF4444';
-        craneBadge.style.color = '#FF4444';
-        if (window.lucide) lucide.createIcons();
-      }
-      setTimeout(() => {
-        updateSite(siteSelect ? siteSelect.value : 'jakarta');
-      }, 5000);
-    });
-  }
-}
-
 /* ==========================================================================
    4. 3D Model Konstruksi & BIM Structural Layers Explorer (Three.js WebGL)
    ========================================================================== */

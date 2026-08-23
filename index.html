@@ -1090,31 +1090,26 @@
           </div>
         </div>
 
-        <!-- PANE 3: Site Weather & Crane Safety Gauge with Extreme Simulation -->
+        <!-- PANE 3: Site Weather & K3 Construction Safety Radar -->
         <div class="widget-pane" id="widget-weather">
-          <div class="weather-widget-grid">
-            <div class="weather-status-card">
-              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">RADAR KESELAMATAN
-                TOWER CRANE & SMK3</div>
-              <div class="crane-safety-badge" id="weather-crane-status">
-                <i data-lucide="check-circle"></i> ✓ AMAN BEROPERASI (Level Hijau)
+          <!-- Widget Header & Purpose Explanation -->
+          <div class="k3-widget-header">
+            <div>
+              <div class="k3-module-tag">
+                <i data-lucide="shield-check" style="width: 15px; height: 15px;"></i>
+                <span>SISTEM MONITORING K3 (SMK3 IoT) • PERMENAKER NO. 5/2018</span>
               </div>
-              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
-                Batas kecepatan angin < 35 km/h memenuhi standar baku pengangkatan beban alat berat (Permenaker K3).
-                  </p>
-                  <button class="btn btn-secondary btn-sm btn-block" id="test-storm-sim-btn"
-                    style="margin-top: 1.25rem;">
-                    <i data-lucide="zap"></i> Uji Coba Simulasi Badai Angin
-                  </button>
+              <h4 class="k3-module-title">Pusat Monitoring Cuaca Site & Otorisasi Keselamatan K3</h4>
+              <p class="k3-module-desc">
+                Sistem validasi izin kerja (Work Permit K3) real-time berdasarkan parameter cuaca lapangan untuk menjamin keselamatan operasional Tower Crane, pengecoran beton ready-mix, dan pekerjaan di ketinggian.
+              </p>
             </div>
-
-            <div class="weather-details-box">
-              <div
-                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
-                <label style="font-size: 0.9rem; font-weight: 600;" for="weather-site-select">Pilih Lokasi Site
-                  Konstruksi:</label>
-                <select class="form-select" id="weather-site-select"
-                  style="width: auto; min-width: 240px; padding: 0.45rem 1rem;">
+            
+            <!-- Site Location & Simulation Controls -->
+            <div class="k3-controls-bar">
+              <div class="k3-control-group">
+                <label for="weather-site-select" class="k3-control-label">Pilih Lokasi Proyek Aktif:</label>
+                <select class="form-select k3-site-select" id="weather-site-select">
                   <option value="jakarta">Proyek Mega-Tower Jakarta CBD</option>
                   <option value="ikn">Proyek Istana Garuda IKN Nusantara</option>
                   <option value="surabaya">Proyek Jembatan & Dermaga Surabaya</option>
@@ -1122,23 +1117,131 @@
                 </select>
               </div>
 
-              <div class="weather-stats-grid">
-                <div class="weather-stat-box">
-                  <span class="title">Suhu Site Proyek</span>
-                  <span class="val" id="weather-temp-val">31°C</span>
+              <div class="k3-sim-buttons">
+                <button type="button" class="k3-sim-btn active" id="btn-sim-normal">
+                  <i data-lucide="sun" style="width: 14px; height: 14px;"></i> Cuaca Normal
+                </button>
+                <button type="button" class="k3-sim-btn btn-sim-storm" id="btn-sim-storm">
+                  <i data-lucide="zap" style="width: 14px; height: 14px;"></i> Simulasi Badai Kritis
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Weather Telemetry 4-Stat Grid -->
+          <div class="k3-telemetry-grid">
+            <div class="k3-telemetry-card">
+              <div class="k3-telemetry-header">
+                <span class="k3-telemetry-title">Suhu Site Proyek</span>
+                <i data-lucide="thermometer" style="width: 18px; height: 18px; color: var(--accent-cyan);"></i>
+              </div>
+              <div class="k3-telemetry-val" id="weather-temp-val">31°C</div>
+              <span class="k3-telemetry-status" id="weather-temp-status">Indeks Panas Aman</span>
+            </div>
+
+            <div class="k3-telemetry-card">
+              <div class="k3-telemetry-header">
+                <span class="k3-telemetry-title">Kecepatan Angin (Anemometer)</span>
+                <i data-lucide="wind" style="width: 18px; height: 18px; color: var(--accent-cyan);"></i>
+              </div>
+              <div class="k3-telemetry-val" id="weather-wind-val">14 km/h</div>
+              <span class="k3-telemetry-status" id="weather-wind-status">Batas Kritis: 38 km/h</span>
+            </div>
+
+            <div class="k3-telemetry-card">
+              <div class="k3-telemetry-header">
+                <span class="k3-telemetry-title">Kelembaban Relatif</span>
+                <i data-lucide="droplets" style="width: 18px; height: 18px; color: var(--accent-cyan);"></i>
+              </div>
+              <div class="k3-telemetry-val" id="weather-humid-val">72%</div>
+              <span class="k3-telemetry-status" id="weather-humid-status">Optimal untuk Curing</span>
+            </div>
+
+            <div class="k3-telemetry-card">
+              <div class="k3-telemetry-header">
+                <span class="k3-telemetry-title">Curah Hujan (Rain Gauge)</span>
+                <i data-lucide="cloud-rain" style="width: 18px; height: 18px; color: var(--accent-cyan);"></i>
+              </div>
+              <div class="k3-telemetry-val" id="weather-rain-val">0.0 mm/h</div>
+              <span class="k3-telemetry-status" id="weather-rain-status">Kondisi Kering / Cerah</span>
+            </div>
+          </div>
+
+          <!-- 3 Operational Work Authorization Directives -->
+          <div class="k3-directives-section">
+            <h5 class="k3-directives-title">
+              <i data-lucide="clipboard-check" style="width: 17px; height: 17px; color: var(--accent-cyan);"></i>
+              Status Otorisasi Izin Kerja Lapangan (Work Permit K3):
+            </h5>
+            
+            <div class="k3-directives-grid">
+              <!-- Directive 1: Tower Crane & Lifting -->
+              <div class="k3-directive-card" id="card-directive-crane">
+                <div class="k3-dir-icon-badge">
+                  <i data-lucide="anchor" style="width: 20px; height: 20px;"></i>
                 </div>
-                <div class="weather-stat-box">
-                  <span class="title">Kecepatan Angin</span>
-                  <span class="val" id="weather-wind-val">14 km/h</span>
+                <div class="k3-dir-content">
+                  <div class="k3-dir-header">
+                    <span class="k3-dir-name">Operasi Tower Crane & Angkat Beban</span>
+                    <span class="k3-status-pill status-safe" id="k3-crane-pill">
+                      <i data-lucide="check" style="width: 12px; height: 12px;"></i> IZIN DIBERIKAN
+                    </span>
+                  </div>
+                  <p class="k3-dir-desc" id="k3-crane-desc">
+                    Kecepatan angin 14 km/h memenuhi syarat aman pengangkatan beban heavy rigging hingga 24 Ton.
+                  </p>
                 </div>
-                <div class="weather-stat-box">
-                  <span class="title">Kelembaban Udara</span>
-                  <span class="val" id="weather-humid-val">72%</span>
+              </div>
+
+              <!-- Directive 2: Concrete Pouring -->
+              <div class="k3-directive-card" id="card-directive-concrete">
+                <div class="k3-dir-icon-badge">
+                  <i data-lucide="truck" style="width: 20px; height: 20px;"></i>
                 </div>
-                <div class="weather-stat-box">
-                  <span class="title">Curah Hujan Terpantau</span>
-                  <span class="val" id="weather-rain-val">0 mm (Cerah)</span>
+                <div class="k3-dir-content">
+                  <div class="k3-dir-header">
+                    <span class="k3-dir-name">Pengecoran Struktur Beton Ready-Mix</span>
+                    <span class="k3-status-pill status-safe" id="k3-concrete-pill">
+                      <i data-lucide="check" style="width: 12px; height: 12px;"></i> PENGECORAN KONDUSIF
+                    </span>
+                  </div>
+                  <p class="k3-dir-desc" id="k3-concrete-desc">
+                    Curah hujan 0 mm menjaga rasio air-semen (w/c ratio) mutu beton K-350 tetap sempurna.
+                  </p>
                 </div>
+              </div>
+
+              <!-- Directive 3: Work at Heights -->
+              <div class="k3-directive-card" id="card-directive-height">
+                <div class="k3-dir-icon-badge">
+                  <i data-lucide="shield" style="width: 20px; height: 20px;"></i>
+                </div>
+                <div class="k3-dir-content">
+                  <div class="k3-dir-header">
+                    <span class="k3-dir-name">Pekerjaan Ketinggian & Scaffolding</span>
+                    <span class="k3-status-pill status-safe" id="k3-height-pill">
+                      <i data-lucide="check" style="width: 12px; height: 12px;"></i> IZIN KERJA TERBUKA
+                    </span>
+                  </div>
+                  <p class="k3-dir-desc" id="k3-height-desc">
+                    Tidak terdeteksi petir atau turbulensi. Wajib menggunakan Full Body Harness double lanyard.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- K3 Safety Advisory Directive Banner -->
+          <div class="k3-advisory-box" id="k3-advisory-box">
+            <div class="k3-advisory-icon">
+              <i data-lucide="info" style="width: 20px; height: 20px;"></i>
+            </div>
+            <div class="k3-advisory-body">
+              <div class="k3-advisory-title" id="k3-advisory-title">
+                SOP K3 AKTIF: SELURUH AKTIVITAS SITE DIIZINKAN BERJALAN NORMAL
+              </div>
+              <div class="k3-advisory-text" id="k3-advisory-text">
+                Petugas K3 Lapangan (Safety Officer) telah menyetujui seluruh lembar Work Permit harian. Pastikan toolbox meeting pagi telah dilaksanakan dan perlengkapan APD lengkap terpasang.
               </div>
             </div>
           </div>
@@ -1927,11 +2030,19 @@
     <i data-lucide="arrow-up"></i>
   </button>
 
-  <!-- Floating WhatsApp Button (Compact Sleek Circle) -->
+  <!-- Modern Executive WhatsApp Floating Action Capsule -->
   <a href="https://wa.me/6281234567890?text=Halo%20Admin%20CONTRACTOR.HUB,%20saya%20tertarik%20konsultasi%20website%20kontraktor"
-    target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" aria-label="Chat WhatsApp">
-    <div class="wa-pulse-beacon"></div>
-    <i data-lucide="message-circle"></i>
+    target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floating-whatsapp-btn" aria-label="Konsultasi WhatsApp Langsung">
+    <div class="wa-icon-bubble">
+      <span class="wa-status-dot"></span>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.28-2.42 5.83-1.56 1.56-3.63 2.41-5.82 2.41-1.48 0-2.93-.39-4.21-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.25-4.38c0-4.54 3.7-8.24 8.25-8.24zm4.52 11.59c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.25-1.5-1.4-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.72 4.31 3.81.6.26 1.07.42 1.44.53.61.2 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.59.21-1.09.15-1.18-.06-.1-.21-.16-.46-.28z"/>
+      </svg>
+    </div>
+    <div class="wa-text-group">
+      <span class="wa-label-top">Online Support</span>
+      <span class="wa-label-main">Chat WhatsApp</span>
+    </div>
   </a>
 
   <!-- ==========================================================================
