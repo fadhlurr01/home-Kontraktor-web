@@ -1224,10 +1224,18 @@ function initFleetMatrix() {
         }
       }
 
+      const currentLang = localStorage.getItem('contractor_lang') || 'id';
+
       if (modalHeaderTitle) {
-        modalHeaderTitle.textContent = status.includes('READY') 
-          ? 'Permintaan Mobilisasi Unit' 
-          : 'Request Booking & Reservasi Unit';
+        if (currentLang === 'en') {
+          modalHeaderTitle.textContent = status.includes('READY') 
+            ? 'Equipment Mobilization Request' 
+            : 'Request Booking & Unit Reservation';
+        } else {
+          modalHeaderTitle.textContent = status.includes('READY') 
+            ? 'Permintaan Mobilisasi Unit' 
+            : 'Request Booking & Reservasi Unit';
+        }
       }
 
       // Reset Views: Show Form, Hide Success
@@ -1254,13 +1262,16 @@ function initFleetMatrix() {
   if (dispatchForm) {
     dispatchForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const targetSite = document.getElementById('fleet-target-site')?.value || 'Site Proyek Klien';
-      const targetDate = document.getElementById('fleet-target-date')?.value || 'Segera';
+      const currentLang = localStorage.getItem('contractor_lang') || 'id';
+      const targetSite = document.getElementById('fleet-target-site')?.value || (currentLang === 'en' ? 'Client Project Site' : 'Site Proyek Klien');
+      const targetDate = document.getElementById('fleet-target-date')?.value || (currentLang === 'en' ? 'Immediate' : 'Segera');
       const duration = document.getElementById('fleet-duration-select')?.value || '3 Bulan';
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i data-lucide="loader" class="spin"></i> Memproses Surat Jalan Digital...';
+        submitBtn.innerHTML = currentLang === 'en'
+          ? '<i data-lucide="loader" class="spin"></i> Processing Digital Dispatch...'
+          : '<i data-lucide="loader" class="spin"></i> Memproses Surat Jalan Digital...';
         if (window.lucide) window.lucide.createIcons();
       }
 
@@ -1271,12 +1282,21 @@ function initFleetMatrix() {
 
         if (ticketIdEl) ticketIdEl.textContent = ticketId;
         if (ticketSummaryEl) {
-          ticketSummaryEl.innerHTML = `
-            Unit: <strong>${currentUnit.name}</strong> (${currentUnit.code})<br>
-            Kapasitas: <strong>${currentUnit.capacity}</strong><br>
-            Tujuan: <strong>${targetSite}</strong><br>
-            Estimasi Tiba: <strong>1x24 Jam Kerja (Mulai ${targetDate})</strong>
-          `;
+          if (currentLang === 'en') {
+            ticketSummaryEl.innerHTML = `
+              Unit: <strong>${currentUnit.name}</strong> (${currentUnit.code})<br>
+              Capacity: <strong>${currentUnit.capacity}</strong><br>
+              Destination: <strong>${targetSite}</strong><br>
+              Est. Arrival: <strong>1x24 Working Hours (From ${targetDate})</strong>
+            `;
+          } else {
+            ticketSummaryEl.innerHTML = `
+              Unit: <strong>${currentUnit.name}</strong> (${currentUnit.code})<br>
+              Kapasitas: <strong>${currentUnit.capacity}</strong><br>
+              Tujuan: <strong>${targetSite}</strong><br>
+              Estimasi Tiba: <strong>1x24 Jam Kerja (Mulai ${targetDate})</strong>
+            `;
+          }
         }
 
         const formView = document.getElementById('fleet-mobilize-form-view');
@@ -1286,7 +1306,9 @@ function initFleetMatrix() {
 
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i data-lucide="send" style="width: 16px; height: 16px;"></i> Konfirmasi Disposisi';
+          submitBtn.innerHTML = currentLang === 'en'
+            ? '<i data-lucide="send" style="width: 16px; height: 16px;"></i> Confirm Dispatch'
+            : '<i data-lucide="send" style="width: 16px; height: 16px;"></i> Konfirmasi Disposisi';
         }
 
         if (window.lucide) window.lucide.createIcons();
@@ -1294,9 +1316,11 @@ function initFleetMatrix() {
         // Show High-Tech Toast Notification
         showContractorToast({
           type: 'success',
-          title: 'Disposisi Terkirim ke Workshop!',
-          message: `Surat jalan digital ${ticketId} untuk ${currentUnit.name} telah didaftarkan ke Kepala Workshop & Logistik.`,
-          duration: 5500
+          title: currentLang === 'en' ? 'Dispatch Sent to Workshop!' : 'Disposisi Terkirim ke Workshop!',
+          message: currentLang === 'en'
+            ? `Digital dispatch permit ${ticketId} for ${currentUnit.name} has been registered to Workshop & Logistics.`
+            : `Surat jalan digital ${ticketId} untuk ${currentUnit.name} telah didaftarkan ke Kepala Workshop & Logistik.`,
+          duration: 5000
         });
       }, 600);
     });
@@ -1306,18 +1330,23 @@ function initFleetMatrix() {
   const waBtn = document.getElementById('btn-wa-fleet-dispatch');
   if (waBtn) {
     waBtn.addEventListener('click', () => {
-      const targetSite = document.getElementById('fleet-target-site')?.value || 'Site Proyek Utama';
-      const targetDate = document.getElementById('fleet-target-date')?.value || 'Besok';
+      const currentLang = localStorage.getItem('contractor_lang') || 'id';
+      const targetSite = document.getElementById('fleet-target-site')?.value || (currentLang === 'en' ? 'Main Project Site' : 'Site Proyek Utama');
+      const targetDate = document.getElementById('fleet-target-date')?.value || (currentLang === 'en' ? 'Tomorrow' : 'Besok');
       const duration = document.getElementById('fleet-duration-select')?.value || '3 Bulan';
 
-      const messageText = `Halo Tim Workshop & Logistik Contractor.Hub,%0A%0ASaya ingin mengajukan permohonan mobilisasi armada konstruksi:%0A%0A📌 *DATA UNIT ALAT BERAT:*%0A- Kode Unit: ${currentUnit.code}%0A- Nama Unit: ${currentUnit.name}%0A- Kapasitas: ${currentUnit.capacity}%0A- Lokasi Asal: ${currentUnit.location}%0A%0A🏗️ *DATA SITE PROYEK:*%0A- Lokasi Tujuan: ${targetSite}%0A- Rencana Mobilisasi: ${targetDate}%0A- Estimasi Durasi: ${duration}%0A%0AMohon konfirmasi ketersediaan rute pengawalan & surat jalan. Terima kasih!`;
+      const messageText = currentLang === 'en'
+        ? `Hello Contractor.Hub Workshop & Logistics Team,%0A%0AI would like to request equipment mobilization:%0A%0A📌 *EQUIPMENT DETAILS:*%0A- Code: ${currentUnit.code}%0A- Name: ${currentUnit.name}%0A- Capacity: ${currentUnit.capacity}%0A- Origin: ${currentUnit.location}%0A%0A🏗️ *PROJECT SITE DETAILS:*%0A- Destination: ${targetSite}%0A- Target Date: ${targetDate}%0A- Duration: ${duration}%0A%0APlease confirm unit readiness and transport dispatch permit. Thank you!`
+        : `Halo Tim Workshop & Logistik Contractor.Hub,%0A%0ASaya ingin mengajukan permohonan mobilisasi armada konstruksi:%0A%0A📌 *DATA UNIT ALAT BERAT:*%0A- Kode Unit: ${currentUnit.code}%0A- Nama Unit: ${currentUnit.name}%0A- Kapasitas: ${currentUnit.capacity}%0A- Lokasi Asal: ${currentUnit.location}%0A%0A🏗️ *DATA SITE PROYEK:*%0A- Lokasi Tujuan: ${targetSite}%0A- Rencana Mobilisasi: ${targetDate}%0A- Estimasi Durasi: ${duration}%0A%0AMohon konfirmasi ketersediaan rute pengawalan & surat jalan. Terima kasih!`;
 
       window.open(`https://wa.me/6281234567890?text=${messageText}`, '_blank');
 
       showContractorToast({
         type: 'info',
-        title: 'Membuka WhatsApp Logistik',
-        message: `Pesan disposisi untuk ${currentUnit.name} siap dikirim ke Kepala Workshop via WhatsApp.`,
+        title: currentLang === 'en' ? 'Opening Logistics WhatsApp' : 'Membuka WhatsApp Logistik',
+        message: currentLang === 'en'
+          ? `Dispatch inquiry for ${currentUnit.name} is ready to send via WhatsApp.`
+          : `Pesan disposisi untuk ${currentUnit.name} siap dikirim ke Kepala Workshop via WhatsApp.`,
         duration: 4000
       });
     });
@@ -1327,12 +1356,15 @@ function initFleetMatrix() {
   const copyBtn = document.getElementById('btn-copy-ticket-code');
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
+      const currentLang = localStorage.getItem('contractor_lang') || 'id';
       const ticketId = document.getElementById('fleet-ticket-id')?.textContent || '#DISP-2026-8891';
       navigator.clipboard.writeText(ticketId).then(() => {
         showContractorToast({
           type: 'info',
-          title: 'Nomor Tiket Tersalin',
-          message: `${ticketId} telah disalin ke clipboard untuk pelacakan alokasi.`,
+          title: currentLang === 'en' ? 'Ticket No. Copied' : 'Nomor Tiket Tersalin',
+          message: currentLang === 'en'
+            ? `${ticketId} has been copied to clipboard.`
+            : `${ticketId} telah disalin ke clipboard untuk pelacakan alokasi.`,
           duration: 3500
         });
       });

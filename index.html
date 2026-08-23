@@ -1258,33 +1258,31 @@
           <div
             style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
             <div>
-              <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.25rem;">Matriks Armada &
-                Alat Berat Proyek</h4>
-              <p style="font-size: 0.82rem; color: var(--text-secondary);">Kapasitas angkat, status sewa, dan kesiapan
-                mobilisasi alat ke lokasi tender Anda.</p>
+              <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.25rem;" data-i18n="fleet.title">Matriks Armada & Alat Berat Proyek</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);" data-i18n="fleet.desc">Kapasitas angkat, status sewa, dan kesiapan mobilisasi alat ke lokasi tender Anda.</p>
             </div>
-            <input type="text" id="fleet-search-input" placeholder="Cari nama alat / kode unit..." class="form-input"
+            <input type="text" id="fleet-search-input" placeholder="Cari nama alat / kode unit..." data-i18n-placeholder="fleet.search_ph" class="form-input"
               style="max-width: 280px; padding: 0.5rem 1rem;">
           </div>
 
           <!-- Category Filter Pills -->
           <div class="fleet-filters-bar">
-            <button class="fleet-filter-btn active" data-cat="all">Semua Armada</button>
-            <button class="fleet-filter-btn" data-cat="crane">Tower & Mobile Crane</button>
-            <button class="fleet-filter-btn" data-cat="excavator">Excavator & Dozer</button>
-            <button class="fleet-filter-btn" data-cat="concrete">Concrete Pump</button>
+            <button class="fleet-filter-btn active" data-cat="all" data-i18n="fleet.filter_all">Semua Armada</button>
+            <button class="fleet-filter-btn" data-cat="crane" data-i18n="fleet.filter_crane">Tower & Mobile Crane</button>
+            <button class="fleet-filter-btn" data-cat="excavator" data-i18n="fleet.filter_excavator">Excavator & Dozer</button>
+            <button class="fleet-filter-btn" data-cat="concrete" data-i18n="fleet.filter_concrete">Concrete Pump</button>
           </div>
 
           <div class="fleet-table-wrapper">
             <table class="fleet-table">
               <thead>
                 <tr>
-                  <th>KODE</th>
-                  <th>NAMA ARMADA</th>
-                  <th>KAPASITAS BEBAN</th>
-                  <th>LOKASI UNIT</th>
-                  <th>STATUS KETERSEDIAAN</th>
-                  <th>AKSI</th>
+                  <th data-i18n="fleet.th_code">KODE</th>
+                  <th data-i18n="fleet.th_name">NAMA ARMADA</th>
+                  <th data-i18n="fleet.th_cap">KAPASITAS BEBAN</th>
+                  <th data-i18n="fleet.th_loc">LOKASI UNIT</th>
+                  <th data-i18n="fleet.th_status">STATUS KETERSEDIAAN</th>
+                  <th data-i18n="fleet.th_action">AKSI</th>
                 </tr>
               </thead>
               <tbody>
@@ -1294,7 +1292,7 @@
                   <td>24 Ton / Jangkauan 60m</td>
                   <td>Site Proyek Jakarta Pusat</td>
                   <td><span class="status-pill-ready">READY FOR DEPLOYMENT</span></td>
-                  <td><button class="btn-mobilize-action" data-unit-code="TC-01" data-unit-name="Potain Tower Crane MR 418" data-capacity="24 Ton / Jangkauan 60m" data-location="Site Proyek Jakarta Pusat" data-status="READY FOR DEPLOYMENT">⚡ Request Mobilisasi</button></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="TC-01" data-unit-name="Potain Tower Crane MR 418" data-capacity="24 Ton / Jangkauan 60m" data-location="Site Proyek Jakarta Pusat" data-status="READY FOR DEPLOYMENT" data-i18n="fleet.btn_mobilize">⚡ Request Mobilisasi</button></td>
                 </tr>
                 <tr data-cat="excavator">
                   <td><code style="color: var(--accent-cyan);">EX-04</code></td>
@@ -1302,7 +1300,7 @@
                   <td>0.93 m³ Bucket / 20 Ton</td>
                   <td>Workshop Cikarang</td>
                   <td><span class="status-pill-ready">READY FOR DEPLOYMENT</span></td>
-                  <td><button class="btn-mobilize-action" data-unit-code="EX-04" data-unit-name="Komatsu PC200-8M0 Excavator" data-capacity="0.93 m³ Bucket / 20 Ton" data-location="Workshop Cikarang" data-status="READY FOR DEPLOYMENT">⚡ Request Mobilisasi</button></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="EX-04" data-unit-name="Komatsu PC200-8M0 Excavator" data-capacity="0.93 m³ Bucket / 20 Ton" data-location="Workshop Cikarang" data-status="READY FOR DEPLOYMENT" data-i18n="fleet.btn_mobilize">⚡ Request Mobilisasi</button></td>
                 </tr>
                 <tr data-cat="concrete">
                   <td><code style="color: var(--accent-cyan);">CP-02</code></td>
@@ -1310,7 +1308,7 @@
                   <td>Boom 42m / 160 m³/h</td>
                   <td>Site Proyek Surabaya</td>
                   <td><span class="status-pill-deployed">ON ACTIVE PROJECT</span></td>
-                  <td><button class="btn-mobilize-action" data-unit-code="CP-02" data-unit-name="Schwing Concrete Pump Truck" data-capacity="Boom 42m / 160 m³/h" data-location="Site Proyek Surabaya" data-status="ON ACTIVE PROJECT">⚡ Request Booking</button></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="CP-02" data-unit-name="Schwing Concrete Pump Truck" data-capacity="Boom 42m / 160 m³/h" data-location="Site Proyek Surabaya" data-status="ON ACTIVE PROJECT" data-i18n="fleet.btn_booking">⚡ Request Booking</button></td>
                 </tr>
                 <tr data-cat="crane">
                   <td><code style="color: var(--accent-cyan);">MC-07</code></td>
@@ -1318,7 +1316,7 @@
                   <td>80 Ton Rough Terrain</td>
                   <td>Site IKN Kalimantan</td>
                   <td><span class="status-pill-deployed">ON ACTIVE PROJECT</span></td>
-                  <td><button class="btn-mobilize-action" data-unit-code="MC-07" data-unit-name="Tadano GR-800EX Mobile Crane" data-capacity="80 Ton Rough Terrain" data-location="Site IKN Kalimantan" data-status="ON ACTIVE PROJECT">⚡ Request Booking</button></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="MC-07" data-unit-name="Tadano GR-800EX Mobile Crane" data-capacity="80 Ton Rough Terrain" data-location="Site IKN Kalimantan" data-status="ON ACTIVE PROJECT" data-i18n="fleet.btn_booking">⚡ Request Booking</button></td>
                 </tr>
                 <tr data-cat="excavator">
                   <td><code style="color: var(--accent-cyan);">DZ-02</code></td>
@@ -1326,7 +1324,7 @@
                   <td>Engine 185 HP / Blade 3.8m³</td>
                   <td>Workshop Gresik</td>
                   <td><span class="status-pill-ready">READY FOR DEPLOYMENT</span></td>
-                  <td><button class="btn-mobilize-action" data-unit-code="DZ-02" data-unit-name="Caterpillar D6R Bulldozer" data-capacity="Engine 185 HP / Blade 3.8m³" data-location="Workshop Gresik" data-status="READY FOR DEPLOYMENT">⚡ Request Mobilisasi</button></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="DZ-02" data-unit-name="Caterpillar D6R Bulldozer" data-capacity="Engine 185 HP / Blade 3.8m³" data-location="Workshop Gresik" data-status="READY FOR DEPLOYMENT" data-i18n="fleet.btn_mobilize">⚡ Request Mobilisasi</button></td>
                 </tr>
               </tbody>
             </table>
@@ -1946,26 +1944,26 @@
   <div class="modal-backdrop" id="modal-consultation">
     <div class="modal-box">
       <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
-      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="consult.title">
         Jadwalkan Konsultasi Gratis Website Kontraktor
       </h3>
-      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;" data-i18n="consult.desc">
         Diskusikan kebutuhan template spesifik, struktur tender RFP, atau kustomisasi WebGL bersama Technical Architect
         kami.
       </p>
 
       <form id="consultation-form"
-        onsubmit="event.preventDefault(); if(window.showContractorToast){window.showContractorToast({type:'success', title:'Jadwal Terkonfirmasi', message:'Terima kasih! Technical Consultant kami akan segera menghubungi WhatsApp Anda dalam 15 menit.'});} document.getElementById('modal-consultation').classList.remove('open');">
+        onsubmit="event.preventDefault(); if(window.showContractorToast){const l=localStorage.getItem('contractor_lang')||'id'; window.showContractorToast({type:'success', title: l==='en'?'Schedule Confirmed':'Jadwal Terkonfirmasi', message: l==='en'?'Thank you! Our technical consultant will reach out via WhatsApp within 15 minutes.':'Terima kasih! Technical Consultant kami akan segera menghubungi WhatsApp Anda dalam 15 menit.'});} document.getElementById('modal-consultation').classList.remove('open');">
         <div class="form-group">
-          <label class="form-label">Nama Anda *</label>
+          <label class="form-label" data-i18n="consult.name_lbl">Nama Anda *</label>
           <input type="text" class="form-input" required placeholder="Nama Lengkap">
         </div>
         <div class="form-group">
-          <label class="form-label">No. WhatsApp *</label>
+          <label class="form-label" data-i18n="consult.wa_lbl">No. WhatsApp *</label>
           <input type="tel" class="form-input" required placeholder="0812-xxxx-xxxx">
         </div>
         <div class="form-group">
-          <label class="form-label">Jenis Proyek yang Dibangun</label>
+          <label class="form-label" data-i18n="consult.type_lbl">Jenis Proyek yang Dibangun</label>
           <select class="form-select">
             <option>Website Biro Arsitektur</option>
             <option>Website Studio Desain Interior</option>
@@ -1973,7 +1971,7 @@
             <option>Kebutuhan Custom Enterprise Holding</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;" data-i18n="consult.btn">
           <i data-lucide="calendar"></i> Konfirmasi Jadwal Konsultasi
         </button>
       </form>
@@ -1984,35 +1982,34 @@
   <div class="modal-backdrop" id="modal-tender-rfp">
     <div class="modal-box">
       <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
-      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="rfp.title">
         Kirim Dokumen Spesifikasi Tender (RFP)
       </h3>
-      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;" data-i18n="rfp.desc">
         Simulasi formulir pengajuan penawaran tender dan upload file RAB / CAD gambar kerja.
       </p>
 
       <form id="rfp-form"
-        onsubmit="event.preventDefault(); if(window.showContractorToast){window.showContractorToast({type:'info', title:'Dokumen Tender Terunggah', message:'Dokumen RFP berhasil diterima di portal tender. Tim Estimator & BIM akan merespons dalam 1x24 jam.'});} document.getElementById('modal-tender-rfp').classList.remove('open');">
+        onsubmit="event.preventDefault(); if(window.showContractorToast){const l=localStorage.getItem('contractor_lang')||'id'; window.showContractorToast({type:'info', title: l==='en'?'Tender Document Uploaded':'Dokumen Tender Terunggah', message: l==='en'?'RFP document received in the portal. Estimator & BIM team will respond within 24h.':'Dokumen RFP berhasil diterima di portal tender. Tim Estimator & BIM akan merespons dalam 1x24 jam.'});} document.getElementById('modal-tender-rfp').classList.remove('open');">
         <div class="form-group">
-          <label class="form-label">Nama Perusahaan Pengusul *</label>
+          <label class="form-label" data-i18n="rfp.co_lbl">Nama Perusahaan Pengusul *</label>
           <input type="text" class="form-input" required placeholder="PT / Biro...">
         </div>
         <div class="form-group">
-          <label class="form-label">Estimasi Nilai Proyek (IDR)</label>
+          <label class="form-label" data-i18n="rfp.val_lbl">Estimasi Nilai Proyek (IDR)</label>
           <input type="text" class="form-input" placeholder="Contoh: Rp 5.000.000.000">
         </div>
         <div class="form-group">
-          <label class="form-label">Upload Dokumen RAB / TOR / CAD</label>
+          <label class="form-label" data-i18n="rfp.upload_lbl">Upload Dokumen RAB / TOR / CAD</label>
           <div
             style="border: 2px dashed var(--border-medium); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; background: rgba(255,255,255,0.02);">
             <i data-lucide="upload-cloud"
               style="width: 32px; height: 32px; color: var(--accent-cyan); margin-bottom: 0.5rem;"></i>
-            <div style="font-size: 0.85rem; color: var(--text-primary);">Tarik & letakkan file CAD (.dwg), PDF, atau
-              Excel di sini</div>
-            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Maksimal 50MB per file</div>
+            <div style="font-size: 0.85rem; color: var(--text-primary);" data-i18n="rfp.upload_hint">Tarik & letakkan file CAD (.dwg), PDF, atau Excel di sini</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;" data-i18n="rfp.upload_max">Maksimal 50MB per file</div>
           </div>
         </div>
-        <button type="submit" class="btn btn-cyan btn-block btn-lg" style="margin-top: 1.5rem;">
+        <button type="submit" class="btn btn-cyan btn-block btn-lg" style="margin-top: 1.5rem;" data-i18n="rfp.btn">
           <i data-lucide="send"></i> Kirim Dokumen Penawaran
         </button>
       </form>
@@ -2024,18 +2021,18 @@
     <div class="modal-box" style="max-width: 900px;">
       <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <h3 style="font-family: var(--font-heading); font-size: 1.35rem;">Interactive Viewport Simulation</h3>
+        <h3 style="font-family: var(--font-heading); font-size: 1.35rem;" data-i18n="view.title">Interactive Viewport Simulation</h3>
         <span class="live-render-badge">DEVICE RESOLUTION: 1920 x 1080</span>
       </div>
       <div
         style="width: 100%; height: 450px; background: #0A0C11; border-radius: var(--radius-md); border: 1px solid var(--border-blueprint); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
         <i data-lucide="monitor" style="width: 48px; height: 48px; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
-        <h4 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem;">Live Sandbox Frame
+        <h4 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem;" data-i18n="view.heading">Live Sandbox Frame
           Activated</h4>
-        <p style="font-size: 0.875rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.875rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1.5rem;" data-i18n="view.desc">
           Template siap disinkronkan ke CMS dan hosting korporat Anda dengan Physics Engine interaktif.
         </p>
-        <button class="btn btn-primary btn-sm modal-close-trigger">Kembali ke Katalog</button>
+        <button class="btn btn-primary btn-sm modal-close-trigger" data-i18n="view.btn">Kembali ke Katalog</button>
       </div>
     </div>
   </div>
@@ -2044,7 +2041,7 @@
   <div class="modal-backdrop" id="modal-spec-sheet">
     <div class="modal-box">
       <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
-      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem;">Technical Spec Sheet</h3>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem;" data-i18n="spec.title">Technical Spec Sheet</h3>
       <div
         style="margin: 1rem 0; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); background: rgba(0,229,255,0.06); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-blueprint);">
         MODULE: CAD_BLUEPRINT_VIEWER<br>
@@ -2058,7 +2055,7 @@
         <li>✓ High-Density Texture Swatch Engine</li>
         <li>✓ Sub-1.5s Asset Streaming Compression</li>
       </ul>
-      <button class="btn btn-secondary btn-block modal-close-trigger">Tutup Spesifikasi</button>
+      <button class="btn btn-secondary btn-block modal-close-trigger" data-i18n="spec.btn">Tutup Spesifikasi</button>
     </div>
   </div>
 
@@ -2070,13 +2067,13 @@
         style="width: 60px; height: 60px; border-radius: 50%; background: rgba(0,230,118,0.15); color: var(--accent-emerald); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
         <i data-lucide="check" style="width: 32px; height: 32px;"></i>
       </div>
-      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">Dokumen Berhasil Diunduh!
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;" data-i18n="dl.title">Dokumen Berhasil Diunduh!
       </h3>
-      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;" data-i18n="dl.desc">
         Paket Panduan Strategi Digital Kontraktor 2026 (PDF) dan tautan brosur spesifikasi template telah dikirimkan ke
         email Anda.
       </p>
-      <button class="btn btn-primary modal-close-trigger">Selesai</button>
+      <button class="btn btn-primary modal-close-trigger" data-i18n="dl.btn">Selesai</button>
     </div>
   </div>
 
@@ -2092,8 +2089,8 @@
             <i data-lucide="truck" style="width: 20px; height: 20px;"></i>
           </div>
           <div>
-            <h3 class="fleet-modal-title" id="fleet-modal-header-title">Permintaan Mobilisasi Unit</h3>
-            <p class="fleet-modal-subtitle">Disposisi alokasi logistik, rute pengawalan & surat jalan armada proyek.</p>
+            <h3 class="fleet-modal-title" id="fleet-modal-header-title" data-i18n="fleet_modal.title">Permintaan Mobilisasi Unit</h3>
+            <p class="fleet-modal-subtitle" data-i18n="fleet_modal.subtitle">Disposisi alokasi logistik, rute pengawalan & surat jalan armada proyek.</p>
           </div>
         </div>
 
@@ -2106,11 +2103,11 @@
           <div class="fleet-unit-card-title" id="fleet-modal-unit-name">Potain Tower Crane MR 418</div>
           <div class="fleet-unit-specs-grid">
             <div class="fleet-spec-item">
-              <span class="fleet-spec-label">Kapasitas Kerja</span>
+              <span class="fleet-spec-label" data-i18n="fleet_modal.cap_lbl">Kapasitas Kerja</span>
               <span class="fleet-spec-val" id="fleet-modal-capacity">24 Ton / Jangkauan 60m</span>
             </div>
             <div class="fleet-spec-item">
-              <span class="fleet-spec-label">Lokasi Saat Ini</span>
+              <span class="fleet-spec-label" data-i18n="fleet_modal.loc_lbl">Lokasi Saat Ini</span>
               <span class="fleet-spec-val" id="fleet-modal-location">Site Proyek Jakarta Pusat</span>
             </div>
           </div>
@@ -2119,7 +2116,7 @@
         <!-- Mobilization Details Form -->
         <form id="fleet-mobilize-form">
           <div class="form-group" style="margin-bottom: 0.75rem;">
-            <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Lokasi Site Proyek Tujuan *</label>
+            <label class="form-label" style="font-size: 0.8rem; font-weight: 600;" data-i18n="fleet_modal.dest_lbl">Lokasi Site Proyek Tujuan *</label>
             <input type="text" class="form-input" id="fleet-target-site" required placeholder="Contoh: Site Proyek IKN Nusantara, Kaltim" value="Site Mega Kuningan Tower 2, Jakarta">
             <div class="fleet-quick-chips">
               <button type="button" class="fleet-chip" data-site="Site IKN Nusantara, Kalimantan Timur">+ IKN Nusantara</button>
@@ -2131,11 +2128,11 @@
 
           <div class="form-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
             <div class="form-group" style="margin-bottom: 0;">
-              <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Rencana Tanggal Mobilisasi *</label>
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 600;" data-i18n="fleet_modal.date_lbl">Rencana Tanggal Mobilisasi *</label>
               <input type="date" class="form-input" id="fleet-target-date" required>
             </div>
             <div class="form-group" style="margin-bottom: 0;">
-              <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Durasi Operasional</label>
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 600;" data-i18n="fleet_modal.dur_lbl">Durasi Operasional</label>
               <select class="form-select" id="fleet-duration-select">
                 <option value="1 Bulan">1 Bulan (Short-term Phase)</option>
                 <option value="3 Bulan" selected>3 Bulan (Medium Phase)</option>
@@ -2147,28 +2144,28 @@
           </div>
 
           <div class="form-group" style="margin-bottom: 0.5rem;">
-            <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Kelengkapan Legalitas & K3 Proyek</label>
+            <label class="form-label" style="font-size: 0.8rem; font-weight: 600;" data-i18n="fleet_modal.legal_lbl">Kelengkapan Legalitas & K3 Proyek</label>
             <div class="fleet-checks-container">
               <label class="fleet-check-label">
                 <input type="checkbox" id="check-operator" checked>
-                <span>Sertakan Operator & Rigger Bersertifikat SIO Kemnaker RI</span>
+                <span data-i18n="fleet_modal.check_op">Sertakan Operator & Rigger Bersertifikat SIO Kemnaker RI</span>
               </label>
               <label class="fleet-check-label">
                 <input type="checkbox" id="check-insurance" checked>
-                <span>Asuransi Alat Berat (Contractors' Plant & Machinery / CPM)</span>
+                <span data-i18n="fleet_modal.check_ins">Asuransi Alat Berat (Contractors' Plant & Machinery / CPM)</span>
               </label>
               <label class="fleet-check-label">
                 <input type="checkbox" id="check-silo" checked>
-                <span>Sertifikat Surat Ijin Layak Operasi (SILO) Aktif Terverifikasi</span>
+                <span data-i18n="fleet_modal.check_silo">Sertifikat Surat Ijin Layak Operasi (SILO) Aktif Terverifikasi</span>
               </label>
             </div>
           </div>
 
           <div class="fleet-modal-actions">
-            <button type="submit" class="btn-dispatch-primary" id="btn-submit-fleet-dispatch">
+            <button type="submit" class="btn-dispatch-primary" id="btn-submit-fleet-dispatch" data-i18n="fleet_modal.btn_confirm">
               <i data-lucide="send" style="width: 16px; height: 16px;"></i> Konfirmasi Disposisi
             </button>
-            <button type="button" class="btn-whatsapp-dispatch" id="btn-wa-fleet-dispatch">
+            <button type="button" class="btn-whatsapp-dispatch" id="btn-wa-fleet-dispatch" data-i18n="fleet_modal.btn_wa">
               <i data-lucide="message-square" style="width: 16px; height: 16px;"></i> WhatsApp Logistik
             </button>
           </div>
@@ -2181,15 +2178,15 @@
           <div class="fleet-ticket-stamp">
             <i data-lucide="check" style="width: 28px; height: 28px;"></i>
           </div>
-          <h3 class="fleet-modal-title" style="font-size: 1.35rem;">Disposisi Mobilisasi Berhasil Diterbitkan</h3>
-          <p class="fleet-modal-subtitle" style="max-width: 440px; margin: 0.35rem auto 1.25rem;">
+          <h3 class="fleet-modal-title" style="font-size: 1.35rem;" data-i18n="fleet_modal.success_title">Disposisi Mobilisasi Berhasil Diterbitkan</h3>
+          <p class="fleet-modal-subtitle" style="max-width: 440px; margin: 0.35rem auto 1.25rem;" data-i18n="fleet_modal.success_desc">
             Surat jalan digital dan alokasi unit telah didaftarkan ke Kepala Workshop & Tim Logistik.
           </p>
 
           <div class="fleet-ticket-code-card">
             <div class="ticket-code-header">
-              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">NO. TIKET DISPOSISI ARMADA</span>
-              <span class="fleet-sla-badge">SLA KONFIRMASI: &lt; 2 JAM</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;" data-i18n="fleet_modal.ticket_th">NO. TIKET DISPOSISI ARMADA</span>
+              <span class="fleet-sla-badge">SLA: &lt; 2 JAM</span>
             </div>
             <div class="fleet-ticket-num" id="fleet-ticket-id">#DISP-2026-8891</div>
             <div style="font-size: 0.835rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;" id="fleet-ticket-summary">
@@ -2200,10 +2197,10 @@
           </div>
 
           <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
-            <button class="btn btn-secondary btn-sm" id="btn-copy-ticket-code">
+            <button class="btn btn-secondary btn-sm" id="btn-copy-ticket-code" data-i18n="fleet_modal.copy_btn">
               <i data-lucide="copy" style="width: 14px; height: 14px;"></i> Salin No. Tiket
             </button>
-            <button class="btn btn-primary btn-sm modal-close-trigger" id="btn-close-fleet-success">
+            <button class="btn btn-primary btn-sm modal-close-trigger" id="btn-close-fleet-success" data-i18n="fleet_modal.done_btn">
               <i data-lucide="check" style="width: 14px; height: 14px;"></i> Selesai
             </button>
           </div>
