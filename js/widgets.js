@@ -396,6 +396,30 @@ function initWeatherWidget() {
   }
 
   if (siteSelect) {
+    siteSelect.addEventListener('change', renderState);
+  }
+
+  if (btnNormal) {
+    btnNormal.addEventListener('click', () => {
+      currentMode = 'normal';
+      if (btnNormal) btnNormal.classList.add('active');
+      if (btnStorm) btnStorm.classList.remove('active');
+      renderState();
+    });
+  }
+
+  if (btnStorm) {
+    btnStorm.addEventListener('click', () => {
+      currentMode = 'storm';
+      if (btnStorm) btnStorm.classList.add('active');
+      if (btnNormal) btnNormal.classList.remove('active');
+      renderState();
+    });
+  }
+
+  renderState();
+}
+
 /* ==========================================================================
    4. 3D Model Konstruksi & BIM Structural Layers Explorer (Three.js WebGL)
    ========================================================================== */
