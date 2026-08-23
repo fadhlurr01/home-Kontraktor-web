@@ -119,20 +119,50 @@ function initMobileDrawer() {
   const toggleBtn = document.querySelector('.mobile-toggle-btn');
   const drawer = document.querySelector('.mobile-drawer');
   const closeBtns = document.querySelectorAll('.drawer-close-trigger');
+  const dockItems = document.querySelectorAll('.mobile-quick-dock .quick-dock-item');
 
-  if (!toggleBtn || !drawer) return;
+  if (toggleBtn && drawer) {
+    toggleBtn.addEventListener('click', () => {
+      drawer.classList.toggle('open');
+      document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+    });
 
-  toggleBtn.addEventListener('click', () => {
-    drawer.classList.toggle('open');
-    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
-  });
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 
-  closeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      document.body.style.overflow = '';
+  // Quick Dock item click state
+  dockItems.forEach(item => {
+    item.addEventListener('click', () => {
+      dockItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
     });
   });
+
+  // Scroll spy for Quick Dock
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 200;
+    const heroSec = document.getElementById('hero');
+    const portSec = document.getElementById('portofolio');
+    const widgSec = document.getElementById('widgets');
+
+    if (dockItems.length >= 3) {
+      if (widgSec && scrollPos >= widgSec.offsetTop) {
+        dockItems.forEach(i => i.classList.remove('active'));
+        if (dockItems[2]) dockItems[2].classList.add('active');
+      } else if (portSec && scrollPos >= portSec.offsetTop) {
+        dockItems.forEach(i => i.classList.remove('active'));
+        if (dockItems[1]) dockItems[1].classList.add('active');
+      } else if (heroSec) {
+        dockItems.forEach(i => i.classList.remove('active'));
+        if (dockItems[0]) dockItems[0].classList.add('active');
+      }
+    }
+  }, { passive: true });
 }
 
 /* ==========================================================================

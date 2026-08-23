@@ -727,45 +727,65 @@ section {
   gap: 0.75rem;
 }
 
-/* Floating Glass Mobile Bottom Bar */
+/* Floating Glass Mobile Bottom Bar (iOS/Material Luxury App Style) */
 .mobile-quick-dock {
   display: none;
   position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  background: var(--bg-glass-strong);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-full);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  z-index: 900;
-  padding: 0.5rem;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  right: 0.85rem;
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  z-index: 10000;
+  padding: 0.4rem 0.5rem;
   justify-content: space-around;
   align-items: center;
+}
+
+[data-theme="light"] .mobile-quick-dock {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .quick-dock-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.2rem;
+  justify-content: center;
+  gap: 3px;
   color: var(--text-secondary);
-  font-size: 0.7rem;
-  font-weight: 500;
-  padding: 0.35rem 0.75rem;
-  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.45rem 0.65rem;
+  border-radius: 14px;
   transition: all var(--transition-fast);
+  text-decoration: none;
+  min-width: 58px;
 }
 
-.quick-dock-item.active, .quick-dock-item:hover {
-  color: var(--accent-amber);
-  background: rgba(255, 136, 0, 0.15);
+[data-theme="light"] .quick-dock-item {
+  color: #64748B;
+}
+
+.quick-dock-item.active {
+  color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.12);
+}
+
+[data-theme="light"] .quick-dock-item.active {
+  color: #0F172A;
+  background: #F1F5F9;
 }
 
 .quick-dock-item svg {
-  width: 18px;
-  height: 18px;
+  width: 19px;
+  height: 19px;
+  stroke-width: 2.2px;
 }
 
 /* ==========================================================================
@@ -860,6 +880,9 @@ section {
 }
 
 @media (max-width: 1100px) {
+  body {
+    padding-bottom: 4.8rem;
+  }
   .nav-menu, .nav-actions .btn {
     display: none;
   }
@@ -870,23 +893,25 @@ section {
     display: flex;
   }
   .floating-whatsapp-btn {
-    bottom: 5.5rem;
-    right: 1.25rem;
-    width: 48px;
-    height: 48px;
+    bottom: 5.4rem;
+    right: 1rem;
+    width: 46px;
+    height: 46px;
+    z-index: 950;
   }
   .floating-whatsapp-btn svg {
     width: 22px;
     height: 22px;
   }
   .floating-scroll-top-btn {
-    bottom: 9rem;
-    right: 1.25rem;
-    width: 44px;
-    height: 44px;
+    bottom: 8.8rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+    z-index: 950;
   }
   .floating-scroll-top-btn svg {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
   }
 }
