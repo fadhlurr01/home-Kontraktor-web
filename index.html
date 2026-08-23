@@ -1,0 +1,2229 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTRACTOR.HUB | Master Website Template Kontraktor & Biro Arsitektur</title>
+  <meta name="description"
+    content="Template website premium berpresisi tinggi dengan simulasi arsitektural modern. Dirancang khusus untuk memenangkan tender dan memamerkan portofolio kontraktor & biro arsitektur.">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Three.js CDN for 3D Structural WebGL Viewport (Widgets) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+  <!-- CAD Background Crosshairs -->
+  <div class="cad-crosshair top-left"></div>
+  <div class="cad-crosshair top-right"></div>
+  <div class="cad-crosshair bottom-left"></div>
+  <div class="cad-crosshair bottom-right"></div>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION BAR (Maximized Width & No Clipping)
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+
+      <!-- Clean Brand Logo -->
+      <a href="#hero" class="brand-logo">
+        <div class="brand-icon-box">
+          <i data-lucide="box"></i>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">CONTRACTOR<span>.HUB</span></span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu (Centered & Compact Space) -->
+      <nav class="nav-menu" aria-label="Main Navigation">
+        <!-- Solusi Dropdown -->
+        <div class="nav-item">
+          <a href="#solusi" class="nav-link">
+            <span data-i18n="nav.solutions">Solusi</span>
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </a>
+          <div class="nav-dropdown">
+            <a href="#solusi" class="dropdown-item">
+              <i data-lucide="sofa" class="item-icon"></i>
+              <span data-i18n="drop.interior">Desain Interior & Fit-Out</span>
+            </a>
+            <a href="#solusi" class="dropdown-item">
+              <i data-lucide="compass" class="item-icon"></i>
+              <span data-i18n="drop.arch">Biro Arsitektur & Perencanaan</span>
+            </a>
+            <a href="#solusi" class="dropdown-item">
+              <i data-lucide="hard-hat" class="item-icon"></i>
+              <span data-i18n="drop.civil">Konstruksi Sipil & EPC</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Template Dropdown -->
+        <div class="nav-item">
+          <a href="#portofolio" class="nav-link">
+            <span data-i18n="nav.templates">Template & Produk</span>
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </a>
+          <div class="nav-dropdown">
+            <a href="#portofolio" class="dropdown-item">
+              <i data-lucide="layout" class="item-icon"></i>
+              <span data-i18n="drop.live_demo">Live Demo Showcase</span>
+            </a>
+            <a href="#widgets" class="dropdown-item">
+              <i data-lucide="box" class="item-icon"></i>
+              <span data-i18n="drop.sandbox">Interactive 3D Sandbox</span>
+            </a>
+            <a href="#portofolio" class="dropdown-item">
+              <i data-lucide="layers" class="item-icon"></i>
+              <span data-i18n="drop.catalog">Katalog Template Lengkap</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Smart Tools Dropdown -->
+        <div class="nav-item">
+          <a href="#widgets" class="nav-link">
+            <span data-i18n="nav.tools">Smart Tools</span>
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </a>
+          <div class="nav-dropdown">
+            <a href="#widgets" class="dropdown-item">
+              <i data-lucide="calculator" class="item-icon"></i>
+              <span data-i18n="drop.calculator">Kalkulator RAB m²</span>
+            </a>
+            <a href="#widgets" class="dropdown-item">
+              <i data-lucide="rotate-cw" class="item-icon"></i>
+              <span data-i18n="drop.viewer_3d">360° Virtual Tour Viewer</span>
+            </a>
+            <a href="#fitur" class="dropdown-item">
+              <i data-lucide="scan" class="item-icon"></i>
+              <span data-i18n="drop.bim">BIM & CAD Inspector</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="nav-item"><a href="#fitur" class="nav-link" data-i18n="nav.features">Fitur</a></div>
+        <div class="nav-item"><a href="#portofolio" class="nav-link" data-i18n="nav.portfolio">Portofolio</a></div>
+        <div class="nav-item"><a href="#harga" class="nav-link" data-i18n="nav.pricing">Harga</a></div>
+        <div class="nav-item"><a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a></div>
+        <div class="nav-item"><a href="#kontak" class="nav-link" data-i18n="nav.contact">Kontak</a></div>
+      </nav>
+
+      <!-- Action Utility Bar -->
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-toggle" aria-label="Language Selector">
+          <button class="lang-btn active" data-lang="id">ID</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- Dark/Light Mode Switcher -->
+        <button class="theme-btn" aria-label="Toggle Dark/Light Mode">🌓</button>
+
+        <!-- CTA Buttons -->
+        <a href="#harga" class="btn btn-ghost btn-sm" data-i18n="nav.view_pricing">Lihat Harga</a>
+        <button class="btn btn-primary btn-sm" data-open-modal="modal-consultation"
+          data-i18n="nav.free_consult">Konsultasi Gratis</button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-toggle-btn" aria-label="Toggle Mobile Menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <ul class="mobile-menu-list">
+      <li><a href="#hero" class="mobile-menu-link drawer-close-trigger">Home <i data-lucide="arrow-right"></i></a></li>
+      <li><a href="#solusi" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.solutions">Solusi <i
+            data-lucide="arrow-right"></i></a></li>
+      <li><a href="#fitur" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.features">Fitur Spesialis <i
+            data-lucide="arrow-right"></i></a></li>
+      <li><a href="#widgets" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.tools">Smart Tools & Widgets
+          <i data-lucide="arrow-right"></i></a></li>
+      <li><a href="#portofolio" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.portfolio">Portofolio
+          Showcase <i data-lucide="arrow-right"></i></a></li>
+      <li><a href="#harga" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.pricing">Pilihan Paket <i
+            data-lucide="arrow-right"></i></a></li>
+      <li><a href="#faq" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.faq">FAQ <i
+            data-lucide="arrow-right"></i></a></li>
+      <li><a href="#kontak" class="mobile-menu-link drawer-close-trigger" data-i18n="nav.contact">Download Brosur &
+          Kontak <i data-lucide="arrow-right"></i></a></li>
+    </ul>
+
+    <div class="mobile-drawer-actions">
+      <a href="#harga" class="btn btn-secondary btn-block drawer-close-trigger" data-i18n="nav.view_pricing">Lihat
+        Harga</a>
+      <button class="btn btn-primary btn-block drawer-close-trigger" data-open-modal="modal-consultation"
+        data-i18n="nav.free_consult">Konsultasi Gratis</button>
+    </div>
+  </div>
+
+  <!-- Mobile Floating Glass Quick-Dock -->
+  <nav class="mobile-quick-dock" aria-label="Mobile Quick Dock">
+    <a href="#hero" class="quick-dock-item active">
+      <i data-lucide="home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#portofolio" class="quick-dock-item">
+      <i data-lucide="layout-grid"></i>
+      <span data-i18n="nav.templates">Template</span>
+    </a>
+    <a href="#widgets" class="quick-dock-item">
+      <i data-lucide="calculator"></i>
+      <span>Kalkulator</span>
+    </a>
+    <a href="#kontak" class="quick-dock-item" data-open-modal="modal-consultation">
+      <i data-lucide="message-square"></i>
+      <span>Konsultasi</span>
+    </a>
+  </nav>
+
+  <!-- ==========================================================================
+       SECTION 01: HERO SECTION (With Lightweight Architectural Blueprint Deck)
+       ========================================================================== -->
+  <section class="hero-section scroll-reveal" id="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left Content -->
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            <span data-i18n="hero.title_pre">Bangun Kehadiran Digital Kontraktor & Arsitektur</span>
+            <span class="kinetic-highlight" data-i18n="hero.title_highlight">Kelas Dunia</span>
+          </h1>
+
+          <p class="hero-subheadline" data-i18n="hero.subtitle">
+            Template website premium berpresisi tinggi dengan simulasi arsitektural modern. Dirancang khusus untuk
+            memenangkan tender, memamerkan portofolio bernilai tinggi, dan mengonversi calon klien properti secara
+            instan.
+          </p>
+
+          <!-- Quick Preview Switcher Pills -->
+          <div class="hero-filter-box">
+            <div class="hero-filter-label">
+              <i data-lucide="sliders" style="width: 14px; height: 14px;"></i>
+              <span>PILIH PREVIEW STRUKTUR ARSITEKTURAL:</span>
+            </div>
+            <div class="filter-pills-row">
+              <button class="filter-pill active" data-mode="all">Semuanya</button>
+              <button class="filter-pill" data-mode="interior">✦ Desain Interior</button>
+              <button class="filter-pill" data-mode="arch">✦ Biro Arsitektur</button>
+              <button class="filter-pill" data-mode="civil">✦ Kontraktor Konstruksi</button>
+            </div>
+          </div>
+
+          <!-- Hero CTAs -->
+          <div class="hero-cta-group">
+            <a href="#portofolio" class="btn btn-primary btn-lg" data-i18n="hero.cta_explore">
+              <i data-lucide="compass"></i>
+              Jelajahi Template
+            </a>
+            <button class="btn btn-secondary btn-lg" data-open-modal="modal-tender-rfp" data-i18n="hero.cta_consult">
+              <i data-lucide="file-text"></i>
+              Konsultasi Tender
+            </button>
+          </div>
+
+          <!-- Credibility Metrics Bar -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <div class="metric-val">120<span class="accent">+</span></div>
+              <div class="metric-label" data-i18n="hero.stat_1_lbl">Proyek Web Terbangun</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-val">99.9<span class="accent">%</span></div>
+              <div class="metric-label" data-i18n="hero.stat_2_lbl">Performa Cepat & Skor SEO</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-val">100<span class="accent">%</span></div>
+              <div class="metric-label" data-i18n="hero.stat_3_lbl">Ready Tender / Format RFP</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Lightweight Architectural Master Blueprint & Telemetry Deck -->
+        <div class="hero-blueprint-deck">
+          <div class="blueprint-deck-header">
+            <div class="blueprint-status-tag">
+              <i data-lucide="check-circle-2" style="width: 14px; height: 14px;"></i>
+              <span>DED APPROVED • CAD METRIC 1:50</span>
+            </div>
+            <div style="color: var(--text-muted); font-family: var(--font-mono);">PROJ ID: #ARC-2026</div>
+          </div>
+
+          <div class="blueprint-render-box">
+            <div class="blueprint-cad-overlay"></div>
+            <div class="blueprint-scan-line"></div>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80"
+              alt="Architectural Master Structure" class="blueprint-render-img" id="hero-blueprint-img">
+
+            <!-- Floating Spec Badges -->
+            <div class="blueprint-floating-tag top-right">
+              <i data-lucide="layers" style="width: 13px; height: 13px; color: var(--accent-cyan);"></i>
+              <span>Pondasi Bore Pile 12m</span>
+            </div>
+            <div class="blueprint-floating-tag bottom-left">
+              <i data-lucide="shield-check" style="width: 13px; height: 13px; color: var(--accent-emerald);"></i>
+              <span>Efisiensi Energi LEED Gold</span>
+            </div>
+          </div>
+
+          <div class="blueprint-deck-footer">
+            <div class="blueprint-proj-title-row">
+              <div class="blueprint-proj-title" id="hero-blueprint-title">Aura Master Villa & Penthouse</div>
+              <div class="blueprint-proj-type" id="hero-blueprint-type">RESIDENSIAL MEWAH</div>
+            </div>
+
+            <div class="blueprint-telemetry-row">
+              <div class="telemetry-box">
+                <span class="telemetry-label">LUAS BANGUNAN</span>
+                <span class="telemetry-val" id="hero-blueprint-area">850 m²</span>
+              </div>
+              <div class="telemetry-box">
+                <span class="telemetry-label">SPESIFIKASI</span>
+                <span class="telemetry-val" id="hero-blueprint-struct">WF Baja & K-350</span>
+              </div>
+              <div class="telemetry-box">
+                <span class="telemetry-label">STATUS TENDER</span>
+                <span class="telemetry-val" style="color: var(--accent-emerald);" id="hero-blueprint-status">100%
+                  Ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 02: SOLUSI SEGMEN KONTRAKTOR (Clean Minimalist Cards)
+       ========================================================================== -->
+  <section id="solusi" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="sol.tag">Solusi Segmen Kontraktor</div>
+        <h2 class="section-title" data-i18n="sol.title">
+          Disesuaikan Presisi untuk Setiap Pilar <em>Industri Konstruksi</em>
+        </h2>
+        <p class="section-desc" data-i18n="sol.desc">
+          Kami memahami bahwa setiap pilar industri konstruksi memiliki alur bisnis dan profil klien yang berbeda.
+          Temukan website template yang dikonfigurasi presisi untuk spesialisasi Anda.
+        </p>
+      </div>
+
+      <div class="solutions-grid">
+
+        <!-- Card 1: Interior Fit-Out -->
+        <div class="solution-card scroll-reveal scroll-reveal-delay-1">
+          <div class="card-num" data-i18n="sol.c1_num">INTERIOR FIT-OUT</div>
+          <div class="card-icon">
+            <i data-lucide="sofa"></i>
+          </div>
+          <h3 class="card-title" data-i18n="sol.c1_title">Desain Interior & Fit-Out Ruang</h3>
+          <p class="card-focus" data-i18n="sol.c1_focus">Fokus: Kemewahan visual, material bespoke, dan slider
+            before/after presisi tinggi.</p>
+
+          <div class="card-features-title">Fitur Utama:</div>
+          <ul class="card-features-list">
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c1_f1">Slider Before/After Ultra-HD</span>
+            </li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c1_f2">Swatch Material & Tekstur Kain
+                Interaktif</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c1_f3">360° Virtual Walkthrough Ruangan</span>
+            </li>
+          </ul>
+
+          <a href="#portofolio" class="btn btn-secondary btn-block" data-i18n="sol.c1_btn">Lihat Template Interior</a>
+        </div>
+
+        <!-- Card 2: Biro Arsitektur -->
+        <div class="solution-card scroll-reveal scroll-reveal-delay-2">
+          <div class="card-num" data-i18n="sol.c2_num">ARSITEKTUR & PLANNING</div>
+          <div class="card-icon">
+            <i data-lucide="compass"></i>
+          </div>
+          <h3 class="card-title" data-i18n="sol.c2_title">Biro Arsitektur & Masterplanning</h3>
+          <p class="card-focus" data-i18n="sol.c2_focus">Fokus: Konseptual denah arsitektur, filosofi bentuk, dan
+            presentasi 3D render 4K.</p>
+
+          <div class="card-features-title">Fitur Utama:</div>
+          <ul class="card-features-list">
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c2_f1">Interactive CAD/BIM Blueprint
+                Viewer</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c2_f2">Storytelling Filosofi & Konsep
+                Bentuk</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c2_f3">Showcase Penghargaan & Publikasi
+                IAI</span></li>
+          </ul>
+
+          <a href="#portofolio" class="btn btn-secondary btn-block" data-i18n="sol.c2_btn">Lihat Template Arsitek</a>
+        </div>
+
+        <!-- Card 3: Konstruksi Sipil -->
+        <div class="solution-card scroll-reveal scroll-reveal-delay-3">
+          <div class="card-num" data-i18n="sol.c3_num">TEKNIK SIPIL & EPC</div>
+          <div class="card-icon">
+            <i data-lucide="hard-hat"></i>
+          </div>
+          <h3 class="card-title" data-i18n="sol.c3_title">Kontraktor Konstruksi & Sipil</h3>
+          <p class="card-focus" data-i18n="sol.c3_focus">Fokus: Skala proyek masif, kepatuhan SMK3/ISO, armada alat
+            berat, & kesiapan tender.</p>
+
+          <div class="card-features-title">Fitur Utama:</div>
+          <ul class="card-features-list">
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c3_f1">Live Project Progress & Milestone
+                Log</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c3_f2">Modul Dokumen Tender & Penawaran
+                RFP</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="sol.c3_f3">Matriks Kapasitas Armada & Alat
+                Berat</span></li>
+          </ul>
+
+          <a href="#portofolio" class="btn btn-secondary btn-block" data-i18n="sol.c3_btn">Lihat Template Sipil</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 03: DIGITAL PRESENCE PROFESIONAL (4 Pilar)
+       ========================================================================== -->
+  <section id="digital-presence" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="dp.tag">Digital Presence Profesional</div>
+        <h2 class="section-title" data-i18n="dp.title">
+          Bukan Sekadar Website <em>Portofolio Biasa</em>
+        </h2>
+        <p class="section-desc" data-i18n="dp.desc">
+          Kami membantu biro arsitektur dan perusahaan kontraktor mendominasi pasar melalui 4 pilar kehadiran digital
+          yang saling terintegrasi.
+        </p>
+      </div>
+
+      <div class="pillars-table-wrapper">
+        <table class="pillars-grid-table">
+          <thead>
+            <tr>
+              <th data-i18n="dp.th_pillar">Pilar Strategis</th>
+              <th data-i18n="dp.th_focus">Fokus Khusus Kontraktor</th>
+              <th data-i18n="dp.th_benefit">Manfaat Nyata untuk Bisnis Anda</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pillar-name-cell">
+                <span class="pillar-num">01.</span>
+                <span data-i18n="dp.p1_name">High-Trust Branding</span>
+              </td>
+              <td class="pillar-focus-cell" data-i18n="dp.p1_focus">
+                Estetika visual premium, tipografi arsitektural, dan katalog karya resolusi tinggi.
+              </td>
+              <td class="pillar-benefit-cell" data-i18n="dp.p1_benefit">
+                Membangun reputasi berkelas di hadapan klien high-net-worth & developer besar.
+              </td>
+            </tr>
+            <tr>
+              <td class="pillar-name-cell">
+                <span class="pillar-num">02.</span>
+                <span data-i18n="dp.p2_name">Lead & RFP Engine</span>
+              </td>
+              <td class="pillar-focus-cell" data-i18n="dp.p2_focus">
+                Formulir tender terstruktur, pengunggah dokumen RAB, dan kalkulator estimasi biaya.
+              </td>
+              <td class="pillar-benefit-cell" data-i18n="dp.p2_benefit">
+                Calon klien mengirimkan spesifikasi proyek secara lengkap tanpa buang waktu.
+              </td>
+            </tr>
+            <tr>
+              <td class="pillar-name-cell">
+                <span class="pillar-num">03.</span>
+                <span data-i18n="dp.p3_name">Authority & Visibility</span>
+              </td>
+              <td class="pillar-focus-cell" data-i18n="dp.p3_focus">
+                Struktur SEO lokal konstruksi, halaman sertifikasi ISO/K3, dan integrasi Google Maps proyek.
+              </td>
+              <td class="pillar-benefit-cell" data-i18n="dp.p3_benefit">
+                Mudah ditemukan oleh owner proyek saat mencari kontraktor terpercaya di kotanya.
+              </td>
+            </tr>
+            <tr>
+              <td class="pillar-name-cell">
+                <span class="pillar-num">04.</span>
+                <span data-i18n="dp.p4_name">Operational Efficiency</span>
+              </td>
+              <td class="pillar-focus-cell" data-i18n="dp.p4_focus">
+                Integrasi tracking progress proyek, katalog spesifikasi material, dan portal klien privat.
+              </td>
+              <td class="pillar-benefit-cell" data-i18n="dp.p4_benefit">
+                Mengurangi waktu presentasi berulang dan mempermudah tim sales saat negosiasi.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 04: PILIH PAKET WEBSITE (Crystal-Clear High Contrast)
+       ========================================================================== -->
+  <section id="harga" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="price.tag">Pilihan Paket Website</div>
+        <h2 class="section-title" data-i18n="price.title">
+          Investasi Tepat untuk Pertumbuhan <em>Skala Bisnis Anda</em>
+        </h2>
+        <p class="section-desc" data-i18n="price.desc">
+          Pilih paket lisensi template website konstruksi yang dirancang sesuai tahap pertumbuhan perusahaan Anda.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Tier 1: Starter Studio -->
+        <div class="pricing-card scroll-reveal scroll-reveal-delay-1">
+          <h3 class="pricing-tier" data-i18n="price.t1_name">STARTER STUDIO</h3>
+          <p class="pricing-target" data-i18n="price.t1_desc">Cocok untuk Studio Interior & Arsitek Solo yang
+            membutuhkan portfolio elegan.</p>
+
+          <div class="pricing-price-box">
+            <span class="price-currency">Rp</span>
+            <span class="price-amount">3.9</span>
+            <span class="price-period">Juta / Lisensi</span>
+          </div>
+
+          <ul class="pricing-features-list">
+            <li><i data-lucide="check"></i> <span data-i18n="price.t1_f1">1 Lisensi Template Spesialis</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t1_f2">Portofolio HD Gallery & Lightbox</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t1_f3">Form Kontak & WhatsApp Direct</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t1_f4">Setup Cepat 3 Hari Kerja</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t1_f5">Responsif Mobile & Tablet Penuh</span></li>
+          </ul>
+
+          <button class="btn btn-secondary btn-block" data-open-modal="modal-consultation"
+            data-i18n="price.t1_btn">Pilih Paket Starter</button>
+        </div>
+
+        <!-- Tier 2: Professional Builder (Featured - Solid Readability) -->
+        <div class="pricing-card featured scroll-reveal scroll-reveal-delay-2">
+          <div class="popular-badge" data-i18n="price.t2_popular">★ PALING DIMINATI ★</div>
+          <h3 class="pricing-tier" data-i18n="price.t2_name">PROFESSIONAL BUILDER</h3>
+          <p class="pricing-target" data-i18n="price.t2_desc">Cocok untuk General Contractor, Biro Desain Berkembang &
+            Kontraktor Menengah.</p>
+
+          <div class="pricing-price-box">
+            <span class="price-currency">Rp</span>
+            <span class="price-amount">7.5</span>
+            <span class="price-period">Juta / Lisensi</span>
+          </div>
+
+          <ul class="pricing-features-list">
+            <li><i data-lucide="check"></i> <span data-i18n="price.t2_f1">Semua Fitur Starter Studio</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t2_f2">Split Before/After Slider Interaktif</span>
+            </li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t2_f3">Kalkulator Estimasi Biaya RAB m²</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t2_f4">Modul Dokumen RFP & Tender Online</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t2_f5">Visualisasi 3D Interaktif Terintegrasi</span>
+            </li>
+          </ul>
+
+          <button class="btn btn-primary btn-block" data-open-modal="modal-consultation" data-i18n="price.t2_btn">Pilih
+            Paket Pro</button>
+        </div>
+
+        <!-- Tier 3: Enterprise EPC -->
+        <div class="pricing-card scroll-reveal scroll-reveal-delay-3">
+          <h3 class="pricing-tier" data-i18n="price.t3_name">ENTERPRISE EPC / HOLDING</h3>
+          <p class="pricing-target" data-i18n="price.t3_desc">Cocok untuk Kontraktor Skala Nasional, BUMN, & Developer
+            Properti Skala Besar.</p>
+
+          <div class="pricing-price-box">
+            <span class="price-currency">Rp</span>
+            <span class="price-amount">18.5</span>
+            <span class="price-period">Juta / Tailored</span>
+          </div>
+
+          <ul class="pricing-features-list">
+            <li><i data-lucide="check"></i> <span data-i18n="price.t3_f1">Custom Architecture & Multi-Domain</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t3_f2">Integrasi 3D WebGL BIM & CAD Viewer</span>
+            </li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t3_f3">Multi-Cabang & Manajemen Multi-Proyek</span>
+            </li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t3_f4">Portal Klien Privat & Milestone Live
+                Tracker</span></li>
+            <li><i data-lucide="check"></i> <span data-i18n="price.t3_f5">Dedicated High-Speed Cloud Server & SLA
+                99.99%</span></li>
+          </ul>
+
+          <button class="btn btn-secondary btn-block" data-open-modal="modal-consultation"
+            data-i18n="price.t3_btn">Hubungi Tim Enterprise</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 05: ALUR RANCANG BANGUN (Interactive Architectural Flow Stream - No Cards)
+       ========================================================================== -->
+  <section id="growth-journey" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="growth.tag">Perjalanan Pertumbuhan Digital</div>
+        <h2 class="section-title" data-i18n="growth.title">
+          Alur Rancang Bangun <em>Website Kontraktor</em> Anda
+        </h2>
+        <p class="section-desc" data-i18n="growth.desc">
+          Metodologi 4 tahap terstruktur dari fondasi identitas hingga ekspansi penyerapan tender bernilai tinggi.
+        </p>
+      </div>
+
+      <!-- Downward Vertical Architectural Flow Track -->
+      <div class="vertical-workflow-stream">
+
+        <!-- Stage 01 -->
+        <div class="v-stream-step scroll-reveal">
+          <div class="v-stream-node">
+            <div class="v-node-circle">01</div>
+            <div class="v-node-line"></div>
+          </div>
+          <div class="v-stream-content">
+            <div class="v-step-body">
+              <span class="v-step-phase">FASE 01 : IDENTITAS STRUKTURAL</span>
+              <h3 class="v-step-title">Pilih Template & Setup Identitas</h3>
+              <p class="v-step-desc">
+                Pemilihan template sesuai spesialisasi industri (Interior / Arsitektur / Sipil EPC) dan penyesuaian
+                skema warna korporasi perusahaan Anda secara presisi.
+              </p>
+              <div class="flow-deliverables-group">
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> Blueprint Grid Setup</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> Typography & Identity Sync</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> 3 Hari Setup Turnaround</span>
+              </div>
+            </div>
+            <div class="flow-hud-box">
+              <div class="flow-hud-header">
+                <span>ESTIMASI PROGRES</span>
+                <span>STATUS: READY</span>
+              </div>
+              <div class="flow-hud-value">3 HARI KERJA</div>
+              <div class="flow-hud-badge"><i data-lucide="check-circle-2"></i> 100% READY TO LAUNCH</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 02 -->
+        <div class="v-stream-step scroll-reveal">
+          <div class="v-stream-node">
+            <div class="v-node-circle">02</div>
+            <div class="v-node-line"></div>
+          </div>
+          <div class="v-stream-content">
+            <div class="v-step-body">
+              <span class="v-step-phase">FASE 02 : ASSET & KREDIBILITAS</span>
+              <h3 class="v-step-title">Kurasi Portofolio Proyek & Sertifikasi</h3>
+              <p class="v-step-desc">
+                Pengunggahan foto proyek resolusi tinggi, integrasi denah CAD, modul sertifikasi SMK3, ISO 9001, dan
+                perizinan konstruksi resmi untuk membangun reputasi.
+              </p>
+              <div class="flow-deliverables-group">
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> 4K Fast Asset CDN Stream</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> ISO 9001 & SMK3 Verified</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> DED CAD Integration</span>
+              </div>
+            </div>
+            <div class="flow-hud-box">
+              <div class="flow-hud-header">
+                <span>KECEPATAN LOAD</span>
+                <span>SECURITY: VERIFIED</span>
+              </div>
+              <div class="flow-hud-value">&lt; 1.5s SPEED</div>
+              <div class="flow-hud-badge"><i data-lucide="shield-check"></i> HIGH TRUST VERIFIED</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 03 -->
+        <div class="v-stream-step scroll-reveal">
+          <div class="v-stream-node">
+            <div class="v-node-circle">03</div>
+            <div class="v-node-line"></div>
+          </div>
+          <div class="v-stream-content">
+            <div class="v-step-body">
+              <span class="v-step-phase">FASE 03 : CONVERSION & TENDER</span>
+              <h3 class="v-step-title">Aktivasi Tender RFP & Kalkulator RAB</h3>
+              <p class="v-step-desc">
+                Pemasangan formulir tender terstruktur, direct WhatsApp konsultan, dan widget kalkulator penaksir
+                anggaran cepat untuk meningkatkan konversi calon klien properti.
+              </p>
+              <div class="flow-deliverables-group">
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> Live RAB m² Estimator</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> Online RFP Portal</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> Direct Webhook Lead Sync</span>
+              </div>
+            </div>
+            <div class="flow-hud-box">
+              <div class="flow-hud-header">
+                <span>INQUIRY ENGINE</span>
+                <span>SYNC: REALTIME</span>
+              </div>
+              <div class="flow-hud-value">4X INQUIRY</div>
+              <div class="flow-hud-badge"><i data-lucide="zap"></i> CONVERSION ACTIVE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 04 -->
+        <div class="v-stream-step scroll-reveal">
+          <div class="v-stream-node">
+            <div class="v-node-circle">04</div>
+          </div>
+          <div class="v-stream-content">
+            <div class="v-step-body">
+              <span class="v-step-phase">FASE 04 : EXPANSION & SCALE</span>
+              <h3 class="v-step-title">Dominasi Pasar & Menangkan Tender</h3>
+              <p class="v-step-desc">
+                Website live dengan performa kilat, SEO konstruksi lokal nomor 1, siap dipakai memenangkan tender proyek
+                properti bernilai puluhan miliar rupiah.
+              </p>
+              <div class="flow-deliverables-group">
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> 40+ Miliar Tender Won</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> 99.9% Speed Performance</span>
+                <span class="flow-deliv-tag"><i data-lucide="check"></i> Local SEO Architecture</span>
+              </div>
+            </div>
+            <div class="flow-hud-box">
+              <div class="flow-hud-header">
+                <span>MARKET POSITION</span>
+                <span>SEO: #1 RANK</span>
+              </div>
+              <div class="flow-hud-value">Rp 40+ M</div>
+              <div class="flow-hud-badge"><i data-lucide="award"></i> INDUSTRY LEADER</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 06: MENGAPA CONTRACTOR WEB? (Diferensiasi Industri)
+       ========================================================================== -->
+  <section id="why-us" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="why.tag">Keunggulan Industri Konstruksi</div>
+        <h2 class="section-title" data-i18n="why.title">
+          Bukan Sekadar Web Developer. <em>Kami Memahami Bahasa Konstruksi.</em>
+        </h2>
+        <p class="section-desc" data-i18n="why.desc">
+          Diferensiasi fundamental antara template spesifik industri konstruksi dengan pembuatan website umum.
+        </p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card scroll-reveal scroll-reveal-delay-1">
+          <div class="why-icon">
+            <i data-lucide="book-open"></i>
+          </div>
+          <div class="why-card-content">
+            <h3 data-i18n="why.c1_title">Paham Terminologi Teknik & Konstruksi</h3>
+            <p data-i18n="why.c1_desc">
+              Kami mengerti perbedaan fit-out, MEP, bore pile, struktur baja WF, hingga kebutuhan gambar kerja DED dan
+              BIM.
+            </p>
+          </div>
+        </div>
+
+        <div class="why-card scroll-reveal scroll-reveal-delay-2">
+          <div class="why-icon">
+            <i data-lucide="zap"></i>
+          </div>
+          <div class="why-card-content">
+            <h3 data-i18n="why.c2_title">Optimasi Aset Render 4K Kilat</h3>
+            <p data-i18n="why.c2_desc">
+              Render arsitektur resolusi tinggi dimuat dalam waktu di bawah 1,5 detik berkat sistem kompresi visual
+              cerdas.
+            </p>
+          </div>
+        </div>
+
+        <div class="why-card scroll-reveal scroll-reveal-delay-1">
+          <div class="why-icon">
+            <i data-lucide="cpu"></i>
+          </div>
+          <div class="why-card-content">
+            <h3 data-i18n="why.c3_title">Engine Visual 3D Interaktif</h3>
+            <p data-i18n="why.c3_desc">
+              Transisi dinamis dan model struktur memberikan sentuhan modern yang memukau klien sejak detik pertama.
+            </p>
+          </div>
+        </div>
+
+        <div class="why-card scroll-reveal scroll-reveal-delay-2">
+          <div class="why-icon">
+            <i data-lucide="file-check-2"></i>
+          </div>
+          <div class="why-card-content">
+            <h3 data-i18n="why.c4_title">Struktur Khusus Dokumen Tender</h3>
+            <p data-i18n="why.c4_desc">
+              Formulir penawaran yang dirancang sesuai format baku kebutuhan procurement, quantity surveyor, dan arsitek
+              utama.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 07: FEATURE LIBRARY (Koleksi Fitur Spesialis)
+       ========================================================================== -->
+  <section id="fitur" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="feat.tag">Fitur & Modul Spesialis</div>
+        <h2 class="section-title" data-i18n="feat.title">
+          Kumpulan Modul Arsitektur & Konstruksi <em>Siap Pakai</em>
+        </h2>
+        <p class="section-desc" data-i18n="feat.desc">
+          Modul fungsional siap pasang yang dapat diintegrasikan langsung ke dalam template website Anda.
+        </p>
+      </div>
+
+      <div class="features-library-grid">
+
+        <!-- F1: Interactive 360 Virtual Tour -->
+        <div class="feature-box scroll-reveal scroll-reveal-delay-1">
+          <div class="feature-icon-bar">
+            <div class="feature-icon-circle"><i data-lucide="rotate-3d"></i></div>
+            <span class="feature-status-tag">READY MOD</span>
+          </div>
+          <h3 data-i18n="feat.f1_title">Interactive 360° Room Tour</h3>
+          <p data-i18n="feat.f1_desc">Eksplorasi panorama 360° ruang interior realistis dengan hotspot inspeksi material
+            dan struktur.</p>
+          <a href="#widgets" class="feature-preview-trigger" data-target-tab="widget-tour">
+            <span>Uji Coba Live Sandbox</span> <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <!-- F2: Split Before-After Slider -->
+        <div class="feature-box scroll-reveal scroll-reveal-delay-2">
+          <div class="feature-icon-bar">
+            <div class="feature-icon-circle"><i data-lucide="split"></i></div>
+            <span class="feature-status-tag">READY MOD</span>
+          </div>
+          <h3 data-i18n="feat.f2_title">Split Before-After Slider</h3>
+          <p data-i18n="feat.f2_desc">Bandingkan kondisi awal lahan/ruangan vs hasil finishing dengan swipe divider
+            ultra-halus.</p>
+          <a href="#widgets" class="feature-preview-trigger" data-target-tab="widget-ba">
+            <span>Uji Coba Live Sandbox</span> <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <!-- F3: Construction RFP Portal -->
+        <div class="feature-box scroll-reveal scroll-reveal-delay-3">
+          <div class="feature-icon-bar">
+            <div class="feature-icon-circle"><i data-lucide="clipboard-list"></i></div>
+            <span class="feature-status-tag">READY MOD</span>
+          </div>
+          <h3 data-i18n="feat.f3_title">Construction RFP Tender Portal</h3>
+          <p data-i18n="feat.f3_desc">Formulir penerimaan dokumen tender dengan kemampuan upload file CAD, RAB, dan TOR
+            proyek.</p>
+          <button class="feature-preview-trigger" data-open-modal="modal-tender-rfp">
+            <span>Buka Form Tender</span> <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          </button>
+        </div>
+
+        <!-- F4: Material Swatches -->
+        <div class="feature-box scroll-reveal scroll-reveal-delay-1">
+          <div class="feature-icon-bar">
+            <div class="feature-icon-circle"><i data-lucide="boxes"></i></div>
+            <span class="feature-status-tag">READY MOD</span>
+          </div>
+          <h3 data-i18n="feat.f4_title">Kalkulator Biaya m² (RAB)</h3>
+          <p data-i18n="feat.f4_desc">Kalkulator estimasi anggaran instan berbasis luas m², lantai, dan mutu material
+            proyek.</p>
+          <a href="#widgets" class="feature-preview-trigger" data-target-tab="widget-calc">
+            <span>Uji Coba Live Sandbox</span> <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <!-- F5: Safety Badges -->
+        <div class="feature-box scroll-reveal scroll-reveal-delay-2">
+          <div class="feature-icon-bar">
+            <div class="feature-icon-circle"><i data-lucide="cloud-sun"></i></div>
+            <span class="feature-status-tag">READY MOD</span>
+          </div>
+          <h3 data-i18n="feat.f5_title">Site Weather & K3 Crane Safety</h3>
+          <p data-i18n="feat.f5_desc">Radar peringatan hembusan angin dan batas aman pengoperasian tower crane di lokasi
+            site proyek.</p>
+          <a href="#widgets" class="feature-preview-trigger" data-target-tab="widget-weather">
+            <span>Uji Coba Live Sandbox</span> <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+        <!-- F6: Milestone Log -->
+        <div class="feature-box scroll-reveal scroll-reveal-delay-3">
+          <div class="feature-icon-bar">
+            <div class="feature-icon-circle"><i data-lucide="truck"></i></div>
+            <span class="feature-status-tag">READY MOD</span>
+          </div>
+          <h3 data-i18n="feat.f6_title">Matriks Armada Alat Berat</h3>
+          <p data-i18n="feat.f6_desc">Katalog kesiapan armada dan alat berat dengan fitur booking mobilisasi unit ke
+            site tender.</p>
+          <a href="#widgets" class="feature-preview-trigger" data-target-tab="widget-fleet">
+            <span>Uji Coba Live Sandbox</span> <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 08: CONTRACTOR WIDGET LIBRARY (Fully Functional Interactive Live Demos)
+       ========================================================================== -->
+  <section id="widgets" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="wid.tag">Smart Widget Interaktif</div>
+        <h2 class="section-title" data-i18n="wid.title">
+          Koleksi Widget Interaktif <em>Siap Pasang</em>
+        </h2>
+        <p class="section-desc" data-i18n="wid.desc">
+          Uji coba langsung widget cerdas yang meningkatkan durasi interaksi pengunjung dan konversi penawaran.
+        </p>
+      </div>
+
+      <!-- Widget Tab Navigation (Rounded Pills with Modern Lucide Icons) -->
+      <div class="widget-tabs-nav">
+        <button class="widget-tab-btn active" data-target="widget-calc">
+          <i data-lucide="calculator"></i> <span data-i18n="wid.tab_calc">Kalkulator Biaya m²</span>
+        </button>
+        <button class="widget-tab-btn" data-target="widget-ba">
+          <i data-lucide="split"></i> <span data-i18n="wid.tab_ba">Slider Before & After</span>
+        </button>
+        <button class="widget-tab-btn" data-target="widget-weather">
+          <i data-lucide="cloud-sun"></i> <span data-i18n="wid.tab_weather">Site Weather & K3</span>
+        </button>
+        <button class="widget-tab-btn" data-target="widget-tour">
+          <i data-lucide="box"></i> <span data-i18n="wid.tab_tour">3D Model Konstruksi & BIM</span>
+        </button>
+        <button class="widget-tab-btn" data-target="widget-fleet">
+          <i data-lucide="truck"></i> <span data-i18n="wid.tab_fleet">Matriks Alat Berat</span>
+        </button>
+      </div>
+
+      <!-- Widget Panes Container -->
+      <div class="widgets-container">
+
+        <!-- PANE 1: Real Functional Cost Estimator Calculator -->
+        <div class="widget-pane active" id="widget-calc">
+          <div class="calculator-layout">
+
+            <div class="calc-controls">
+              <!-- Luas Bangunan with Slider + Direct Number Box Sync -->
+              <div class="calc-input-group">
+                <label class="calc-label" for="calc-area-slider">
+                  <span>Luas Bangunan Proyek</span>
+                  <span style="font-size: 0.8rem; color: var(--accent-cyan); font-family: var(--font-mono);">Ketik angka
+                    / geser slider:</span>
+                </label>
+                <div class="calc-input-row-sync">
+                  <input type="range" min="30" max="3000" step="10" value="250" class="calc-range-slider"
+                    id="calc-area-slider">
+                  <div style="display: flex; align-items: center; gap: 0.35rem;">
+                    <input type="number" min="30" max="5000" step="5" value="250" class="calc-number-input"
+                      id="calc-area-number">
+                    <span
+                      style="font-family: var(--font-mono); font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">m²</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kategori Bangunan & Jumlah Lantai Grid -->
+              <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1rem; margin-bottom: 1.25rem;">
+                <div class="calc-input-group" style="margin-bottom: 0;">
+                  <label class="calc-label" for="calc-building-type"><span>Kategori Bangunan</span></label>
+                  <select class="form-select" id="calc-building-type">
+                    <option value="1.0">Residensial / Villa Mewah (1.0x)</option>
+                    <option value="1.15">Gedung Komersial & Kantor (1.15x)</option>
+                    <option value="1.25">Bangunan Sipil & Industrial (1.25x)</option>
+                    <option value="1.40">Rumah Sakit / Hotel Bintang 5 (1.40x)</option>
+                  </select>
+                </div>
+
+                <div class="calc-input-group" style="margin-bottom: 0;">
+                  <label class="calc-label" for="calc-floors-select"><span>Jumlah Lantai</span></label>
+                  <select class="form-select" id="calc-floors-select">
+                    <option value="1.0" data-floors="1">1 Lantai</option>
+                    <option value="1.12" data-floors="2" selected>2 Lantai (+12%)</option>
+                    <option value="1.25" data-floors="4">3 - 4 Lantai (+25%)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Lokasi / Wilayah Proyek Indeks -->
+              <div class="calc-input-group">
+                <label class="calc-label" for="calc-location-select"><span>Wilayah / Lokasi Konstruksi</span></label>
+                <select class="form-select" id="calc-location-select">
+                  <option value="1.0" selected>Jabodetabek (Indeks Standar 1.0)</option>
+                  <option value="0.95">Surabaya & Jawa Timur (Indeks 0.95)</option>
+                  <option value="1.08">Bali & Nusa Tenggara (Indeks 1.08)</option>
+                  <option value="1.22">IKN Nusantara / Luar Jawa (Indeks 1.22)</option>
+                </select>
+              </div>
+
+              <!-- Tingkat Kualitas Material -->
+              <div class="calc-input-group">
+                <label class="calc-label"><span>Spesifikasi Mutu Material</span></label>
+                <div class="material-tier-options">
+                  <button class="tier-option-btn" data-rate="4500000" data-name="Standard">
+                    <span class="tier-name">Standard</span>
+                    <span class="tier-rate">Rp 4.5 Jt/m²</span>
+                  </button>
+                  <button class="tier-option-btn active" data-rate="7800000" data-name="Luxury Architectural">
+                    <span class="tier-name">Luxury</span>
+                    <span class="tier-rate">Rp 7.8 Jt/m²</span>
+                  </button>
+                  <button class="tier-option-btn" data-rate="12500000" data-name="Ultra Bespoke">
+                    <span class="tier-name">Bespoke</span>
+                    <span class="tier-rate">Rp 12.5 Jt/m²</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Crystal-Clear High-Contrast Result Card -->
+            <div class="calc-result-card">
+              <div>
+                <div class="calc-title-hud">ESTIMASI ANGGARAN KASAR (RAB AWAL)</div>
+                <div class="calc-result-total" id="calc-total-amount">Rp 2.18 Miliar</div>
+                <div class="calc-est-time" id="calc-est-time">± 5 Bulan Kerja (Estimasi Jadwal Konstruksi)</div>
+
+                <div class="calc-breakdown-list">
+                  <div class="calc-breakdown-item">
+                    <span>Pekerjaan Struktur & Pondasi:</span>
+                    <strong id="calc-struct-val">Rp 982.8 Jt (45%)</strong>
+                  </div>
+                  <div class="calc-breakdown-item">
+                    <span>Pekerjaan Arsitektur & Finishing:</span>
+                    <strong id="calc-finish-val">Rp 655.2 Jt (30%)</strong>
+                  </div>
+                  <div class="calc-breakdown-item">
+                    <span>Pekerjaan MEP & Elektrikal:</span>
+                    <strong id="calc-mep-val">Rp 546.0 Jt (25%)</strong>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn btn-cyan btn-block" style="margin-top: 1.75rem;" data-open-modal="modal-tender-rfp">
+                <i data-lucide="file-spreadsheet"></i> Dapatkan Penawaran Detail & RAB Resmi
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PANE 2: Before & After Split Slider with Real Construction Photos -->
+        <div class="widget-pane" id="widget-ba">
+          <div class="ba-project-switcher">
+            <button class="ba-project-btn active" data-project="villa"> Villa Tropis Canggu Bali</button>
+            <button class="ba-project-btn" data-project="office"> Office Penthouse SCBD</button>
+            <button class="ba-project-btn" data-project="resto"> Bistro & Resto Modern</button>
+          </div>
+
+          <div class="ba-slider-container">
+            <div class="ba-image before">
+              <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1200&q=80"
+                alt="Kondisi Awal Konstruksi Raw Concrete" crossorigin="anonymous">
+            </div>
+            <div class="ba-image after">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+                alt="Hasil Finishing Arsitektur Luxury" crossorigin="anonymous">
+            </div>
+            <div class="ba-handle">
+              <div class="ba-handle-btn">
+                <i data-lucide="move-horizontal" style="width: 20px; height: 20px;"></i>
+              </div>
+            </div>
+            <div class="ba-label left">BEFORE: GALIAN & STRUKTUR COR</div>
+            <div class="ba-label right">AFTER: VILLA LUXURY FINISHED</div>
+          </div>
+
+          <!-- Description & Technical Transformation Scope -->
+          <div class="ba-project-info-card">
+            <div>
+              <div class="ba-info-title" id="ba-info-title">Villa Tropis Sanctuary 2 Lantai - Canggu Bali</div>
+              <div class="ba-info-desc" id="ba-info-desc">
+                Transformasi dari lahan kosong berkontur dan pengecoran pondasi cakar ayam bertulang menjadi villa
+                tropis modern berfasad kayu ulin dengan infinity pool.
+              </div>
+            </div>
+            <div class="ba-info-chips">
+              <span class="ba-chip" id="ba-chip-duration"> Durasi: 6 Bulan</span>
+              <span class="ba-chip" id="ba-chip-volume"> Volume Beton: 340 m³</span>
+              <span class="ba-chip" id="ba-chip-value"> Nilai Kontrak: Rp 3.8 Miliar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 3: Site Weather & Crane Safety Gauge with Extreme Simulation -->
+        <div class="widget-pane" id="widget-weather">
+          <div class="weather-widget-grid">
+            <div class="weather-status-card">
+              <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--text-muted);">RADAR KESELAMATAN
+                TOWER CRANE & SMK3</div>
+              <div class="crane-safety-badge" id="weather-crane-status">
+                <i data-lucide="check-circle"></i> ✓ AMAN BEROPERASI (Level Hijau)
+              </div>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+                Batas kecepatan angin < 35 km/h memenuhi standar baku pengangkatan beban alat berat (Permenaker K3).
+                  </p>
+                  <button class="btn btn-secondary btn-sm btn-block" id="test-storm-sim-btn"
+                    style="margin-top: 1.25rem;">
+                    <i data-lucide="zap"></i> Uji Coba Simulasi Badai Angin
+                  </button>
+            </div>
+
+            <div class="weather-details-box">
+              <div
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+                <label style="font-size: 0.9rem; font-weight: 600;" for="weather-site-select">Pilih Lokasi Site
+                  Konstruksi:</label>
+                <select class="form-select" id="weather-site-select"
+                  style="width: auto; min-width: 240px; padding: 0.45rem 1rem;">
+                  <option value="jakarta">Proyek Mega-Tower Jakarta CBD</option>
+                  <option value="ikn">Proyek Istana Garuda IKN Nusantara</option>
+                  <option value="surabaya">Proyek Jembatan & Dermaga Surabaya</option>
+                  <option value="bali">Proyek Luxury Cliff Resort Bali</option>
+                </select>
+              </div>
+
+              <div class="weather-stats-grid">
+                <div class="weather-stat-box">
+                  <span class="title">Suhu Site Proyek</span>
+                  <span class="val" id="weather-temp-val">31°C</span>
+                </div>
+                <div class="weather-stat-box">
+                  <span class="title">Kecepatan Angin</span>
+                  <span class="val" id="weather-wind-val">14 km/h</span>
+                </div>
+                <div class="weather-stat-box">
+                  <span class="title">Kelembaban Udara</span>
+                  <span class="val" id="weather-humid-val">72%</span>
+                </div>
+                <div class="weather-stat-box">
+                  <span class="title">Curah Hujan Terpantau</span>
+                  <span class="val" id="weather-rain-val">0 mm (Cerah)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 4: 3D Model Konstruksi & BIM Structural Layer Explorer -->
+        <div class="widget-pane" id="widget-tour">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+            <div style="font-size: 0.85rem; color: var(--text-secondary);">
+              <strong>Pilih Lapisan / Layer Konstruksi:</strong>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <button class="ba-project-btn active bim-layer-btn" data-layer="rebar">
+                🔹 01: Struktur Beton & Rebar
+              </button>
+              <button class="ba-project-btn bim-layer-btn" data-layer="mep">
+                🔸 02: Pipa MEP & Elektrikal
+              </button>
+              <button class="ba-project-btn bim-layer-btn" data-layer="finishing">
+                ✨ 03: Fasad Arsitektur & Kaca
+              </button>
+              <button class="ba-project-btn bim-layer-btn" data-layer="all">
+                🌐 04: Full Integrated BIM
+              </button>
+            </div>
+          </div>
+
+          <div class="bim-viewer-container" id="bim-viewer-container">
+            <!-- 3D WebGL Canvas for Genuine Construction BIM -->
+            <canvas id="bim-3d-canvas" class="bim-3d-canvas"></canvas>
+
+            <!-- BIM HUD Status Badge -->
+            <div class="bim-hud-badge">
+              <span class="bim-pulse-dot"></span>
+              <span id="bim-hud-layer-text">BIM LOD 350 • STRUKTUR BETON & REBAR</span>
+            </div>
+
+            <!-- Viewport 3D Controls -->
+            <div class="bim-controls-bar">
+              <button type="button" class="bim-ctrl-btn active" id="bim-btn-autorotate" title="Putar Otomatis (Auto Rotate)">
+                <i data-lucide="rotate-cw"></i>
+              </button>
+              <button type="button" class="bim-ctrl-btn" id="bim-btn-wireframe" title="Mode Rangka / Wireframe X-Ray">
+                <i data-lucide="scan"></i>
+              </button>
+              <button type="button" class="bim-ctrl-btn" id="bim-btn-reset" title="Reset Sudut Isometrik">
+                <i data-lucide="compass"></i>
+              </button>
+              <button type="button" class="bim-ctrl-btn" id="bim-btn-zoomin" title="Perbesar (Zoom In)">
+                <i data-lucide="zoom-in"></i>
+              </button>
+              <button type="button" class="bim-ctrl-btn" id="bim-btn-zoomout" title="Perkecil (Zoom Out)">
+                <i data-lucide="zoom-out"></i>
+              </button>
+            </div>
+
+            <!-- Bottom Interaction Prompt -->
+            <div class="bim-interaction-hint">
+              <i data-lucide="move-3d"></i>
+              <span>Arahkan kursor / drag mouse untuk memutar 3D BIM • Scroll untuk zoom</span>
+            </div>
+
+            <!-- Hotspot Pins (Dynamically Tracked in 3D) -->
+            <button class="bim-hotspot-pin" id="bim-pin-1" style="top: 38%; left: 32%;"
+              data-pin="1"
+              data-title="Pin 01: Sambungan Kolom Baja WF & Tulangan Rebar D25"
+              data-desc="Profil baja Wide Flange ASTM A36 dengan sambungan plat simpul tebal 16mm dan pembesian rebar ulir Grade 60 (SNI)."
+              data-std="STANDAR: SNI 1729:2020 & SNI 2847:2019 (Spesifikasi Gedung Baja & Beton)">
+              01
+            </button>
+            <button class="bim-hotspot-pin" id="bim-pin-2" style="top: 54%; left: 58%;"
+              data-pin="2"
+              data-title="Pin 02: Plat Lantai Composite Bondek & Wiremesh M8"
+              data-desc="Pengecoran plat lantai composite deck bondek galvanis tebal 0.75mm dengan wiremesh M8 dua lapis mutu K-350."
+              data-std="STANDAR: SNI 2847:2019 (Persyaratan Beton Struktural)">
+              02
+            </button>
+            <button class="bim-hotspot-pin" id="bim-pin-3" style="top: 28%; left: 74%;"
+              data-pin="3"
+              data-title="Pin 03: Jalur Main Ducting HVAC & Pipa Hydrant NFPA"
+              data-desc="Ducting galvanized spiral 0.8mm dengan insulasi glasswool 25mm serta pipa hydrant red pipe ASTM A53 Schedule 40."
+              data-std="STANDAR: NFPA 13 & SNI 03-6575 (Tata Kelola MEP Gedung)">
+              03
+            </button>
+          </div>
+
+          <!-- Hotspot Spec Information Box -->
+          <div
+            style="margin-top: 1.25rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div
+                style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);"
+                id="bim-spec-title">
+                Layer 01: Struktur Beton Bertulang & Pembesian Rebar
+              </div>
+              <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;" id="bim-spec-desc">
+                Kolom baja tulangan ulir D19-D25 dengan sengkang D10-100mm, mutu beton ready-mix K-350 slump 12±2 cm
+                tahan gempa zona 4.
+              </div>
+              <div
+                style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-cyan); margin-top: 0.4rem;"
+                id="bim-spec-standard">
+                STANDAR: SNI 2847:2019 (Beton Struktural Gedung)
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" data-open-modal="modal-spec-sheet">
+              <i data-lucide="file-code-2"></i> Inspect Dokumen CAD
+            </button>
+          </div>
+        </div>
+
+        <!-- PANE 5: Equipment Fleet Capacity Matrix with Filter & Action Request -->
+        <div class="widget-pane" id="widget-fleet">
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h4 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.25rem;">Matriks Armada &
+                Alat Berat Proyek</h4>
+              <p style="font-size: 0.82rem; color: var(--text-secondary);">Kapasitas angkat, status sewa, dan kesiapan
+                mobilisasi alat ke lokasi tender Anda.</p>
+            </div>
+            <input type="text" id="fleet-search-input" placeholder="Cari nama alat / kode unit..." class="form-input"
+              style="max-width: 280px; padding: 0.5rem 1rem;">
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div class="fleet-filters-bar">
+            <button class="fleet-filter-btn active" data-cat="all">Semua Armada</button>
+            <button class="fleet-filter-btn" data-cat="crane">Tower & Mobile Crane</button>
+            <button class="fleet-filter-btn" data-cat="excavator">Excavator & Dozer</button>
+            <button class="fleet-filter-btn" data-cat="concrete">Concrete Pump</button>
+          </div>
+
+          <div class="fleet-table-wrapper">
+            <table class="fleet-table">
+              <thead>
+                <tr>
+                  <th>KODE</th>
+                  <th>NAMA ARMADA</th>
+                  <th>KAPASITAS BEBAN</th>
+                  <th>LOKASI UNIT</th>
+                  <th>STATUS KETERSEDIAAN</th>
+                  <th>AKSI</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-cat="crane">
+                  <td><code style="color: var(--accent-cyan);">TC-01</code></td>
+                  <td><strong>Potain Tower Crane MR 418</strong></td>
+                  <td>24 Ton / Jangkauan 60m</td>
+                  <td>Site Proyek Jakarta Pusat</td>
+                  <td><span class="status-pill-ready">READY FOR DEPLOYMENT</span></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="TC-01" data-unit-name="Potain Tower Crane MR 418" data-capacity="24 Ton / Jangkauan 60m" data-location="Site Proyek Jakarta Pusat" data-status="READY FOR DEPLOYMENT">⚡ Request Mobilisasi</button></td>
+                </tr>
+                <tr data-cat="excavator">
+                  <td><code style="color: var(--accent-cyan);">EX-04</code></td>
+                  <td><strong>Komatsu PC200-8M0 Excavator</strong></td>
+                  <td>0.93 m³ Bucket / 20 Ton</td>
+                  <td>Workshop Cikarang</td>
+                  <td><span class="status-pill-ready">READY FOR DEPLOYMENT</span></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="EX-04" data-unit-name="Komatsu PC200-8M0 Excavator" data-capacity="0.93 m³ Bucket / 20 Ton" data-location="Workshop Cikarang" data-status="READY FOR DEPLOYMENT">⚡ Request Mobilisasi</button></td>
+                </tr>
+                <tr data-cat="concrete">
+                  <td><code style="color: var(--accent-cyan);">CP-02</code></td>
+                  <td><strong>Schwing Concrete Pump Truck</strong></td>
+                  <td>Boom 42m / 160 m³/h</td>
+                  <td>Site Proyek Surabaya</td>
+                  <td><span class="status-pill-deployed">ON ACTIVE PROJECT</span></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="CP-02" data-unit-name="Schwing Concrete Pump Truck" data-capacity="Boom 42m / 160 m³/h" data-location="Site Proyek Surabaya" data-status="ON ACTIVE PROJECT">⚡ Request Booking</button></td>
+                </tr>
+                <tr data-cat="crane">
+                  <td><code style="color: var(--accent-cyan);">MC-07</code></td>
+                  <td><strong>Tadano GR-800EX Mobile Crane</strong></td>
+                  <td>80 Ton Rough Terrain</td>
+                  <td>Site IKN Kalimantan</td>
+                  <td><span class="status-pill-deployed">ON ACTIVE PROJECT</span></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="MC-07" data-unit-name="Tadano GR-800EX Mobile Crane" data-capacity="80 Ton Rough Terrain" data-location="Site IKN Kalimantan" data-status="ON ACTIVE PROJECT">⚡ Request Booking</button></td>
+                </tr>
+                <tr data-cat="excavator">
+                  <td><code style="color: var(--accent-cyan);">DZ-02</code></td>
+                  <td><strong>Caterpillar D6R Bulldozer</strong></td>
+                  <td>Engine 185 HP / Blade 3.8m³</td>
+                  <td>Workshop Gresik</td>
+                  <td><span class="status-pill-ready">READY FOR DEPLOYMENT</span></td>
+                  <td><button class="btn-mobilize-action" data-unit-code="DZ-02" data-unit-name="Caterpillar D6R Bulldozer" data-capacity="Engine 185 HP / Blade 3.8m³" data-location="Workshop Gresik" data-status="READY FOR DEPLOYMENT">⚡ Request Mobilisasi</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 09: PORTOFOLIO SHOWCASE (Live Template Demos)
+       ========================================================================== -->
+  <section id="portofolio" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="port.tag">Portofolio Showcase & Demo</div>
+        <h2 class="section-title" data-i18n="port.title">
+          Koleksi Demo Template <em>Siap Pakai</em>
+        </h2>
+        <p class="section-desc" data-i18n="port.desc">
+          Pilih dari ragam template arsitektur & konstruksi dengan performa prima di desktop maupun smartphone.
+        </p>
+      </div>
+
+      <!-- Filter Buttons (Pill) -->
+      <div class="portfolio-filter-row">
+        <button class="filter-pill active" data-cat="all" data-i18n="port.filter_all">Semua</button>
+        <button class="filter-pill" data-cat="res" data-i18n="port.filter_res">Residensial Mewah</button>
+        <button class="filter-pill" data-cat="com" data-i18n="port.filter_com">Komersial & Kantor</button>
+        <button class="filter-pill" data-cat="civ" data-i18n="port.filter_civ">Infrastruktur Sipil</button>
+        <button class="filter-pill" data-cat="hosp" data-i18n="port.filter_hosp">F&B Hospitality</button>
+      </div>
+
+      <!-- Templates Grid -->
+      <div class="portfolio-grid">
+
+        <!-- Card 1 -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="res">
+          <div class="template-preview-img-box">
+            <span class="template-badge">LUXURY RESIDENCE</span>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+              alt="Aura Penthouse Luxury Villa" class="template-img">
+          </div>
+          <div class="template-content">
+            <h3 class="template-title">Aura Penthouse & Sanctuary</h3>
+            <p class="template-desc">Template eksklusif untuk biro arsitektur hunian tropis modern dan desainer interior
+              penthouse high-end.</p>
+            <div class="template-actions">
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
+              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="com">
+          <div class="template-preview-img-box">
+            <span class="template-badge">COMMERCIAL HQ</span>
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+              alt="Nexus Corporate Tower" class="template-img">
+          </div>
+          <div class="template-content">
+            <h3 class="template-title">Nexus Tower & Commercial Hub</h3>
+            <p class="template-desc">Dirancang untuk kontraktor gedung perkantoran, showroom komersial, dan
+              masterplanning retail modern.</p>
+            <div class="template-actions">
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
+              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="civ">
+          <div class="template-preview-img-box">
+            <span class="template-badge">CIVIL & EPC</span>
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80"
+              alt="Titan Heavy Infrastructure" class="template-img">
+          </div>
+          <div class="template-content">
+            <h3 class="template-title">Titan Heavy Infrastructure</h3>
+            <p class="template-desc">Template presisi tinggi untuk kontraktor jembatan, tol, bendungan, dan proyek
+              tender EPC skala nasional.</p>
+            <div class="template-actions">
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
+              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="hosp">
+          <div class="template-preview-img-box">
+            <span class="template-badge">F&B HOSPITALITY</span>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+              alt="Komorebi Resort & Bistro" class="template-img">
+          </div>
+          <div class="template-content">
+            <h3 class="template-title">Komorebi Resort & Boutique Cafe</h3>
+            <p class="template-desc">Sangat cocok untuk biro interior fit-out restoran bintang lima, lounge hotel, dan
+              kafe tematik kontemporer.</p>
+            <div class="template-actions">
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
+              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="res">
+          <div class="template-preview-img-box">
+            <span class="template-badge">BRUTALIST VILLA</span>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+              alt="Brutalist Pavilion Studio" class="template-img">
+          </div>
+          <div class="template-content">
+            <h3 class="template-title">Brutalist Pavilion Studio</h3>
+            <p class="template-desc">Eksplorasi beton ekspos, geometri presisi, dan denah arsitektur terbuka untuk karya
+              arsitektur pemenang sayembara.</p>
+            <div class="template-actions">
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
+              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="com">
+          <div class="template-preview-img-box">
+            <span class="template-badge">INDUSTRIAL TECH</span>
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
+              alt="Apex Logistics Park" class="template-img">
+          </div>
+          <div class="template-content">
+            <h3 class="template-title">Apex Logistics & Tech Park</h3>
+            <p class="template-desc">Template terstruktur untuk kontraktor gudang otomatis, pabrik manufaktur, dan
+              fasilitas data center.</p>
+            <div class="template-actions">
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
+              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
+              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 10: FORM DOWNLOAD BROSUR & PANDUAN LENGKAP 2026 (Responsive)
+       ========================================================================== -->
+  <section id="kontak" class="scroll-reveal">
+    <div class="container">
+      <div class="brochure-lead-container">
+
+        <div class="brochure-info">
+          <div class="section-tag" data-i18n="brochure.tag">Unduh Panduan Strategi 2026</div>
+          <h3 data-i18n="brochure.title">
+            Panduan Strategi Digital Kontraktor 2026
+          </h3>
+          <p data-i18n="brochure.desc">
+            Tinggalkan kontak Anda dan dapatkan brosur lengkap, spesifikasi fitur, serta panduan memenangkan tender
+            konstruksi melalui website profesional.
+          </p>
+
+          <ul class="brochure-perks-list">
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="brochure.p1">Brosur lengkap 6 template spesialis
+                kontraktor</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="brochure.p2">Tabel daftar harga & matriks
+                perbandingan fitur</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="brochure.p3">Panduan memilih struktur website
+                arsitektur & sipil</span></li>
+            <li><i data-lucide="check-circle-2"></i> <span data-i18n="brochure.p4">Case study dari 100+ proyek industri
+                konstruksi</span></li>
+          </ul>
+        </div>
+
+        <form class="brochure-form" id="brochure-lead-form">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Nama Lengkap *</label>
+              <input type="text" class="form-input" required placeholder="Ir. John Doe">
+            </div>
+            <div class="form-group">
+              <label class="form-label">No. WhatsApp *</label>
+              <input type="tel" class="form-input" required placeholder="0812-3456-7890">
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Email Perusahaan *</label>
+              <input type="email" class="form-input" required placeholder="name@contractor-firm.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nama Perusahaan</label>
+              <input type="text" class="form-input" placeholder="PT Mahakarya Konstruksi">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Jenis Spesialisasi Bisnis *</label>
+            <select class="form-select" required>
+              <option value="">Pilih Spesialisasi Perusahaan...</option>
+              <option value="interior">Desain Interior & Fit-Out Ruang</option>
+              <option value="arch">Biro Arsitektur & Masterplanning</option>
+              <option value="civil">Kontraktor Sipil & Heavy EPC</option>
+              <option value="developer">Property Developer / Owner Proyek</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Kebutuhan Website Spesifik</label>
+            <textarea class="form-textarea" rows="2"
+              placeholder="Ceritakan target proyek atau kebutuhan website Anda..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-brochure-download btn-block btn-lg">
+            <i data-lucide="download"></i> <span data-i18n="brochure.btn_submit">Download Panduan & Brosur Sekarang</span>
+          </button>
+
+          <div class="form-disclaimer">
+            <i data-lucide="shield-check" style="width: 15px; height: 15px; color: var(--accent-cyan);"></i>
+            <span data-i18n="brochure.disclaimer">Data Anda terlindungi. Kami menghormati privasi dan bebas dari spam.</span>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 11: LAYANAN TAMBAHAN (Professional Add-ons)
+       ========================================================================== -->
+  <section id="addons" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="addon.tag">Layanan Tambahan (Add-ons)</div>
+        <h2 class="section-title" data-i18n="addon.title">
+          Ekspansi Kapabilitas Digital <em>Perusahaan Anda</em>
+        </h2>
+        <p class="section-desc" data-i18n="addon.desc">
+          Layanan spesialis tambahan untuk memaksimalkan kehadiran brand kontraktor Anda di kancah nasional.
+        </p>
+      </div>
+
+      <div class="addons-grid">
+
+        <div class="addon-card scroll-reveal scroll-reveal-delay-1">
+          <div class="addon-num">ADD-ON 01</div>
+          <h3 class="addon-title" data-i18n="addon.a1_title">Custom 3D BIM & WebGL Optimization</h3>
+          <p class="addon-desc" data-i18n="addon.a1_desc">
+            Pembuatan model 3D bangunan interaktif berbobot ultra-ringan untuk disematkan langsung di web.
+          </p>
+        </div>
+
+        <div class="addon-card scroll-reveal scroll-reveal-delay-2">
+          <div class="addon-num">ADD-ON 02</div>
+          <h3 class="addon-title" data-i18n="addon.a2_title">Local SEO & Geo-Tagging Proyek</h3>
+          <p class="addon-desc" data-i18n="addon.a2_desc">
+            Optimalisasi kata kunci lokal dan Google Maps agar kontraktor Anda menempati peringkat teratas di kota
+            target.
+          </p>
+        </div>
+
+        <div class="addon-card scroll-reveal scroll-reveal-delay-3">
+          <div class="addon-num">ADD-ON 03</div>
+          <h3 class="addon-title" data-i18n="addon.a3_title">Integrasi ERP Konstruksi & CRM Tender</h3>
+          <p class="addon-desc" data-i18n="addon.a3_desc">
+            Menghubungkan leads formulir web langsung ke sistem manajemen proyek internal perusahaan Anda.
+          </p>
+        </div>
+
+        <div class="addon-card scroll-reveal scroll-reveal-delay-1">
+          <div class="addon-num">ADD-ON 04</div>
+          <h3 class="addon-title" data-i18n="addon.a4_title">Corporate Identity & Proposal Kit</h3>
+          <p class="addon-desc" data-i18n="addon.a4_desc">
+            Pembuatan company profile PDF interaktif dan template penawaran tender yang selaras dengan website.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 12: TRUSTED BY (Continuous Dual Marquee)
+       ========================================================================== -->
+  <section id="trusted-by" class="scroll-reveal" style="padding: 4.5rem 0;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 2.5rem;">
+        <div class="section-tag" data-i18n="trust.tag">Dipercaya 100+ Perusahaan</div>
+        <h2 class="section-title" data-i18n="trust.title">
+          Dipercaya Oleh Biro Arsitektur & <em>Kontraktor Terkemuka</em>
+        </h2>
+      </div>
+
+      <div class="marquee-wrapper">
+        <!-- Row 1 -->
+        <div class="marquee-track">
+          <div class="client-logo-badge"><i data-lucide="building-2"></i> STUDIO TERRA ARCHITECTURE</div>
+          <div class="client-logo-badge"><i data-lucide="hard-hat"></i> PT MANDIRI MEGAH STRUKTUR</div>
+          <div class="client-logo-badge"><i data-lucide="sofa"></i> FORMA SPACE INTERIOR FIT-OUT</div>
+          <div class="client-logo-badge"><i data-lucide="landmark"></i> NUSANTARA EPC HOLDINGS</div>
+          <div class="client-logo-badge"><i data-lucide="hammer"></i> PT CIPTA GRAHA UTAMA</div>
+          <div class="client-logo-badge"><i data-lucide="compass"></i> ATELIER PRATAMA IAI</div>
+          <!-- Loop Clones -->
+          <div class="client-logo-badge"><i data-lucide="building-2"></i> STUDIO TERRA ARCHITECTURE</div>
+          <div class="client-logo-badge"><i data-lucide="hard-hat"></i> PT MANDIRI MEGAH STRUKTUR</div>
+          <div class="client-logo-badge"><i data-lucide="sofa"></i> FORMA SPACE INTERIOR FIT-OUT</div>
+          <div class="client-logo-badge"><i data-lucide="landmark"></i> NUSANTARA EPC HOLDINGS</div>
+          <div class="client-logo-badge"><i data-lucide="hammer"></i> PT CIPTA GRAHA UTAMA</div>
+          <div class="client-logo-badge"><i data-lucide="compass"></i> ATELIER PRATAMA IAI</div>
+        </div>
+
+        <!-- Row 2 (Reverse) -->
+        <div class="marquee-track reverse">
+          <div class="client-logo-badge"><i data-lucide="award"></i> ASOSIASI KONTRAKTOR INDONESIA</div>
+          <div class="client-logo-badge"><i data-lucide="shield-check"></i> DEWAN SMK3 KONSTRUKSI NASIONAL</div>
+          <div class="client-logo-badge"><i data-lucide="drafting-compass"></i> IKATAN ARSITEK INDONESIA (IAI)</div>
+          <div class="client-logo-badge"><i data-lucide="layers"></i> BALI BESPOKE VILLA LAB</div>
+          <div class="client-logo-badge"><i data-lucide="cpu"></i> SURABAYA INFRASTRUCTURE CORP</div>
+          <div class="client-logo-badge"><i data-lucide="check-circle-2"></i> ISO 9001:2015 CERTIFIED PARTNER</div>
+          <!-- Loop Clones -->
+          <div class="client-logo-badge"><i data-lucide="award"></i> ASOSIASI KONTRAKTOR INDONESIA</div>
+          <div class="client-logo-badge"><i data-lucide="shield-check"></i> DEWAN SMK3 KONSTRUKSI NASIONAL</div>
+          <div class="client-logo-badge"><i data-lucide="drafting-compass"></i> IKATAN ARSITEK INDONESIA (IAI)</div>
+          <div class="client-logo-badge"><i data-lucide="layers"></i> BALI BESPOKE VILLA LAB</div>
+          <div class="client-logo-badge"><i data-lucide="cpu"></i> SURABAYA INFRASTRUCTURE CORP</div>
+          <div class="client-logo-badge"><i data-lucide="check-circle-2"></i> ISO 9001:2015 CERTIFIED PARTNER</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 13: APA KATA KLIEN KAMI (Continuous Automatic Testimonials Swipe)
+       ========================================================================== -->
+  <section id="testimonials" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="testi.tag">Testimoni & Pengalaman Klien</div>
+        <h2 class="section-title" data-i18n="testi.title">
+          Hasil Nyata dari Perusahaan yang Beralih ke <em>Contractor Web</em>
+        </h2>
+      </div>
+
+      <div class="testimonial-carousel-box">
+        <div class="quote-symbol">“</div>
+
+        <!-- Slide 1 -->
+        <div class="testimonial-card-slide active">
+          <p class="testimonial-text">
+            "Template Komorebi Sanctuary membuat portofolio villa kami terlihat sangat berkelas. Jumlah klien high-end
+            yang mengajukan konsultasi meningkat 4x lipat dalam 3 bulan."
+          </p>
+          <div class="testimonial-author-row">
+            <div class="author-profile">
+              <div class="author-avatar">IP</div>
+              <div>
+                <div class="author-name">Ar. Irvan Pratama, IAI</div>
+                <div class="author-role">Principal Architect, Studio Terra</div>
+              </div>
+            </div>
+            <span class="client-tier-tag">BIRO ARSITEKTUR</span>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-card-slide">
+          <p class="testimonial-text">
+            "Formulir RFP dan sistem showcase alat berat membuat perusahaan kami dipercaya memenangkan tender
+            infrastruktur regional bernilai 40 Miliar."
+          </p>
+          <div class="testimonial-author-row">
+            <div class="author-profile">
+              <div class="author-avatar">HK</div>
+              <div>
+                <div class="author-name">Hendra Kusuma, ST</div>
+                <div class="author-role">Direktur Operasional, PT Mandiri Megah Struktur</div>
+              </div>
+            </div>
+            <span class="client-tier-tag">KONTRAKTOR SIPIL & EPC</span>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-card-slide">
+          <p class="testimonial-text">
+            "Klien kami sangat suka fitur Before/After slider dan katalog material interaktif. Proses closing proyek
+            kantor jadi jauh lebih cepat."
+          </p>
+          <div class="testimonial-author-row">
+            <div class="author-profile">
+              <div class="author-avatar">SN</div>
+              <div>
+                <div class="author-name">Siti Nurhaliza</div>
+                <div class="author-role">Founder & Creative Lead, Forma Space Interior</div>
+              </div>
+            </div>
+            <span class="client-tier-tag">INTERIOR FIT-OUT</span>
+          </div>
+        </div>
+
+        <!-- Carousel Indicators (Pills) -->
+        <div class="carousel-indicators">
+          <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 14: FAQ INTERAKTIF (Multi-Tier Accordion)
+       ========================================================================== -->
+  <section id="faq" class="scroll-reveal">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag" data-i18n="faq.tag">Pertanyaan yang Sering Diajukan</div>
+        <h2 class="section-title" data-i18n="faq.title">
+          Jawaban Lengkap untuk Semua <em>Tingkatan Kebutuhan</em>
+        </h2>
+      </div>
+
+      <!-- FAQ Tiers (Pills) -->
+      <div class="faq-tier-nav">
+        <button class="faq-tier-btn active" data-tier="all">Semua Pertanyaan</button>
+        <button class="faq-tier-btn" data-tier="awam" data-i18n="faq.tab_awam">Pemilik Bisnis / Awam</button>
+        <button class="faq-tier-btn" data-tier="mid" data-i18n="faq.tab_mid">Marketing / Sales Tim</button>
+        <button class="faq-tier-btn" data-tier="expert" data-i18n="faq.tab_expert">Arsitek & Developer Expert</button>
+      </div>
+
+      <div class="faq-list">
+
+        <!-- FAQ 1 (Awam) -->
+        <div class="faq-item active" data-tier="awam">
+          <button class="faq-question-btn">
+            <span>Apakah saya bisa mengganti foto proyek dan teks sendiri tanpa keahlian coding?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p>
+              Tentu saja. Seluruh template dilengkapi dengan Visual Content Manager dan panduan langkah demi langkah.
+              Anda dapat mengunggah gambar proyek, mengganti nomor WhatsApp, dan memperbarui daftar harga dengan mudah.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 (Mid) -->
+        <div class="faq-item" data-tier="mid">
+          <button class="faq-question-btn">
+            <span>Apakah website ini bisa langsung terhubung ke WhatsApp dan email tim penawaran kami?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p>
+              Ya, seluruh modul form tender RFP dan kalkulator estimasi biaya RAB dilengkapi fitur webhook otomatis ke
+              email estimasi tim sales Anda dan notifikasi direct WhatsApp instant.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 (Expert) -->
+        <div class="faq-item" data-tier="expert">
+          <button class="faq-question-btn">
+            <span>Bagaimana cara kerja integrasi performa WebGL pada website ini?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p>
+              Pipeline rendering kanvas terisolasi dengan penyesuaian FPS dinamis dan kompresi buffer geometry. Pada
+              perangkat seluler, densitas partikel otomatis diturunkan sehingga framerate tetap stabil di 60 FPS tanpa
+              menguras daya baterai.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 (Awam) -->
+        <div class="faq-item" data-tier="awam">
+          <button class="faq-question-btn">
+            <span>Berapa lama proses setup hingga website siap digunakan secara live?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p>
+              Untuk paket Starter dan Pro, instalasi dan konfigurasi brand membutuhkan waktu 3 hingga 5 hari kerja
+              setelah aset logo dan dokumen proyek Anda kami terima.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 (Expert) -->
+        <div class="faq-item" data-tier="expert">
+          <button class="faq-question-btn">
+            <span>Apakah mendukung embedding model 3D dari Revit, SketchUp, atau Matterport?</span>
+            <i data-lucide="chevron-down" class="faq-chevron"></i>
+          </button>
+          <div class="faq-answer-pane">
+            <p>
+              Ya, sistem kami menyediakan container WebGL GLTF/GLB serta iFrame responsif khusus untuk sematan
+              Matterport 360° scan dan Autodesk Construction Cloud viewers.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 15: FOOTER MULTI-COLUMN ARCHITECTURAL DECK
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Col 1: Identity -->
+        <div class="footer-brand-col">
+          <div class="brand-logo">
+            <div class="brand-icon-box"><i data-lucide="box"></i></div>
+            <div class="brand-text">
+              <span class="brand-name">CONTRACTOR<span>.HUB</span></span>
+            </div>
+          </div>
+          <p data-i18n="foot.slogan">
+            Platform template website khusus biro arsitektur, desainer interior, dan kontraktor konstruksi sipil.
+          </p>
+        </div>
+
+        <!-- Col 2: Solutions -->
+        <div class="footer-col">
+          <h5 data-i18n="foot.col_solutions">Solusi Template</h5>
+          <ul class="footer-links">
+            <li><a href="#solusi" class="footer-link">Interior Design Hub</a></li>
+            <li><a href="#solusi" class="footer-link">Architecture Bureau</a></li>
+            <li><a href="#solusi" class="footer-link">Civil & Heavy EPC</a></li>
+            <li><a href="#solusi" class="footer-link">Renovation & Retrofit</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Tools & Docs -->
+        <div class="footer-col">
+          <h5 data-i18n="foot.col_tools">Smart Tools & Docs</h5>
+          <ul class="footer-links">
+            <li><a href="#widgets" class="footer-link">Cost Estimator m²</a></li>
+            <li><a href="#widgets" class="footer-link">3D WebGL Sandbox</a></li>
+            <li><a href="#fitur" class="footer-link">Dokumentasi Teknis</a></li>
+            <li><a href="#kontak" class="footer-link">Panduan Instalasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal -->
+        <div class="footer-col">
+          <h5 data-i18n="foot.col_legal">Legal & Standar</h5>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link">Syarat Lisensi Komersial</a></li>
+            <li><a href="#" class="footer-link">Kebijakan Privasi Data Proyek</a></li>
+            <li><a href="#" class="footer-link">Sertifikat Keamanan SSL</a></li>
+            <li><a href="#" class="footer-link">Standar Kepatuhan K3 & ISO</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Docking Bar (Clean, without 3 social circles) -->
+      <div class="footer-docking-bar">
+        <div data-i18n="foot.copyright">© 2026 CONTRACTOR.HUB. Hak Cipta Dilindungi.</div>
+
+        <div class="server-clock-box">
+          <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+          <span data-i18n="foot.server_time">Server Waktu:</span>
+          <span id="server-live-clock" style="color: var(--accent-cyan);">--:--:-- WIB</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span>Mata Uang:</span>
+          <select id="footer-currency-select" class="currency-select">
+            <option value="IDR">IDR (Rp)</option>
+            <option value="USD">USD ($)</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       FLOATING ACTION BUTTONS: Back to Top & WhatsApp Direct
+       ========================================================================== -->
+  <!-- Floating Scroll To Top Button (Neatly placed above WhatsApp) -->
+  <button class="floating-scroll-top-btn" id="scroll-top-btn" aria-label="Kembali ke Atas">
+    <i data-lucide="arrow-up"></i>
+  </button>
+
+  <!-- Floating WhatsApp Button (Compact Sleek Circle) -->
+  <a href="https://wa.me/6281234567890?text=Halo%20Admin%20CONTRACTOR.HUB,%20saya%20tertarik%20konsultasi%20website%20kontraktor"
+    target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" aria-label="Chat WhatsApp">
+    <div class="wa-pulse-beacon"></div>
+    <i data-lucide="message-circle"></i>
+  </a>
+
+  <!-- ==========================================================================
+       INTERACTIVE MODALS
+       ========================================================================== -->
+
+  <!-- 1. Consultation Booking Modal -->
+  <div class="modal-backdrop" id="modal-consultation">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+        Jadwalkan Konsultasi Gratis Website Kontraktor
+      </h3>
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Diskusikan kebutuhan template spesifik, struktur tender RFP, atau kustomisasi WebGL bersama Technical Architect
+        kami.
+      </p>
+
+      <form id="consultation-form"
+        onsubmit="event.preventDefault(); if(window.showContractorToast){window.showContractorToast({type:'success', title:'Jadwal Terkonfirmasi', message:'Terima kasih! Technical Consultant kami akan segera menghubungi WhatsApp Anda dalam 15 menit.'});} document.getElementById('modal-consultation').classList.remove('open');">
+        <div class="form-group">
+          <label class="form-label">Nama Anda *</label>
+          <input type="text" class="form-input" required placeholder="Nama Lengkap">
+        </div>
+        <div class="form-group">
+          <label class="form-label">No. WhatsApp *</label>
+          <input type="tel" class="form-input" required placeholder="0812-xxxx-xxxx">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Jenis Proyek yang Dibangun</label>
+          <select class="form-select">
+            <option>Website Biro Arsitektur</option>
+            <option>Website Studio Desain Interior</option>
+            <option>Website General Contractor / Sipil</option>
+            <option>Kebutuhan Custom Enterprise Holding</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1.5rem;">
+          <i data-lucide="calendar"></i> Konfirmasi Jadwal Konsultasi
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. Tender RFP Upload Modal -->
+  <div class="modal-backdrop" id="modal-tender-rfp">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">
+        Kirim Dokumen Spesifikasi Tender (RFP)
+      </h3>
+      <p style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Simulasi formulir pengajuan penawaran tender dan upload file RAB / CAD gambar kerja.
+      </p>
+
+      <form id="rfp-form"
+        onsubmit="event.preventDefault(); if(window.showContractorToast){window.showContractorToast({type:'info', title:'Dokumen Tender Terunggah', message:'Dokumen RFP berhasil diterima di portal tender. Tim Estimator & BIM akan merespons dalam 1x24 jam.'});} document.getElementById('modal-tender-rfp').classList.remove('open');">
+        <div class="form-group">
+          <label class="form-label">Nama Perusahaan Pengusul *</label>
+          <input type="text" class="form-input" required placeholder="PT / Biro...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Estimasi Nilai Proyek (IDR)</label>
+          <input type="text" class="form-input" placeholder="Contoh: Rp 5.000.000.000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Upload Dokumen RAB / TOR / CAD</label>
+          <div
+            style="border: 2px dashed var(--border-medium); border-radius: var(--radius-md); padding: 1.5rem; text-align: center; background: rgba(255,255,255,0.02);">
+            <i data-lucide="upload-cloud"
+              style="width: 32px; height: 32px; color: var(--accent-cyan); margin-bottom: 0.5rem;"></i>
+            <div style="font-size: 0.85rem; color: var(--text-primary);">Tarik & letakkan file CAD (.dwg), PDF, atau
+              Excel di sini</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Maksimal 50MB per file</div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-cyan btn-block btn-lg" style="margin-top: 1.5rem;">
+          <i data-lucide="send"></i> Kirim Dokumen Penawaran
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Live Viewport Demo Modal -->
+  <div class="modal-backdrop" id="modal-live-viewport">
+    <div class="modal-box" style="max-width: 900px;">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="font-family: var(--font-heading); font-size: 1.35rem;">Interactive Viewport Simulation</h3>
+        <span class="live-render-badge">DEVICE RESOLUTION: 1920 x 1080</span>
+      </div>
+      <div
+        style="width: 100%; height: 450px; background: #0A0C11; border-radius: var(--radius-md); border: 1px solid var(--border-blueprint); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+        <i data-lucide="monitor" style="width: 48px; height: 48px; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
+        <h4 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem;">Live Sandbox Frame
+          Activated</h4>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1.5rem;">
+          Template siap disinkronkan ke CMS dan hosting korporat Anda dengan Physics Engine interaktif.
+        </p>
+        <button class="btn btn-primary btn-sm modal-close-trigger">Kembali ke Katalog</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Spec Sheet Modal -->
+  <div class="modal-backdrop" id="modal-spec-sheet">
+    <div class="modal-box">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem;">Technical Spec Sheet</h3>
+      <div
+        style="margin: 1rem 0; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); background: rgba(0,229,255,0.06); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-blueprint);">
+        MODULE: CAD_BLUEPRINT_VIEWER<br>
+        FRAMEWORK: THREE.JS WEBGL PIPELINE<br>
+        ACCELERATION: GPU HARDWARE ENABLED<br>
+        ACCESSIBILITY: WCAG 2.1 AAA COMPLIANT
+      </div>
+      <ul
+        style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>✓ Dynamic Camera Rotation with Raycasting</li>
+        <li>✓ High-Density Texture Swatch Engine</li>
+        <li>✓ Sub-1.5s Asset Streaming Compression</li>
+      </ul>
+      <button class="btn btn-secondary btn-block modal-close-trigger">Tutup Spesifikasi</button>
+    </div>
+  </div>
+
+  <!-- 5. Download Brochure Success Modal -->
+  <div class="modal-backdrop" id="modal-download-success">
+    <div class="modal-box" style="text-align: center;">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      <div
+        style="width: 60px; height: 60px; border-radius: 50%; background: rgba(0,230,118,0.15); color: var(--accent-emerald); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+        <i data-lucide="check" style="width: 32px; height: 32px;"></i>
+      </div>
+      <h3 style="font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem;">Dokumen Berhasil Diunduh!
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Paket Panduan Strategi Digital Kontraktor 2026 (PDF) dan tautan brosur spesifikasi template telah dikirimkan ke
+        email Anda.
+      </p>
+      <button class="btn btn-primary modal-close-trigger">Selesai</button>
+    </div>
+  </div>
+
+  <!-- 6. Fleet Mobilization & Dispatch Modal -->
+  <div class="modal-backdrop" id="modal-fleet-mobilize">
+    <div class="modal-box fleet-modal-box">
+      <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
+      
+      <!-- View 1: Mobilization Request Form -->
+      <div id="fleet-mobilize-form-view">
+        <div class="fleet-modal-header">
+          <div class="fleet-modal-icon-badge">
+            <i data-lucide="truck" style="width: 20px; height: 20px;"></i>
+          </div>
+          <div>
+            <h3 class="fleet-modal-title" id="fleet-modal-header-title">Permintaan Mobilisasi Unit</h3>
+            <p class="fleet-modal-subtitle">Disposisi alokasi logistik, rute pengawalan & surat jalan armada proyek.</p>
+          </div>
+        </div>
+
+        <!-- Selected Unit Info Card -->
+        <div class="fleet-modal-unit-card">
+          <div class="fleet-unit-card-top">
+            <span class="fleet-unit-code-badge" id="fleet-modal-unit-code">TC-01</span>
+            <span id="fleet-modal-status-badge" class="status-pill-ready">READY FOR DEPLOYMENT</span>
+          </div>
+          <div class="fleet-unit-card-title" id="fleet-modal-unit-name">Potain Tower Crane MR 418</div>
+          <div class="fleet-unit-specs-grid">
+            <div class="fleet-spec-item">
+              <span class="fleet-spec-label">Kapasitas Kerja</span>
+              <span class="fleet-spec-val" id="fleet-modal-capacity">24 Ton / Jangkauan 60m</span>
+            </div>
+            <div class="fleet-spec-item">
+              <span class="fleet-spec-label">Lokasi Saat Ini</span>
+              <span class="fleet-spec-val" id="fleet-modal-location">Site Proyek Jakarta Pusat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobilization Details Form -->
+        <form id="fleet-mobilize-form">
+          <div class="form-group" style="margin-bottom: 0.75rem;">
+            <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Lokasi Site Proyek Tujuan *</label>
+            <input type="text" class="form-input" id="fleet-target-site" required placeholder="Contoh: Site Proyek IKN Nusantara, Kaltim" value="Site Mega Kuningan Tower 2, Jakarta">
+            <div class="fleet-quick-chips">
+              <button type="button" class="fleet-chip" data-site="Site IKN Nusantara, Kalimantan Timur">+ IKN Nusantara</button>
+              <button type="button" class="fleet-chip" data-site="Site Menara Mega Kuningan, Jakarta Selatan">+ Mega Kuningan</button>
+              <button type="button" class="fleet-chip" data-site="Kawasan Industri GIIC Cikarang">+ Cikarang Industrial</button>
+              <button type="button" class="fleet-chip" data-site="Proyek Jalan Tol Trans Sumatera">+ Tol Trans Sumatera</button>
+            </div>
+          </div>
+
+          <div class="form-grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Rencana Tanggal Mobilisasi *</label>
+              <input type="date" class="form-input" id="fleet-target-date" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Durasi Operasional</label>
+              <select class="form-select" id="fleet-duration-select">
+                <option value="1 Bulan">1 Bulan (Short-term Phase)</option>
+                <option value="3 Bulan" selected>3 Bulan (Medium Phase)</option>
+                <option value="6 Bulan">6 Bulan (Full Structure Phase)</option>
+                <option value="12+ Bulan">12+ Bulan (Master Contract)</option>
+                <option value="Uji Beban & Mobilisasi Saja">Uji Beban & Mobilisasi Saja</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 0.5rem;">
+            <label class="form-label" style="font-size: 0.8rem; font-weight: 600;">Kelengkapan Legalitas & K3 Proyek</label>
+            <div class="fleet-checks-container">
+              <label class="fleet-check-label">
+                <input type="checkbox" id="check-operator" checked>
+                <span>Sertakan Operator & Rigger Bersertifikat SIO Kemnaker RI</span>
+              </label>
+              <label class="fleet-check-label">
+                <input type="checkbox" id="check-insurance" checked>
+                <span>Asuransi Alat Berat (Contractors' Plant & Machinery / CPM)</span>
+              </label>
+              <label class="fleet-check-label">
+                <input type="checkbox" id="check-silo" checked>
+                <span>Sertifikat Surat Ijin Layak Operasi (SILO) Aktif Terverifikasi</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="fleet-modal-actions">
+            <button type="submit" class="btn-dispatch-primary" id="btn-submit-fleet-dispatch">
+              <i data-lucide="send" style="width: 16px; height: 16px;"></i> Konfirmasi Disposisi
+            </button>
+            <button type="button" class="btn-whatsapp-dispatch" id="btn-wa-fleet-dispatch">
+              <i data-lucide="message-square" style="width: 16px; height: 16px;"></i> WhatsApp Logistik
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- View 2: Success Ticket State -->
+      <div id="fleet-mobilize-success-view" style="display: none;">
+        <div class="fleet-ticket-result">
+          <div class="fleet-ticket-stamp">
+            <i data-lucide="check" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3 class="fleet-modal-title" style="font-size: 1.35rem;">Disposisi Mobilisasi Berhasil Diterbitkan</h3>
+          <p class="fleet-modal-subtitle" style="max-width: 440px; margin: 0.35rem auto 1.25rem;">
+            Surat jalan digital dan alokasi unit telah didaftarkan ke Kepala Workshop & Tim Logistik.
+          </p>
+
+          <div class="fleet-ticket-code-card">
+            <div class="ticket-code-header">
+              <span style="font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); text-transform: uppercase;">NO. TIKET DISPOSISI ARMADA</span>
+              <span class="fleet-sla-badge">SLA KONFIRMASI: &lt; 2 JAM</span>
+            </div>
+            <div class="fleet-ticket-num" id="fleet-ticket-id">#DISP-2026-8891</div>
+            <div style="font-size: 0.835rem; color: var(--text-secondary); margin-top: 0.5rem; line-height: 1.5;" id="fleet-ticket-summary">
+              Unit: <strong>Potain Tower Crane MR 418</strong> (TC-01)<br>
+              Tujuan: <strong>Site Proyek IKN Nusantara</strong><br>
+              Estimasi Tiba: <strong>1x24 Jam Kerja</strong>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" id="btn-copy-ticket-code">
+              <i data-lucide="copy" style="width: 14px; height: 14px;"></i> Salin No. Tiket
+            </button>
+            <button class="btn btn-primary btn-sm modal-close-trigger" id="btn-close-fleet-success">
+              <i data-lucide="check" style="width: 14px; height: 14px;"></i> Selesai
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div id="contractor-toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/widgets.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

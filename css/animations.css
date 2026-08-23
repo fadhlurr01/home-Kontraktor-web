@@ -1,0 +1,116 @@
+/* ==========================================================================
+   CONTRACTOR.HUB - Kinetic Physics & Keyframe Animations (CSS)
+   ========================================================================== */
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blueprintScan {
+  0% {
+    top: -10%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes floatKinetic {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.anim-float {
+  animation: floatKinetic 6s ease-in-out infinite;
+}
+
+.blueprint-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-cyan) 50%, transparent 100%);
+  box-shadow: 0 0 15px var(--accent-cyan);
+  pointer-events: none;
+  animation: blueprintScan 5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Global Smooth Scroll Reveal Transitions (Applied across all sections)
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-delay-1 { transition-delay: 0.12s; }
+.scroll-reveal-delay-2 { transition-delay: 0.22s; }
+.scroll-reveal-delay-3 { transition-delay: 0.32s; }
+
+/* Progressive Flow Step Morph */
+.flow-phase-content {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
+}
+
+.flow-phase-content.active {
+  display: grid;
+  opacity: 1;
+  transform: translateY(0);
+}

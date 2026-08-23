@@ -1,0 +1,892 @@
+/* ==========================================================================
+   CONTRACTOR.HUB - Master Techno-Architectural Design System (CSS)
+   Visual Theme: Techno-Architectural Luxury (CAD Blueprint, Kinetic Physics)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+:root {
+  /* Architectural Dark Theme (Default) */
+  --bg-base: #07090E;
+  --bg-secondary: #0D111A;
+  --bg-card: #131826;
+  --bg-card-hover: #1A2133;
+  --bg-glass: rgba(13, 17, 26, 0.85);
+  --bg-glass-strong: rgba(7, 9, 14, 0.95);
+  --bg-surface-elevated: #1F273B;
+
+  /* Header Glassmorphism Dynamic Tokens */
+  --nav-bg-top: transparent;
+  --nav-border-top: transparent;
+  --nav-blur-top: none;
+  --nav-shadow-top: none;
+  --nav-bg-scrolled: rgba(7, 9, 14, 0.85);
+  --nav-border-scrolled: rgba(0, 229, 255, 0.15);
+  --nav-blur-scrolled: blur(18px) saturate(180%);
+  --nav-shadow-scrolled: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  /* Architectural Accents */
+  --accent-amber: #FF8800;
+  --accent-amber-glow: rgba(255, 136, 0, 0.35);
+  --accent-amber-light: #FFA733;
+  --accent-amber-dark: #CC6D00;
+  
+  --accent-cyan: #00E5FF;
+  --accent-cyan-glow: rgba(0, 229, 255, 0.35);
+  --accent-blue: #0066FF;
+  --accent-emerald: #00E676;
+  --accent-purple: #9D4EDD;
+  --accent-whatsapp: #25D366;
+
+  /* CAD Blueprint Grid Lines & Scaffolding */
+  --blueprint-grid-fine: rgba(0, 229, 255, 0.04);
+  --blueprint-grid-major: rgba(0, 229, 255, 0.08);
+  --blueprint-dot: rgba(0, 229, 255, 0.15);
+  --blueprint-glow: rgba(0, 229, 255, 0.06);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(0, 229, 255, 0.6);
+  --border-blueprint: rgba(0, 229, 255, 0.25);
+
+  /* Typography Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #8E9FB8;
+  --text-dim: #5A6B82;
+  --text-inverse: #07090D;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Space Grotesk', var(--font-sans);
+  --font-serif-italic: 'Playfair Display', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shadows & Elevations */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.65);
+  --shadow-glow-amber: 0 0 28px rgba(255, 136, 0, 0.4);
+  --shadow-glow-cyan: 0 0 28px rgba(0, 229, 255, 0.35);
+
+  /* Layout Constants */
+  --nav-height: 72px;
+  --nav-height-scrolled: 64px;
+  --container-max: 1380px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+  --radius-btn: 9999px;
+  
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Concrete & Light Drafting Mode */
+[data-theme="light"] {
+  --bg-base: #F4F7FC;
+  --bg-secondary: #E8EEF8;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #F8FAFD;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --bg-glass-strong: rgba(244, 247, 252, 0.98);
+  --bg-surface-elevated: #E2E8F4;
+
+  /* Header Glassmorphism Light Tokens - Seamless Top & Frosted Glass on Scroll */
+  --nav-bg-top: transparent;
+  --nav-border-top: transparent;
+  --nav-blur-top: none;
+  --nav-shadow-top: none;
+  --nav-bg-scrolled: rgba(244, 247, 252, 0.88);
+  --nav-border-scrolled: rgba(15, 23, 42, 0.08);
+  --nav-blur-scrolled: blur(18px) saturate(180%);
+  --nav-shadow-scrolled: 0 8px 25px rgba(15, 23, 42, 0.08);
+
+  --accent-amber: #EA6C00;
+  --accent-amber-glow: rgba(234, 108, 0, 0.25);
+  --accent-amber-light: #FF8800;
+  --accent-amber-dark: #C65800;
+  
+  --accent-cyan: #0099B8;
+  --accent-cyan-glow: rgba(0, 153, 184, 0.25);
+  --accent-blue: #0052CC;
+
+  --blueprint-grid-fine: rgba(0, 82, 204, 0.06);
+  --blueprint-grid-major: rgba(0, 82, 204, 0.12);
+  --blueprint-dot: rgba(0, 82, 204, 0.18);
+  --blueprint-glow: rgba(0, 82, 204, 0.04);
+  --border-subtle: rgba(15, 23, 42, 0.08);
+  --border-medium: rgba(15, 23, 42, 0.14);
+  --border-active: rgba(0, 153, 184, 0.6);
+  --border-blueprint: rgba(0, 153, 184, 0.3);
+
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+  --text-inverse: #FFFFFF;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.14);
+}
+
+/* ==========================================================================
+   Base & Resets
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height) + 16px);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+/* Rich Architectural Multilayered Background Pattern (Dark & Light) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--blueprint-grid-fine) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--blueprint-grid-fine) 1px, transparent 1px),
+    linear-gradient(to right, var(--blueprint-grid-major) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--blueprint-grid-major) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(0, 102, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 40%, rgba(255, 136, 0, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(0, 229, 255, 0.09) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+img, svg, canvas, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Typography & Utilities
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.font-heading { font-family: var(--font-heading); }
+.font-mono { font-family: var(--font-mono); }
+.font-italic-accent {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Sleek Minimalist Architectural Section Tag (No Numbers) */
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  color: var(--accent-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.1rem;
+}
+
+.section-tag.amber {
+  background: rgba(255, 136, 0, 0.1);
+  border-color: rgba(255, 136, 0, 0.3);
+  color: var(--accent-amber);
+}
+
+.section-tag::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 840px;
+  margin-inline: auto;
+  margin-bottom: 3.5rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
+  font-weight: 700;
+  line-height: 1.22;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.section-title em, .section-title .italic-word {
+  font-family: var(--font-serif-italic);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+.section-title .text-gradient-amber {
+  background: linear-gradient(135deg, #FF8800 0%, #FFAE42 50%, #FFD166 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title .text-gradient-cyan {
+  background: linear-gradient(135deg, #00E5FF 0%, #0099FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.section-desc em {
+  font-style: italic;
+  color: var(--text-primary);
+}
+
+section {
+  position: relative;
+  padding: 5.5rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+/* CAD Technical Coordinate Crosshairs */
+.cad-crosshair {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.4;
+}
+
+.cad-crosshair::before, .cad-crosshair::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-cyan);
+}
+
+.cad-crosshair::before { top: 6px; left: 0; width: 14px; height: 1px; }
+.cad-crosshair::after { top: 0; left: 6px; width: 1px; height: 14px; }
+.cad-crosshair.top-left { top: 1.5rem; left: 1.5rem; }
+.cad-crosshair.top-right { top: 1.5rem; right: 1.5rem; }
+.cad-crosshair.bottom-left { bottom: 1.5rem; left: 1.5rem; }
+.cad-crosshair.bottom-right { bottom: 1.5rem; right: 1.5rem; }
+
+/* ==========================================================================
+   Modern Rounded Pill / Circle Buttons & Interactive Elements
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-amber-dark) 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px var(--accent-amber-glow);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 136, 0, 0.55);
+  background: linear-gradient(135deg, var(--accent-amber-light) 0%, var(--accent-amber) 100%);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-secondary, .btn-ghost {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  backdrop-filter: blur(12px);
+}
+
+.btn-secondary:hover, .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px var(--accent-cyan-glow);
+}
+
+.btn-cyan {
+  background: rgba(0, 229, 255, 0.12);
+  color: var(--accent-cyan);
+  border: 1px solid var(--border-blueprint);
+  border-radius: var(--radius-btn);
+}
+
+.btn-cyan:hover {
+  background: var(--accent-cyan);
+  color: #07090D;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 25px var(--accent-cyan-glow);
+}
+
+.btn-sm {
+  padding: 0.42rem 0.95rem;
+  font-size: 0.82rem;
+  border-radius: var(--radius-btn);
+}
+
+.btn-lg {
+  padding: 0.85rem 1.85rem;
+  font-size: 1rem;
+  border-radius: var(--radius-btn);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Header & Dynamic Ultra-Glassmorphism Navigation Bar (Full Layout Maximized)
+   ========================================================================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1000;
+  background: var(--nav-bg-top);
+  backdrop-filter: var(--nav-blur-top);
+  -webkit-backdrop-filter: var(--nav-blur-top);
+  border-bottom: 1px solid var(--nav-border-top);
+  transition: all var(--transition-smooth);
+}
+
+.site-header.scrolled {
+  height: var(--nav-height-scrolled);
+  background: var(--nav-bg-scrolled);
+  backdrop-filter: var(--nav-blur-scrolled);
+  -webkit-backdrop-filter: var(--nav-blur-scrolled);
+  border-bottom: 1px solid var(--nav-border-scrolled);
+  box-shadow: var(--nav-shadow-scrolled);
+}
+
+/* Maximized Nav Container with No Overflow/Clipping */
+.nav-container {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding-inline: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+/* Clean Compact Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-surface-elevated) 100%);
+  border: 1px solid var(--border-blueprint);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-amber);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.15);
+  flex-shrink: 0;
+}
+
+.brand-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+.brand-name {
+  font-size: 1.15rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.brand-name span {
+  color: var(--accent-amber);
+}
+
+/* Nav Menu Links Maximized & Compact Space */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin-inline: auto;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-link svg.chevron {
+  width: 12px;
+  height: 12px;
+  transition: transform var(--transition-fast);
+  color: var(--text-muted);
+}
+
+.nav-item:hover .nav-link svg.chevron {
+  transform: rotate(180deg);
+  color: var(--accent-cyan);
+}
+
+/* Glassmorphic Dropdown styling */
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 250px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 0.6rem;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: 100;
+  backdrop-filter: blur(20px);
+}
+
+.nav-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.dropdown-item .item-icon {
+  color: var(--accent-amber);
+  width: 16px;
+  height: 16px;
+}
+
+/* Action Utility Bar (Right - Perfectly Sized) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.nav-actions .btn {
+  padding: 0.42rem 0.85rem;
+  font-size: 0.8rem;
+}
+
+/* Language Pill Switch */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.lang-btn {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.lang-btn.active {
+  background: var(--bg-card);
+  color: var(--accent-cyan);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Theme Switcher */
+.theme-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  font-size: 0.85rem;
+}
+
+.theme-btn:hover {
+  border-color: var(--accent-amber);
+  color: var(--accent-amber);
+  transform: rotate(18deg) scale(1.05);
+}
+
+/* Mobile Hamburger */
+.mobile-toggle-btn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Fullscreen Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(24px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--nav-height) + 1.5rem) 1.5rem 6rem;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+  overflow-y: auto;
+}
+
+.mobile-drawer.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mobile-menu-link {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-drawer-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Floating Glass Mobile Bottom Bar */
+.mobile-quick-dock {
+  display: none;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  padding: 0.5rem;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.quick-dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.quick-dock-item.active, .quick-dock-item:hover {
+  color: var(--accent-amber);
+  background: rgba(255, 136, 0, 0.15);
+}
+
+.quick-dock-item svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   Floating WhatsApp Button (Compact Sleek Circle - Not Wide)
+   ========================================================================== */
+.floating-whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1500;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  transition: all var(--transition-bounce);
+  backdrop-filter: blur(8px);
+}
+
+.floating-whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.65);
+  color: #FFFFFF;
+}
+
+.floating-whatsapp-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+.wa-pulse-beacon {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: pulse-beacon 2s infinite;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@keyframes pulse-beacon {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Floating Scroll to Top Button (Above WhatsApp) */
+.floating-scroll-top-btn {
+  position: fixed;
+  bottom: 6.25rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: all var(--transition-bounce);
+  backdrop-filter: blur(10px);
+}
+
+.floating-scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating-scroll-top-btn:hover {
+  background: var(--accent-cyan);
+  color: #07090D;
+  border-color: var(--accent-cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--accent-cyan-glow);
+}
+
+.floating-scroll-top-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 1100px) {
+  .nav-menu, .nav-actions .btn {
+    display: none;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+  }
+  .mobile-quick-dock {
+    display: flex;
+  }
+  .floating-whatsapp-btn {
+    bottom: 5.5rem;
+    right: 1.25rem;
+    width: 48px;
+    height: 48px;
+  }
+  .floating-whatsapp-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+  .floating-scroll-top-btn {
+    bottom: 9rem;
+    right: 1.25rem;
+    width: 44px;
+    height: 44px;
+  }
+  .floating-scroll-top-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
