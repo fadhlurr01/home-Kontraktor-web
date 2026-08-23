@@ -261,10 +261,15 @@ function initWidgetTabs() {
     });
 
     if (targetId === 'widget-tour' && window.tourResize) {
-      setTimeout(window.tourResize, 60);
+      setTimeout(window.tourResize, 50);
+      setTimeout(window.tourResize, 250);
     }
     if (targetId === 'widget-ba' && window.baResize) {
-      setTimeout(window.baResize, 60);
+      setTimeout(window.baResize, 50);
+      setTimeout(window.baResize, 250);
+    }
+    if (window.lucide) {
+      window.lucide.createIcons();
     }
   }
 

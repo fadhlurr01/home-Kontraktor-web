@@ -138,10 +138,11 @@ function initBeforeAfterSlider() {
   const infoDuration = document.getElementById('ba-chip-duration');
   const infoVolume = document.getElementById('ba-chip-volume');
   const infoValue = document.getElementById('ba-chip-value');
+  const rangeInput = container.querySelector('.ba-range-input');
 
   const projects = {
     villa: {
-      before: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1200&q=80",
+      before: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
       after: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
       labelBefore: "BEFORE: GALIAN & STRUKTUR COR",
       labelAfter: "AFTER: VILLA LUXURY FINISHED",
@@ -175,43 +176,60 @@ function initBeforeAfterSlider() {
     }
   };
 
-  let isDragging = false;
-
-  function setSliderPosition(clientX) {
-    const rect = container.getBoundingClientRect();
-    let posX = clientX - rect.left;
-    if (posX < 0) posX = 0;
-    if (posX > rect.width) posX = rect.width;
-
-    const percentage = ((posX / rect.width) * 100).toFixed(2);
-    container.style.setProperty('--ba-pos', `${percentage}%`);
+  function updateSliderPos(percent) {
+    const clamped = Math.max(0, Math.min(100, parseFloat(percent)));
+    container.style.setProperty('--ba-pos', `${clamped}%`);
+    if (rangeInput && Math.abs(parseFloat(rangeInput.value) - clamped) > 0.5) {
+      rangeInput.value = clamped;
+    }
   }
 
-  container.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    setSliderPosition(e.clientX);
+  function handlePointer(e) {
+    const rect = container.getBoundingClientRect();
+    const clientX = e.clientX !== undefined ? e.clientX : (e.touches && e.touches[0] ? e.touches[0].clientX : undefined);
+    if (clientX === undefined) return;
+    const posX = clientX - rect.left;
+    const percentage = (posX / rect.width) * 100;
+    updateSliderPos(percentage);
+  }
+
+  let isPointerDown = false;
+
+  container.addEventListener('pointerdown', (e) => {
+    isPointerDown = true;
+    try {
+      container.setPointerCapture(e.pointerId);
+    } catch (_) {}
+    handlePointer(e);
   });
 
-  window.addEventListener('mouseup', () => { isDragging = false; });
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    setSliderPosition(e.clientX);
+  container.addEventListener('pointermove', (e) => {
+    if (!isPointerDown) return;
+    handlePointer(e);
   });
 
-  container.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    setSliderPosition(e.touches[0].clientX);
-  }, { passive: true });
+  const onPointerEnd = (e) => {
+    if (isPointerDown) {
+      isPointerDown = false;
+      try {
+        container.releasePointerCapture(e.pointerId);
+      } catch (_) {}
+    }
+  };
 
-  window.addEventListener('touchend', () => { isDragging = false; });
-  window.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    setSliderPosition(e.touches[0].clientX);
-  }, { passive: true });
+  container.addEventListener('pointerup', onPointerEnd);
+  container.addEventListener('pointercancel', onPointerEnd);
+
+  if (rangeInput) {
+    rangeInput.addEventListener('input', (e) => {
+      updateSliderPos(e.target.value);
+    });
+  }
 
   // Project Switcher
   projectBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
       projectBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -227,11 +245,12 @@ function initBeforeAfterSlider() {
       if (infoDuration) infoDuration.textContent = data.duration;
       if (infoVolume) infoVolume.textContent = data.volume;
       if (infoValue) infoValue.textContent = data.value;
+      updateSliderPos(50);
     });
   });
 
   window.baResize = () => {
-    container.style.setProperty('--ba-pos', '50%');
+    updateSliderPos(50);
   };
 }
 
