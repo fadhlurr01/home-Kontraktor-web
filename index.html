@@ -1426,135 +1426,475 @@
       <div class="section-header">
         <div class="section-tag" data-i18n="port.tag">Portofolio Showcase & Demo</div>
         <h2 class="section-title" data-i18n="port.title">
-          Koleksi Demo Template <em>Siap Pakai</em>
+          Koleksi 15 Demo Template <em>Siap Pakai</em>
         </h2>
         <p class="section-desc" data-i18n="port.desc">
-          Pilih dari ragam template arsitektur & konstruksi dengan performa prima di desktop maupun smartphone.
+          Pilih dari ragam template arsitektur, e-commerce konstruksi & sipil dengan performa prima, kalkulator RAB, dan live iframe sandbox interaktif.
         </p>
       </div>
 
-      <!-- Filter Buttons (Pill) -->
+      <!-- Filter Buttons (Pill) with Count Badges -->
       <div class="portfolio-filter-row">
-        <button class="filter-pill active" data-cat="all" data-i18n="port.filter_all">Semua</button>
-        <button class="filter-pill" data-cat="res" data-i18n="port.filter_res">Residensial Mewah</button>
-        <button class="filter-pill" data-cat="com" data-i18n="port.filter_com">Komersial & Kantor</button>
-        <button class="filter-pill" data-cat="civ" data-i18n="port.filter_civ">Infrastruktur Sipil</button>
-        <button class="filter-pill" data-cat="hosp" data-i18n="port.filter_hosp">F&B Hospitality</button>
+        <button class="filter-pill active" data-cat="all">
+          <span data-i18n="port.filter_all">Semua Template</span>
+          <span class="pill-count-badge">15</span>
+        </button>
+        <button class="filter-pill" data-cat="res">
+          <span data-i18n="port.filter_res">Residensial & Villa</span>
+          <span class="pill-count-badge">5</span>
+        </button>
+        <button class="filter-pill" data-cat="com">
+          <span data-i18n="port.filter_com">Komersial & Gedung</span>
+          <span class="pill-count-badge">3</span>
+        </button>
+        <button class="filter-pill" data-cat="ecom">
+          <span data-i18n="port.filter_ecom">E-Commerce & Material</span>
+          <span class="pill-count-badge">3</span>
+        </button>
+        <button class="filter-pill" data-cat="civ">
+          <span data-i18n="port.filter_civ">Sipil & Heavy EPC</span>
+          <span class="pill-count-badge">3</span>
+        </button>
+        <button class="filter-pill" data-cat="hosp">
+          <span data-i18n="port.filter_hosp">Interior & Hospitality</span>
+          <span class="pill-count-badge">1</span>
+        </button>
       </div>
 
-      <!-- Templates Grid -->
+      <!-- Templates Grid - 15 Dynamic Template Cards -->
       <div class="portfolio-grid">
 
-        <!-- Card 1 -->
-        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="res">
+        <!-- Card 1: KaryaBuild -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="ecom" data-template-id="karyabuild">
           <div class="template-preview-img-box">
-            <span class="template-badge">LUXURY RESIDENCE</span>
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
-              alt="Aura Penthouse Luxury Villa" class="template-img">
+            <span class="template-badge badge-ecom">E-COMMERCE & GENERAL CONTRACTOR</span>
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18015f5?auto=format&fit=crop&w=800&q=80"
+              alt="KaryaBuild Contractor & E-Commerce" class="template-img" loading="lazy">
+            <a href="https://karya-build-cl1i.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
           </div>
           <div class="template-content">
-            <h3 class="template-title">Aura Penthouse & Sanctuary</h3>
-            <p class="template-desc">Template eksklusif untuk biro arsitektur hunian tropis modern dan desainer interior
-              penthouse high-end.</p>
+            <div class="template-header-meta">
+              <h3 class="template-title">KaryaBuild</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Solusi terintegrasi konstruksi bangunan komersial, perumahan, interior fit-out, dan e-commerce pengadaan material konstruksi SNI berstandar ISO 9001:2015.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">E-Commerce Material</span>
+              <span class="tag-pill">ISO 9001:2015</span>
+              <span class="tag-pill">RAB Estimator</span>
+            </div>
             <div class="template-actions">
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
-              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://karya-build-cl1i.vercel.app/" data-title="KaryaBuild" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://karya-build-cl1i.vercel.app/" data-title="KaryaBuild" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="karyabuild">⚙️ Inspect Spec Sheet</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="com">
+        <!-- Card 2: KontraktorPro -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="ecom" data-template-id="kontraktorpro">
           <div class="template-preview-img-box">
-            <span class="template-badge">COMMERCIAL HQ</span>
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-              alt="Nexus Corporate Tower" class="template-img">
+            <span class="template-badge badge-ecom">E-COMMERCE & RENOVASI</span>
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+              alt="KontraktorPro Platform" class="template-img" loading="lazy">
+            <a href="https://kontraktorpro-beta.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
           </div>
           <div class="template-content">
-            <h3 class="template-title">Nexus Tower & Commercial Hub</h3>
-            <p class="template-desc">Dirancang untuk kontraktor gedung perkantoran, showroom komersial, dan
-              masterplanning retail modern.</p>
+            <div class="template-header-meta">
+              <h3 class="template-title">Kontraktor Pro</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Platform e-commerce kontraktor bangunan terpercaya dengan paket bangun rumah, renovasi modern, material SNI, kalkulator RAB interaktif, dan pembayaran termin aman.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Pembayaran Termin</span>
+              <span class="tag-pill">Paket Bangun Rumah</span>
+              <span class="tag-pill">Material SNI</span>
+            </div>
             <div class="template-actions">
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
-              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://kontraktorpro-beta.vercel.app/" data-title="Kontraktor Pro" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://kontraktorpro-beta.vercel.app/" data-title="Kontraktor Pro" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="kontraktorpro">⚙️ Inspect Spec Sheet</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="civ">
+        <!-- Card 3: BinaKarya Konstruksi -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="ecom" data-template-id="binakarya">
           <div class="template-preview-img-box">
-            <span class="template-badge">CIVIL & EPC</span>
-            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80"
-              alt="Titan Heavy Infrastructure" class="template-img">
+            <span class="template-badge badge-ecom">PLATFORM KONTRAKTOR & E-COMMERCE</span>
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+              alt="BinaKarya Konstruksi" class="template-img" loading="lazy">
+            <a href="https://binakarya-jet.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
           </div>
           <div class="template-content">
-            <h3 class="template-title">Titan Heavy Infrastructure</h3>
-            <p class="template-desc">Template presisi tinggi untuk kontraktor jembatan, tol, bendungan, dan proyek
-              tender EPC skala nasional.</p>
+            <div class="template-header-meta">
+              <h3 class="template-title">BinaKarya Konstruksi</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Platform kontraktor modern berstandar SNI, e-commerce material konstruksi, kalkulator RAB otomatis, konsultasi AI, dan sistem pembayaran termin terintegrasi.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Garansi 24 Bulan</span>
+              <span class="tag-pill">Konsultasi AI</span>
+              <span class="tag-pill">Termin Aman</span>
+            </div>
             <div class="template-actions">
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
-              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://binakarya-jet.vercel.app/" data-title="BinaKarya Konstruksi" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://binakarya-jet.vercel.app/" data-title="BinaKarya Konstruksi" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="binakarya">⚙️ Inspect Spec Sheet</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="hosp">
+        <!-- Card 4: Nusantara Konstruksi -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="res" data-template-id="nusantrakontruksi">
           <div class="template-preview-img-box">
-            <span class="template-badge">F&B HOSPITALITY</span>
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-              alt="Komorebi Resort & Bistro" class="template-img">
-          </div>
-          <div class="template-content">
-            <h3 class="template-title">Komorebi Resort & Boutique Cafe</h3>
-            <p class="template-desc">Sangat cocok untuk biro interior fit-out restoran bintang lima, lounge hotel, dan
-              kafe tematik kontemporer.</p>
-            <div class="template-actions">
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
-              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="res">
-          <div class="template-preview-img-box">
-            <span class="template-badge">BRUTALIST VILLA</span>
+            <span class="template-badge badge-res">RESIDENSIAL MEWAH & RENOVASI</span>
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
-              alt="Brutalist Pavilion Studio" class="template-img">
+              alt="Nusantara Konstruksi" class="template-img" loading="lazy">
+            <a href="https://nusantrakontruksi.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
           </div>
           <div class="template-content">
-            <h3 class="template-title">Brutalist Pavilion Studio</h3>
-            <p class="template-desc">Eksplorasi beton ekspos, geometri presisi, dan denah arsitektur terbuka untuk karya
-              arsitektur pemenang sayembara.</p>
+            <div class="template-header-meta">
+              <h3 class="template-title">Nusantara Konstruksi</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Jasa kontraktor bangun rumah, ruko, gedung, dan renovasi dengan garansi resmi, RAB transparan, dan pengawasan profesional berstandar arsitektur tropis modern.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Arsitektur Tropis</span>
+              <span class="tag-pill">Garansi Struktur</span>
+              <span class="tag-pill">DED Tracking</span>
+            </div>
             <div class="template-actions">
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
-              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusantrakontruksi.vercel.app/" data-title="Nusantara Konstruksi" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusantrakontruksi.vercel.app/" data-title="Nusantara Konstruksi" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusantrakontruksi">⚙️ Inspect Spec Sheet</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="com">
+        <!-- Card 5: Nusantara Karya Konstruksi -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="res" data-template-id="nusantarakarya">
           <div class="template-preview-img-box">
-            <span class="template-badge">INDUSTRIAL TECH</span>
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
-              alt="Apex Logistics Park" class="template-img">
+            <span class="template-badge badge-res">BIRO ARSITEKTUR & PERENCANAAN</span>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80"
+              alt="Nusantara Karya Konstruksi" class="template-img" loading="lazy">
+            <a href="https://nusantara-karya.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
           </div>
           <div class="template-content">
-            <h3 class="template-title">Apex Logistics & Tech Park</h3>
-            <p class="template-desc">Template terstruktur untuk kontraktor gudang otomatis, pabrik manufaktur, dan
-              fasilitas data center.</p>
+            <div class="template-header-meta">
+              <h3 class="template-title">Nusantara Karya</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Website kontraktor dan jasa konstruksi terpercaya: portofolio proyek arsitektur & renovasi, testimoni klien, dan kalkulator formulir penawaran harga RAB online.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Playfair Serif</span>
+              <span class="tag-pill">Formulir RAB Online</span>
+              <span class="tag-pill">Portofolio Mewah</span>
+            </div>
             <div class="template-actions">
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">🖥️ Live Desktop</button>
-              <button class="btn btn-secondary btn-sm" data-open-modal="modal-live-viewport">📱 Mobile Demo</button>
-              <button class="template-inspect-btn" data-open-modal="modal-spec-sheet">⚙️ Inspect Spec Sheet</button>
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusantara-karya.vercel.app/" data-title="Nusantara Karya" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusantara-karya.vercel.app/" data-title="Nusantara Karya" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusantarakarya">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: NKontruksi (Nusantara Estimator) -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="com" data-template-id="nkontruksi">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-com">SMART ESTIMATOR & KONTRAKTOR</span>
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+              alt="NKontruksi Estimator" class="template-img" loading="lazy">
+            <a href="https://nkontruksi.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">NKontruksi Estimator</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Website kontraktor bangunan dan renovasi profesional dengan galeri proyek, kalkulator estimasi biaya otomatis (RAB) per m², dan formulir konsultasi pelanggan.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Space Grotesk</span>
+              <span class="tag-pill">Kalkulator RAB Otomatis</span>
+              <span class="tag-pill">Konsultasi Instan</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nkontruksi.vercel.app/" data-title="NKontruksi Estimator" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nkontruksi.vercel.app/" data-title="NKontruksi Estimator" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nkontruksi">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Nusantara Kokoh -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="civ" data-template-id="nusantarakokoh">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-civ">HEAVY INDUSTRIAL & EPC</span>
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80"
+              alt="Nusantara Kokoh" class="template-img" loading="lazy">
+            <a href="https://nusantara-kokoh.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Nusantara Kokoh</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Platform kontraktor & pemborong bangunan berdaya tahan tinggi dengan portofolio proyek lengkap, estimasi RAB interaktif, layanan rancang bangun, dan tema Dark Brutalist.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Dark Brutalist</span>
+              <span class="tag-pill">Orange Electric</span>
+              <span class="tag-pill">Heavy EPC</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusantara-kokoh.vercel.app/" data-title="Nusantara Kokoh" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusantara-kokoh.vercel.app/" data-title="Nusantara Kokoh" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusantarakokoh">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: NusaKarya -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="res" data-template-id="nusakarya">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-res">LUXURY ARCHITECTURE</span>
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80"
+              alt="NusaKarya Studio" class="template-img" loading="lazy">
+            <a href="https://nusakarya-psi.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">NusaKarya</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Website kontraktor profesional terpercaya dengan portofolio proyek konstruksi eksklusif, kalkulator estimasi RAB, Syne Typography, dan dark aesthetic modern.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Syne & Grotesk</span>
+              <span class="tag-pill">Gold Accent</span>
+              <span class="tag-pill">RFP Request</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusakarya-psi.vercel.app/" data-title="NusaKarya" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusakarya-psi.vercel.app/" data-title="NusaKarya" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusakarya">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: Nusara -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="hosp" data-template-id="nusara">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-hosp">INTERIOR & HOSPITALITY</span>
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
+              alt="Nusara Hospitality & Interior" class="template-img" loading="lazy">
+            <a href="https://nusara-umber.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Nusara Hospitality</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Website spesialis interior fit-out hotel bintang lima, luxury resort, lounge, dan restoran tematik modern dengan visual showcase beresolusi ultra-tinggi.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Hospitality Fit-Out</span>
+              <span class="tag-pill">Umber Palette</span>
+              <span class="tag-pill">Material Swatches</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusara-umber.vercel.app/" data-title="Nusara Hospitality" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusara-umber.vercel.app/" data-title="Nusara Hospitality" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusara">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10: Karya Utama -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="civ" data-template-id="karyautama">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-civ">INFRASTRUKTUR & TENDER B2B</span>
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
+              alt="Karya Utama Infrastruktur" class="template-img" loading="lazy">
+            <a href="https://karya-utama-dusky.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Karya Utama</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Portal kontraktor EPC dan pengembang kawasan industri, logistik park, serta fasilitas pergudangan modern siap tender B2B dan pengadaan proyek strategis.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Tender B2B RFP</span>
+              <span class="tag-pill">Logistics Park</span>
+              <span class="tag-pill">Dusk Industrial</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://karya-utama-dusky.vercel.app/" data-title="Karya Utama" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://karya-utama-dusky.vercel.app/" data-title="Karya Utama" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="karyautama">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 11: Nusakon -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="com" data-template-id="nusakon">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-com">RANCANG BANGUN & MANAJEMEN</span>
+            <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=800&q=80"
+              alt="Nusakon Design & Build" class="template-img" loading="lazy">
+            <a href="https://nusakon.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Nusakon</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Layanan total design-and-build satu atap dari perizinan PBG/SLF, perancangan arsitektur, hingga eksekusi konstruksi dengan timeline terencana real-time.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Design & Build</span>
+              <span class="tag-pill">PBG / SLF Compliance</span>
+              <span class="tag-pill">Gantt Timeline</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusakon.vercel.app/" data-title="Nusakon" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusakon.vercel.app/" data-title="Nusakon" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusakon">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 12: NunsaBuild -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="res" data-template-id="nunsabuild">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-res">GREEN BUILDING & SUSTAINABLE</span>
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80"
+              alt="NunsaBuild Green Building" class="template-img" loading="lazy">
+            <a href="https://nunsabuild.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">NunsaBuild</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Konstruksi ramah lingkungan berstandar Greenship, integrasi tenaga surya (solar panel), ventilasi pasif hemat energi untuk hunian residensial masa depan.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Greenship Certified</span>
+              <span class="tag-pill">Solar Energy</span>
+              <span class="tag-pill">Eco Concrete</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nunsabuild.vercel.app/" data-title="NunsaBuild" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nunsabuild.vercel.app/" data-title="NunsaBuild" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nunsabuild">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 13: Karya Prima -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-1" data-cat="civ" data-template-id="karyaprima">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-civ">STRUKTUR BAJA & GUDANG LOGISTIK</span>
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+              alt="Karya Prima Struktur Baja" class="template-img" loading="lazy">
+            <a href="https://karya-prima.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Karya Prima</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Spesialis fabrikasi dan ereksi baja WF, konstruksi hanggar, pabrik manufaktur, dan gudang logistik bentang lebar bergaransi SNI mutu baja ASTM.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Baja WF SNI</span>
+              <span class="tag-pill">Bentang Lebar</span>
+              <span class="tag-pill">Fabrikasi Workshop</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://karya-prima.vercel.app/" data-title="Karya Prima" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://karya-prima.vercel.app/" data-title="Karya Prima" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="karyaprima">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 14: Nusaka -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-2" data-cat="res" data-template-id="nusaka">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-res">URBAN RESIDENCE & PENTHOUSE</span>
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
+              alt="Nusaka Japandi Living" class="template-img" loading="lazy">
+            <a href="https://nusaka-chi.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Nusaka</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Biro arsitektur dan kontraktor hunian urban modern, townhouse minimalis Jepang-Skandinavia (Japandi) dan penthouse dengan estetika presisi tinggi.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Japandi Living</span>
+              <span class="tag-pill">Townhouse Modern</span>
+              <span class="tag-pill">Virtual Tour 360</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://nusaka-chi.vercel.app/" data-title="Nusaka" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://nusaka-chi.vercel.app/" data-title="Nusaka" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="nusaka">⚙️ Inspect Spec Sheet</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 15: Kontraksu ID -->
+        <div class="template-card scroll-reveal scroll-reveal-delay-3" data-cat="com" data-template-id="kontraksuid">
+          <div class="template-preview-img-box">
+            <span class="template-badge badge-com">SMART HOME & RENOVASI KILAT</span>
+            <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+              alt="Kontraksu ID Smart Home" class="template-img" loading="lazy">
+            <a href="https://kontraksu-id.vercel.app/" target="_blank" rel="noopener noreferrer" class="template-direct-link-badge" title="Buka website di tab baru">
+              <i data-lucide="external-link"></i>
+            </a>
+          </div>
+          <div class="template-content">
+            <div class="template-header-meta">
+              <h3 class="template-title">Kontraksu ID</h3>
+              <span class="template-status-live">● LIVE VERCEL</span>
+            </div>
+            <p class="template-desc">Kontraktor renovasi rumah kilat dan instalasi otomasi smart home IoT, instalasi kelistrikan pintar, dan pengawasan progres digital via smartphone 24/7.</p>
+            <div class="template-feature-tags">
+              <span class="tag-pill">Smart Home IoT</span>
+              <span class="tag-pill">Renovasi Kilat</span>
+              <span class="tag-pill">Progress Mobile 24/7</span>
+            </div>
+            <div class="template-actions">
+              <button class="btn btn-primary btn-sm btn-open-demo" data-url="https://kontraksu-id.vercel.app/" data-title="Kontraksu ID" data-mode="desktop">🖥️ Live Demo</button>
+              <button class="btn btn-secondary btn-sm btn-open-demo" data-url="https://kontraksu-id.vercel.app/" data-title="Kontraksu ID" data-mode="mobile">📱 Mobile</button>
+              <button class="template-inspect-btn" data-template-id="kontraksuid">⚙️ Inspect Spec Sheet</button>
             </div>
           </div>
         </div>
@@ -2107,46 +2447,113 @@
     </div>
   </div>
 
-  <!-- 3. Live Viewport Demo Modal -->
+  <!-- 3. Live Viewport Demo Modal (Interactive Multi-Device Iframe Sandbox) -->
   <div class="modal-backdrop" id="modal-live-viewport">
-    <div class="modal-box" style="max-width: 900px;">
+    <div class="modal-box live-viewport-modal-box">
       <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <h3 style="font-family: var(--font-heading); font-size: 1.35rem;" data-i18n="view.title">Interactive Viewport Simulation</h3>
-        <span class="live-render-badge">DEVICE RESOLUTION: 1920 x 1080</span>
+      
+      <!-- Top Control Bar -->
+      <div class="viewport-header-bar">
+        <div class="viewport-info-col">
+          <div class="viewport-title-row">
+            <span class="viewport-status-dot"></span>
+            <h3 class="viewport-modal-title" id="live-modal-title">Live Preview Template</h3>
+          </div>
+          <span class="viewport-url-display" id="live-modal-url">https://karya-build-cl1i.vercel.app/</span>
+        </div>
+
+        <!-- Responsive Device Viewport Switcher -->
+        <div class="viewport-device-switcher">
+          <button type="button" class="device-btn active" data-device="desktop" title="Mode Desktop (1920 x 1080)">
+            <i data-lucide="monitor"></i>
+            <span>Desktop</span>
+          </button>
+          <button type="button" class="device-btn" data-device="tablet" title="Mode Tablet (768 x 1024)">
+            <i data-lucide="tablet"></i>
+            <span>Tablet</span>
+          </button>
+          <button type="button" class="device-btn" data-device="mobile" title="Mode Mobile (390 x 844)">
+            <i data-lucide="smartphone"></i>
+            <span>Mobile</span>
+          </button>
+        </div>
+
+        <!-- Open External in New Tab Button -->
+        <div class="viewport-external-actions">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="live-modal-external-link">
+            <span>Buka Tab Baru</span>
+            <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+          </a>
+        </div>
       </div>
-      <div
-        style="width: 100%; height: 450px; background: #0A0C11; border-radius: var(--radius-md); border: 1px solid var(--border-blueprint); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
-        <i data-lucide="monitor" style="width: 48px; height: 48px; color: var(--accent-cyan); margin-bottom: 1rem;"></i>
-        <h4 style="font-size: 1.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem;" data-i18n="view.heading">Live Sandbox Frame
-          Activated</h4>
-        <p style="font-size: 0.875rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1.5rem;" data-i18n="view.desc">
-          Template siap disinkronkan ke CMS dan hosting korporat Anda dengan Physics Engine interaktif.
-        </p>
-        <button class="btn btn-primary btn-sm modal-close-trigger" data-i18n="view.btn">Kembali ke Katalog</button>
+
+      <!-- Iframe Wrapper Stage -->
+      <div class="viewport-stage-container device-desktop" id="viewport-stage">
+        <div class="viewport-iframe-loader" id="viewport-loader">
+          <div class="spinner-hud"></div>
+          <span>Menghubungkan ke Vercel Edge Server...</span>
+        </div>
+        <iframe id="live-viewport-iframe" class="live-iframe" src="about:blank" title="Live Website Template Preview" loading="lazy" allow="fullscreen; clipboard-read; clipboard-write;"></iframe>
       </div>
+
+      <!-- Bottom Status Bar -->
+      <div class="viewport-footer-bar">
+        <div class="viewport-telemetry-badge">
+          <i data-lucide="shield-check" style="width: 14px; height: 14px; color: var(--accent-emerald);"></i>
+          <span>SSL 256-BIT ENCRYPTED • PRODUCTION BUILD • ULTRA LIGHTWEIGHT</span>
+        </div>
+        <button class="btn btn-ghost btn-sm modal-close-trigger">Tutup Preview</button>
+      </div>
+
     </div>
   </div>
 
-  <!-- 4. Spec Sheet Modal -->
+  <!-- 4. Dynamic Spec Sheet Modal -->
   <div class="modal-backdrop" id="modal-spec-sheet">
-    <div class="modal-box">
+    <div class="modal-box spec-modal-box">
       <button class="modal-close-btn" aria-label="Close modal"><i data-lucide="x"></i></button>
-      <h3 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.5rem;" data-i18n="spec.title">Technical Spec Sheet</h3>
-      <div
-        style="margin: 1rem 0; font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-cyan); background: rgba(0,229,255,0.06); padding: 0.75rem; border-radius: 8px; border: 1px solid var(--border-blueprint);">
-        MODULE: CAD_BLUEPRINT_VIEWER<br>
-        FRAMEWORK: THREE.JS WEBGL PIPELINE<br>
-        ACCELERATION: GPU HARDWARE ENABLED<br>
-        ACCESSIBILITY: WCAG 2.1 AAA COMPLIANT
+      
+      <div class="spec-modal-header">
+        <div class="spec-modal-tag" id="spec-modal-badge">TECHNICAL SPECIFICATION</div>
+        <h3 class="spec-modal-title" id="spec-modal-title">Spesifikasi Arsitektur Web</h3>
+        <p class="spec-modal-desc" id="spec-modal-desc">Detail stack teknologi, komponen interaktif, standar kepatuhan K3 & SEO yang terintegrasi.</p>
       </div>
-      <ul
-        style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-        <li>✓ Dynamic Camera Rotation with Raycasting</li>
-        <li>✓ High-Density Texture Swatch Engine</li>
-        <li>✓ Sub-1.5s Asset Streaming Compression</li>
+
+      <div class="spec-tech-grid" id="spec-modal-tech-box">
+        <div class="spec-item">
+          <span class="spec-label">FRAMEWORK & CORE</span>
+          <strong class="spec-val" id="spec-val-framework">React 18 / Vite / Vanilla ES6+</strong>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">STYLING ARCHITECTURE</span>
+          <strong class="spec-val" id="spec-val-css">TailwindCSS / Vanilla Design System</strong>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">SEO & PERFORMANCE</span>
+          <strong class="spec-val" id="spec-val-seo">Lighthouse 99+ • Schema.org JSON-LD</strong>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">RESPONSIVE BREAKPOINTS</span>
+          <strong class="spec-val" id="spec-val-responsive">Desktop, Tablet, Mobile Ready</strong>
+        </div>
+      </div>
+
+      <div class="spec-section-title">Fitur & Modul Unggulan:</div>
+      <ul class="spec-features-list" id="spec-modal-features-list">
+        <li>✓ Interactive Area & Material Cost Estimator Calculator</li>
+        <li>✓ Real-time Milestone Escrow Payment Simulation</li>
+        <li>✓ BIM & CAD Blueprint Interactive Viewer Engine</li>
+        <li>✓ Integrated WhatsApp Direct Order & Consultation Gateway</li>
       </ul>
-      <button class="btn btn-secondary btn-block modal-close-trigger" data-i18n="spec.btn">Tutup Spesifikasi</button>
+
+      <div class="spec-modal-actions">
+        <button class="btn btn-primary btn-sm" id="spec-btn-launch-demo">
+          <i data-lucide="play"></i> Buka Live Demo
+        </button>
+        <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20tertarik%20dengan%20spesifikasi%20template%20ini" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" id="spec-btn-wa">
+          <i data-lucide="message-square"></i> Konsultasi Template
+        </a>
+      </div>
     </div>
   </div>
 
