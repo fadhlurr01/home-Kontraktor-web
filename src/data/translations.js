@@ -2,7 +2,7 @@
    CONTRACTOR.HUB - Bilingual i18n Dictionary (Indonesian & English)
    ========================================================================== */
 
-const translations = {
+export const translations = {
   id: {
     // Nav
     "nav.solutions": "Solusi",
@@ -28,6 +28,7 @@ const translations = {
     "drop.bim": "BIM & CAD Inspector",
 
     // Hero
+    "hero.tag": "PLATFORM DIGITAL KONTRAKTOR & ARSITEKTUR TERCANGGIH",
     "hero.title_pre": "Bangun Kehadiran Digital Kontraktor & Arsitektur",
     "hero.title_highlight": "Kelas Dunia",
     "hero.subtitle": "Template website premium berpresisi tinggi dengan simulasi arsitektural modern. Dirancang khusus untuk memenangkan tender, memamerkan portofolio bernilai tinggi, dan mengonversi calon klien properti secara instan.",
@@ -332,6 +333,7 @@ const translations = {
     "drop.bim": "BIM & CAD Inspector",
 
     // Hero
+    "hero.tag": "NEXT-GEN CONTRACTOR & ARCHITECTURAL PLATFORM",
     "hero.title_pre": "Elevate Your Contractor & Architectural Presence",
     "hero.title_highlight": "World-Class",
     "hero.subtitle": "High-precision premium website templates designed to win corporate tenders, showcase high-value project portfolios, and convert high-net-worth property clients seamlessly.",
