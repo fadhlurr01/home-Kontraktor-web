@@ -1,0 +1,47 @@
+{
+  "inquiries": [
+    {
+      "id": "lead-101",
+      "type": "consult",
+      "name": "Ir. Bambang Soedibyo",
+      "phone": "081288992211",
+      "email": "bambang.s@megatower.co.id",
+      "projectType": "Desain Interior & Fit-Out Komersial",
+      "notes": "Rencana renovasi 3 lantai kantor pusat, butuh spesifikasi high-grade acoustic & HVAC.",
+      "budget": "Rp 850.000.000 - Rp 1.500.000.000",
+      "status": "Survey Lokasi",
+      "createdAt": "2026-09-17T04:13:25.678Z"
+    },
+    {
+      "id": "lead-102",
+      "type": "rfp",
+      "name": "PT Cahaya Sentosa Land",
+      "phone": "081399884433",
+      "email": "procurement@cahayaland.id",
+      "projectType": "Konstruksi Sipil & Bangunan Bertingkat",
+      "notes": "Tender pembangunan gudang logistik modern 4.500 m2 di Karawang Industrial Estate.",
+      "budget": "Rp 5.000.000.000+",
+      "status": "Dihubungi",
+      "createdAt": "2026-09-18T04:13:25.680Z"
+    },
+    {
+      "id": "lead-103",
+      "type": "fleet",
+      "name": "Hendrik Pratama, ST",
+      "phone": "085711223344",
+      "email": "hendrik.kontraktor@gmail.com",
+      "projectType": "Sewa Alat Berat & Earthmoving",
+      "notes": "Sewa 2 unit Excavator CAT 320D dan 1 unit Vibro Roller 10 ton durasi 3 bulan di Cibubur.",
+      "budget": "Rp 120.000.000 / bulan",
+      "status": "Baru",
+      "createdAt": "2026-09-19T04:13:25.680Z"
+    }
+  ],
+  "estimates": [],
+  "settings": {
+    "companyName": "Nusantara Karya Konstruksi",
+    "emailNotification": "admin@kontraktor.id",
+    "contactWhatsapp": "6281234567890",
+    "adminPin": "admin123"
+  }
+}

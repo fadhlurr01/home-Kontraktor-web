@@ -4,9 +4,9 @@ import { translations } from '../data/translations';
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
-  // 1. Theme State (Dark / Light)
+  // 1. Theme State (Light by default for Pulse AI Biru-Putih theme)
   const [theme, setThemeState] = useState(() => {
-    return localStorage.getItem('contractor_theme') || 'dark';
+    return localStorage.getItem('contractor_theme') || 'light';
   });
 
   useEffect(() => {

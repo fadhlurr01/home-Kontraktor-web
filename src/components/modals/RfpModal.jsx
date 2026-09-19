@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, UploadCloud, Send, FileCheck } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { api } from '../../services/api';
 
 export default function RfpModal() {
   const { activeModal, closeModal, t, showToast } = useApp();
@@ -19,23 +20,39 @@ export default function RfpModal() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      const res = await api.submitInquiry({
+        type: 'rfp',
+        name: `${person} (${company})`,
+        phone,
+        projectType: 'Tender Konstruksi / RFP Komersial',
+        budget: `Rp ${Number(projectValue).toLocaleString('id-ID')}`,
+        notes: `Dokumen Terlampir: ${fileName || 'Penyampaian Spesifikasi Digital'}`
+      });
+
       setLoading(false);
       closeModal();
       showToast({
         type: 'success',
         title: 'Dokumen Tender RFP Diterima!',
-        message: `Proposal tender atas nama ${company} telah masuk ke sistem Quantity Surveyor kami.`
+        message: res.message || `Proposal tender atas nama ${company} telah masuk ke sistem Quantity Surveyor kami.`
       });
       setCompany('');
       setPerson('');
       setPhone('');
       setFileName('');
-    }, 1000);
+    } catch (err) {
+      setLoading(false);
+      showToast({
+        type: 'error',
+        title: 'Gagal Mengirim RFP',
+        message: err.message || 'Silakan periksa koneksi Anda dan coba lagi.'
+      });
+    }
   };
 
   return (

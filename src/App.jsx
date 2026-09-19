@@ -28,8 +28,11 @@ import FleetMobilizeModal from './components/modals/FleetMobilizeModal';
 import ConsultModal from './components/modals/ConsultModal';
 import RfpModal from './components/modals/RfpModal';
 import DownloadSuccessModal from './components/modals/DownloadSuccessModal';
+import AdminModal from './components/admin/AdminModal';
+import { useApp } from './context/AppContext';
 
 export default function App() {
+  const { activeModal, closeModal } = useApp();
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
 
   // IntersectionObserver scroll reveal for modern fluid entrance
@@ -93,6 +96,7 @@ export default function App() {
       <ConsultModal />
       <RfpModal />
       <DownloadSuccessModal />
+      <AdminModal isOpen={activeModal === 'admin'} onClose={closeModal} />
 
       {/* Floating Utilities */}
       <ToastContainer />

@@ -7,6 +7,15 @@ export default defineConfig({
   // Base './' ensures relative asset paths, making deployment to cPanel public_html
   // or any subdirectory completely plug-and-play without 404 asset errors.
   base: './',
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        changeOrigin: true
+      }
+    }
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

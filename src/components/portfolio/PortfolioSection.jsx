@@ -90,6 +90,11 @@ export default function PortfolioSection() {
                   alt={tpl.title}
                   className="template-img"
                   loading="lazy"
+                  onError={(e) => {
+                    if (tpl.fallbackImg && e.currentTarget.src !== tpl.fallbackImg) {
+                      e.currentTarget.src = tpl.fallbackImg;
+                    }
+                  }}
                 />
                 <span className={`template-badge badge-${tpl.cat}`}>
                   {tpl.badge}

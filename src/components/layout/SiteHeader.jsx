@@ -33,10 +33,19 @@ export default function SiteHeader({ onOpenMobileDrawer }) {
   return (
     <header className={`site-header ${isScrolled ? 'scrolled' : ''}`} id="site-header">
       <div className="nav-container">
-        {/* Clean Brand Logo */}
-        <a href="#hero" className="brand-logo">
+        {/* Redesigned Modern Contractor Blue Brand Logo */}
+        <a href="#hero" className="brand-logo" aria-label="Contractor Hub Home">
           <div className="brand-icon-box">
-            <Box style={{ width: 22, height: 22 }} />
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              {/* Modern Building Icon */}
+              <rect x="4" y="6" width="8" height="16" rx="1" stroke="currentColor" strokeWidth="2"/>
+              <rect x="12" y="2" width="8" height="20" rx="1" stroke="currentColor" strokeWidth="2"/>
+              <rect x="7" y="9" width="2" height="2" rx="0.5" fill="currentColor"/>
+              <rect x="7" y="14" width="2" height="2" rx="0.5" fill="currentColor"/>
+              <rect x="15" y="5" width="2" height="2" rx="0.5" fill="currentColor"/>
+              <rect x="15" y="10" width="2" height="2" rx="0.5" fill="currentColor"/>
+              <rect x="15" y="15" width="2" height="2" rx="0.5" fill="currentColor"/>
+            </svg>
           </div>
           <div className="brand-text">
             <span className="brand-name">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Plus, HelpCircle } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { faqData } from '../../data/faqData';
 
@@ -20,7 +20,10 @@ export default function FaqSection() {
     <section id="faq" className="scroll-reveal">
       <div className="container">
         <div className="section-header">
-          <div className="section-tag">{t('faq.tag')}</div>
+          <div className="section-tag pulse-pill-tag">
+            <HelpCircle size={14} className="tag-icon-sparkle" />
+            <span>{t('faq.tag')}</span>
+          </div>
           <h2 className="section-title">
             Jawaban Lengkap untuk Semua <em>Tingkatan Kebutuhan</em>
           </h2>
@@ -73,16 +76,16 @@ export default function FaqSection() {
                   className="faq-question-btn"
                   onClick={() => toggleFaq(item.id)}
                 >
-                  <span>{language === 'en' ? item.q_en : item.q_id}</span>
-                  <ChevronDown
-                    className="faq-chevron"
-                    style={{
-                      width: 18,
-                      height: 18,
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.2s ease'
-                    }}
-                  />
+                  <span className="faq-question-text">{language === 'en' ? item.q_en : item.q_id}</span>
+                  <div className={`faq-toggle-circle ${isOpen ? 'active' : ''}`}>
+                    <Plus
+                      size={18}
+                      style={{
+                        transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)'
+                      }}
+                    />
+                  </div>
                 </button>
                 {isOpen && (
                   <div className="faq-answer-pane">

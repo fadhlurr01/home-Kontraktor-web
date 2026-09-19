@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, Calendar } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { api } from '../../services/api';
 
 export default function ConsultModal() {
   const { activeModal, closeModal, t, showToast } = useApp();
@@ -12,22 +13,37 @@ export default function ConsultModal() {
 
   if (activeModal !== 'consult') return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
+    try {
+      const res = await api.submitInquiry({
+        type: 'consult',
+        name,
+        phone,
+        projectType,
+        notes
+      });
+
       setLoading(false);
       closeModal();
       showToast({
         type: 'success',
         title: 'Jadwal Konsultasi Diterima',
-        message: `Terima kasih ${name}, Technical Architect kami akan menghubungi Anda via WhatsApp ${phone}.`
+        message: res.message || `Terima kasih ${name}, Technical Architect kami akan menghubungi Anda via WhatsApp ${phone}.`
       });
       setName('');
       setPhone('');
       setNotes('');
-    }, 800);
+    } catch (err) {
+      setLoading(false);
+      showToast({
+        type: 'error',
+        title: 'Gagal Mengirim Form',
+        message: err.message || 'Silakan periksa koneksi Anda dan coba lagi.'
+      });
+    }
   };
 
   return (

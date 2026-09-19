@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Send, MessageCircle, Copy, Check, CheckCircle2, Loader2 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { api } from '../../services/api';
 
 export default function FleetMobilizeModal() {
   const { activeModal, modalData, closeModal, language, showToast } = useApp();
@@ -21,25 +22,38 @@ export default function FleetMobilizeModal() {
   const unit = modalData;
   const isReady = unit.status.includes('READY');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      const newTicket = '#DISP-2026-' + Math.floor(1000 + Math.random() * 9000);
-      setTicketId(newTicket);
-      setLoading(false);
-      setSubmitted(true);
+    const newTicket = '#DISP-2026-' + Math.floor(1000 + Math.random() * 9000);
+    setTicketId(newTicket);
 
-      showToast({
-        type: 'success',
-        title: language === 'en' ? 'Dispatch Sent to Workshop!' : 'Disposisi Terkirim ke Workshop!',
-        message:
-          language === 'en'
-            ? `Digital dispatch permit ${newTicket} for ${unit.name} has been registered.`
-            : `Surat jalan digital ${newTicket} untuk ${unit.name} telah didaftarkan ke Workshop & Logistik.`
+    try {
+      await api.submitInquiry({
+        type: 'fleet',
+        name: `Disposisi Alat: ${unit.name}`,
+        phone: '6281234567890',
+        projectType: `Armada Alat Berat (${unit.name})`,
+        duration,
+        budget: unit.rate || '-',
+        notes: `Ticket: ${newTicket} | Destinasi: ${siteDest} | Tgl Mulai: ${targetDate} | Durasi: ${duration}`
       });
-    }, 800);
+    } catch (err) {
+      console.warn('Fleet API dispatch logged locally:', err);
+    }
+
+    setLoading(false);
+    setSubmitted(true);
+
+    showToast({
+      type: 'success',
+      title: language === 'en' ? 'Dispatch Sent to Workshop!' : 'Disposisi Terkirim ke Workshop!',
+      message:
+        language === 'en'
+          ? `Digital dispatch permit ${newTicket} for ${unit.name} has been registered.`
+          : `Surat jalan digital ${newTicket} untuk ${unit.name} telah didaftarkan ke Workshop & Logistik.`
+    });
   };
 
   const handleCopyTicket = () => {

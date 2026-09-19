@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import {
   Building2,
   HardHat,
@@ -11,63 +11,57 @@ import {
   DraftingCompass,
   Layers,
   Cpu,
-  CheckCircle2
+  CheckCircle2,
+  Star,
+  CheckCircle
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 const testimonialsList = [
   {
     text: '"Template Komorebi Sanctuary membuat portofolio villa kami terlihat sangat berkelas. Jumlah klien high-end yang mengajukan konsultasi meningkat 4x lipat dalam 3 bulan."',
-    avatar: 'IP',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80',
+    initials: 'IP',
     name: 'Ar. Irvan Pratama, IAI',
     role: 'Principal Architect, Studio Terra',
-    tier: 'BIRO ARSITEKTUR'
+    tier: 'BIRO ARSITEKTUR',
+    stars: 5,
+    tag: 'Verified Partner'
   },
   {
     text: '"Formulir RFP dan sistem showcase alat berat membuat perusahaan kami dipercaya memenangkan tender infrastruktur regional bernilai 40 Miliar."',
-    avatar: 'HK',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80',
+    initials: 'HK',
     name: 'Hendra Kusuma, ST',
     role: 'Direktur Operasional, PT Mandiri Megah Struktur',
-    tier: 'KONTRAKTOR SIPIL & EPC'
+    tier: 'KONTRAKTOR SIPIL & EPC',
+    stars: 5,
+    tag: 'Verified Contractor'
   },
   {
     text: '"Klien kami sangat suka fitur Before/After slider dan katalog material interaktif. Proses closing proyek kantor jadi jauh lebih cepat."',
-    avatar: 'SN',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=160&q=80',
+    initials: 'SN',
     name: 'Siti Nurhaliza',
     role: 'Founder & Creative Lead, Forma Space Interior',
-    tier: 'INTERIOR FIT-OUT'
+    tier: 'INTERIOR FIT-OUT',
+    stars: 5,
+    tag: 'Verified Client'
   }
 ];
 
 export default function TestimonialsSection() {
   const { t } = useApp();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const isHoveredRef = useRef(false);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (!isHoveredRef.current) {
-        setCurrentIndex((prev) => (prev + 1) % testimonialsList.length);
-      }
-    }, 3500);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <>
       {/* Dual Continuous Marquee (Trusted By) */}
       <section id="trusted-by" className="scroll-reveal" style={{ padding: '4.5rem 0' }}>
         <div className="container">
-          <div className="section-header" style={{ marginBottom: '2.5rem' }}>
-            <div className="section-tag">{t('trust.tag')}</div>
-            <h2 className="section-title">
-              Dipercaya Oleh Biro Arsitektur & <em>Kontraktor Terkemuka</em>
-            </h2>
-          </div>
-
           <div className="marquee-wrapper">
-            {/* Row 1 */}
+            <h4 className="marquee-title">{t('marquee.trusted_by')}</h4>
+
+            {/* Row 1 (Forward) */}
             <div className="marquee-track">
               <div className="client-logo-badge">
                 <Building2 style={{ width: 16, height: 16 }} /> STUDIO TERRA ARCHITECTURE
@@ -152,58 +146,54 @@ export default function TestimonialsSection() {
         </div>
       </section>
 
-      {/* Testimonial Section */}
+      {/* Testimonial Section - Pulse AI Grid Layout */}
       <section id="testimonials" className="scroll-reveal">
         <div className="container">
           <div className="section-header">
-            <div className="section-tag">{t('testi.tag')}</div>
+            <div className="section-tag pulse-pill-tag">
+              <Star size={14} className="tag-icon-sparkle" />
+              <span>{t('testi.tag')}</span>
+            </div>
             <h2 className="section-title">
               Hasil Nyata dari Perusahaan yang Beralih ke <em>Contractor Web</em>
             </h2>
+            <p className="section-desc">
+              Lihat bagaimana para arsitek, direktur konstruksi, dan developer mempercepat siklus tender dan memenangkan proyek bergengsi.
+            </p>
           </div>
 
-          <div
-            className="testimonial-carousel-box"
-            onMouseEnter={() => {
-              isHoveredRef.current = true;
-            }}
-            onMouseLeave={() => {
-              isHoveredRef.current = false;
-            }}
-          >
-            <div className="quote-symbol">“</div>
-
+          <div className="pulse-reviews-grid">
             {testimonialsList.map((item, idx) => (
-              <div
-                key={idx}
-                className={`testimonial-card-slide ${idx === currentIndex ? 'active' : ''}`}
-              >
-                <p className="testimonial-text">{item.text}</p>
-                <div className="testimonial-author-row">
-                  <div className="author-profile">
-                    <div className="author-avatar">{item.avatar}</div>
-                    <div>
-                      <div className="author-name">{item.name}</div>
-                      <div className="author-role">{item.role}</div>
+              <article key={idx} className="pulse-review-card">
+                <div className="pulse-review-header">
+                  <img
+                    src={item.avatar}
+                    alt={item.name}
+                    className="pulse-review-avatar"
+                  />
+                  <div className="pulse-review-author-info">
+                    <h3 className="pulse-review-name">{item.name}</h3>
+                    <div className="pulse-review-role-row">
+                      <span className="pulse-review-role">{item.role}</span>
+                      <span className="pulse-review-verified">
+                        <CheckCircle size={12} /> {item.tag}
+                      </span>
                     </div>
                   </div>
-                  <span className="client-tier-tag">{item.tier}</span>
                 </div>
-              </div>
-            ))}
 
-            {/* Indicators */}
-            <div className="carousel-indicators">
-              {testimonialsList.map((_, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className={`carousel-dot ${idx === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(idx)}
-                  aria-label={`Slide ${idx + 1}`}
-                />
-              ))}
-            </div>
+                <p className="pulse-review-text">{item.text}</p>
+
+                <div className="pulse-review-footer">
+                  <div className="pulse-review-stars">
+                    {[...Array(item.stars)].map((_, sIdx) => (
+                      <Star key={sIdx} size={15} fill="#FFB800" color="#FFB800" />
+                    ))}
+                  </div>
+                  <span className="pulse-review-tier">{item.tier}</span>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

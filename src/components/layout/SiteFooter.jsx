@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Box } from 'lucide-react';
+import { Box, ShieldCheck, Lock } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 
 export default function SiteFooter() {
-  const { t, currency, setCurrency, navigateToWidget } = useApp();
+  const { t, currency, setCurrency, navigateToWidget, openModal } = useApp();
   const [serverTime, setServerTime] = useState('');
 
   useEffect(() => {
@@ -29,7 +29,15 @@ export default function SiteFooter() {
           <div className="footer-brand-col">
             <div className="brand-logo">
               <div className="brand-icon-box">
-                <Box style={{ width: 22, height: 22 }} />
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="8" height="16" rx="1" stroke="currentColor" strokeWidth="2"/>
+                  <rect x="12" y="2" width="8" height="20" rx="1" stroke="currentColor" strokeWidth="2"/>
+                  <rect x="7" y="9" width="2" height="2" rx="0.5" fill="currentColor"/>
+                  <rect x="7" y="14" width="2" height="2" rx="0.5" fill="currentColor"/>
+                  <rect x="15" y="5" width="2" height="2" rx="0.5" fill="currentColor"/>
+                  <rect x="15" y="10" width="2" height="2" rx="0.5" fill="currentColor"/>
+                  <rect x="15" y="15" width="2" height="2" rx="0.5" fill="currentColor"/>
+                </svg>
               </div>
               <div className="brand-text">
                 <span className="brand-name">
@@ -158,21 +166,49 @@ export default function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="#footer" className="footer-link">
-                  Standar Kepatuhan K3 & ISO
-                </a>
+                <button
+                  type="button"
+                  onClick={() => openModal('admin')}
+                  className="footer-link footer-admin-link"
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    cursor: 'pointer',
+                    color: 'var(--primary)',
+                    fontWeight: 600,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.45rem'
+                  }}
+                >
+                  <Lock size={13} />
+                  <span>Admin CRM Leads Portal</span>
+                </button>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Footer Bottom Bar */}
+        {/* Footer Bottom Bar - Responsive & Clickable Portal */}
         <div className="footer-bottom">
-          <div>{t('foot.copyright')}</div>
-          <div className="server-time-badge">
-            <span className="server-pulse-dot"></span>
-            <span>{t('foot.server_time')} </span>
-            <span id="server-live-clock">{serverTime}</span>
+          <div className="footer-bottom-copy">{t('foot.copyright')}</div>
+          <div className="footer-bottom-actions">
+            <button
+              type="button"
+              id="footer-admin-btn"
+              className="footer-management-btn"
+              onClick={() => openModal('admin')}
+              title="Buka Portal Manajemen & CRM Admin"
+            >
+              <ShieldCheck size={15} />
+              <span>Portal Manajemen</span>
+            </button>
+            <div className="server-time-badge">
+              <span className="server-pulse-dot"></span>
+              <span>{t('foot.server_time')} </span>
+              <span id="server-live-clock">{serverTime}</span>
+            </div>
           </div>
         </div>
       </div>

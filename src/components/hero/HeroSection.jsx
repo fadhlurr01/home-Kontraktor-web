@@ -56,9 +56,6 @@ export default function HeroSection() {
       <div className="container hero-grid">
         {/* Left Column: Headline, Filter, CTA, Metrics */}
         <div className="hero-content">
-          <div className="section-tag">
-            {t('hero.tag')}
-          </div>
 
           <h1 className="hero-headline">
             {t('hero.title_pre')}{' '}

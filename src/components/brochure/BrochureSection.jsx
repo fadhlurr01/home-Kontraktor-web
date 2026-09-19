@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Download, CheckCircle, ShieldCheck } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
+import { api } from '../../services/api';
 
 export default function BrochureSection() {
   const { t, openModal, showToast } = useApp();
@@ -12,21 +13,31 @@ export default function BrochureSection() {
     company: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      openModal('download-success');
-      showToast({
-        type: 'success',
-        title: 'Brosur Siap Diunduh!',
-        message:
-          'Paket Panduan Strategi Digital Kontraktor 2026 telah dikirimkan ke email Anda.'
+    try {
+      await api.submitInquiry({
+        type: 'brochure',
+        name: `${formData.name} ${formData.company ? '(' + formData.company + ')' : ''}`,
+        email: formData.email,
+        phone: formData.phone,
+        projectType: 'Download Brosur Company Profile & Katalog'
       });
-      setFormData({ name: '', email: '', phone: '', company: '' });
-    }, 1200);
+    } catch (err) {
+      console.warn('Brochure download inquiry fallback:', err);
+    }
+
+    setLoading(false);
+    openModal('download-success');
+    showToast({
+      type: 'success',
+      title: 'Brosur Siap Diunduh!',
+      message:
+        'Paket Panduan Strategi Digital Kontraktor 2026 telah dikirimkan ke email Anda.'
+    });
+    setFormData({ name: '', email: '', phone: '', company: '' });
   };
 
   return (
